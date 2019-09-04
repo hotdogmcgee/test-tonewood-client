@@ -1,0 +1,14 @@
+.WoodPage__image {
+    height: 20vw;
+    min-height: 150px;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  
+  .WoodPage__description {
+    margin-bottom: 30px;
+  }
+
+  

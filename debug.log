@@ -2,3 +2,5 @@
 [0828/121149.324:ERROR:crash_report_database_win.cc(445)] failed to read records
 [0903/124552.338:ERROR:file_io.cc(89)] ReadExactly: expected 504, observed 0
 [0903/124552.340:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0903/162707.437:ERROR:file_io.cc(89)] ReadExactly: expected 504, observed 0
+[0903/162707.438:ERROR:crash_report_database_win.cc(445)] failed to read records

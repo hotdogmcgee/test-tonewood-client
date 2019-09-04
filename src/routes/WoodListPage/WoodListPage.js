@@ -27,15 +27,6 @@ export default class WoodListPage extends React.Component {
 
   render() {
     const { error } = this.context
-    // return (
-    //   <Section list className="ArticleListPage">
-    //     {error ? (
-    //       <p className="red">There was an error, try again</p>
-    //     ) : (
-    //       this.renderArticles()
-    //     )}
-    //   </Section>
-    // );
 
     return (
         <Section list className='WoodListPage'>

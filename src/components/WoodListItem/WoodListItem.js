@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './WoodListItem.css'
 
 export default class WoodListItem extends React.Component {
     render() {
