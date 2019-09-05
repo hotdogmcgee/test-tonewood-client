@@ -7,6 +7,7 @@ import LoginPage from "../../routes/LoginPage/LoginPage";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import PrivateRoute from "../Utils/PrivateRoute";
 import WoodPage from "../../routes/WoodPage/WoodPage";
+import SubmissionPage from '../../routes/SubmissionPage/SubmissionPage'
 import "./App.css";
 
 class App extends React.Component {
@@ -41,6 +42,7 @@ class App extends React.Component {
             <Route path={"/login"} render={(props) => <LoginPage {...props} hasLogin={this.hasLogin}/>} />
             {/* <PublicOnlyRoute path={"/login"} component={LoginPage} /> */}
             <PrivateRoute path={"/woods/:woodId"} component={WoodPage} />
+            <Route path={'/new-submission'} component={SubmissionPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

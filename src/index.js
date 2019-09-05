@@ -6,12 +6,15 @@ import App from "./components/App/App";
 import "./index.css";
 import { WoodListProvider } from "./contexts/WoodListContext";
 import { WoodProvider } from "./contexts/WoodContext";
+import { SubmissionProvider } from "./contexts/SubmissionContext";
 
 ReactDOM.render(
   <BrowserRouter>
     <WoodListProvider>
       <WoodProvider>
-        <App />
+        <SubmissionProvider>
+          <App />
+        </SubmissionProvider>
       </WoodProvider>
     </WoodListProvider>
   </BrowserRouter>,
