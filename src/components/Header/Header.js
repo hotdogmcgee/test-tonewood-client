@@ -7,6 +7,7 @@ import './Header.css'
 export default class Header extends React.Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
+    this.props.hasLogin(false)
   }
 
   renderLogoutLink() {

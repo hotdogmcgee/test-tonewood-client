@@ -17,7 +17,7 @@
   
   .WoodListItem,
   .WoodListItem:visited {
-    color: #555;
+    color: black;
   }
   
   /* .WoodListItem__image {

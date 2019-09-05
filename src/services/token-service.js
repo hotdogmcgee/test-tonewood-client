@@ -11,6 +11,7 @@ const TokenService = {
     window.sessionStorage.removeItem(config.TOKEN_KEY)
   },
   hasAuthToken() {
+    console.log('auth token check');
     return !!TokenService.getAuthToken()
   },
   makeBasicAuthToken(userName, password) {

@@ -17,12 +17,27 @@ export default class WoodListItem extends React.Component {
                   {/* <p className='WoodListItem__description'>{truncate(wood.description)}</p> */}
                 </div>
       
+              <div className="WoodListItem__submissions">
+                <span id="WoodListItem_submission-count">{readableSubmissionCount(wood.number_of_submissions)}</span>
+              </div>
               </div>
             </Link>
           ) 
     }
 }
 
+function readableSubmissionCount(number) {
+  switch(number) {
+    case 0:
+      return 'no submissions yet'
+
+    case 1:
+      return '1 submission'
+
+    default:
+      return `with ${number} submissions`
+  }
+}
 function truncate(text) {
     const words = text.split(' ')
   

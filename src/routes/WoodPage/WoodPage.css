@@ -12,3 +12,29 @@
   }
 
   
+  #Woodpage__submissions-table {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+  }
+  
+  #Woodpage__submissions-table td, #Woodpage__submissions-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #Woodpage__submissions-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #Woodpage__submissions-table tr:hover {background-color: #ddd;}
+  
+  #Woodpage__submissions-table th {
+    font-size: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
