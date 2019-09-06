@@ -1,11 +1,13 @@
 import React from "react";
 import { Section } from "../../components/Utils/Utils";
+import { Link } from 'react-router-dom'
 import WoodListContext from '../../contexts/WoodListContext'
 import WoodApiService from '../../services/wood-api-service'
 import WoodListItem from '../../components/WoodListItem/WoodListItem'
-import './WoodListPage.css'
+import About from '../../components/About/About'
+import './WelcomePage.css'
 
-export default class WoodListPage extends React.Component {
+export default class WelcomePage extends React.Component {
 
   static contextType = WoodListContext
   
@@ -16,6 +18,7 @@ export default class WoodListPage extends React.Component {
       .catch(this.context.setError)
   }
 
+  //limit the number shown?
   renderWoods() {
     const { woodsList=[] } = this.context
     return woodsList.map(wood => 
@@ -29,11 +32,20 @@ export default class WoodListPage extends React.Component {
     const { error } = this.context
 
     return (
-        <Section list className='WoodListPage'>
+      <>
+        <Section id='About'>
+          <About />
+        </Section>
+        <Section list className='WoodList'>
         {error
           ? <p className='red'>There was an error, try again</p>
           : this.renderWoods()}
         </Section>
+        <Section>
+        <Link to={'/new-submission'} className="Submission-Link">Submit your data!</Link>
+        </Section>
+        
+      </>
     )
   }
 }

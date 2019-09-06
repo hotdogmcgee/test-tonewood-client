@@ -17,6 +17,10 @@ export function Required({ className, ...props }) {
   );
 }
 
+export function NiceDate({ date, format='Do MMMM YYYY' }) {
+  return formatDate(date, format)
+}
+
 export function Button({ className, ...props }) {
   return <button className={["Button", className].join(" ")} {...props} />;
 }
@@ -25,9 +29,14 @@ export function Input({ className, ...props }) {
   return <input className={["Input", className].join(" ")} {...props} />;
 }
 
+// export function NiceSubKeys({ text }) {
+//   const niceText = text.replace(/_/g, ' ')
+//   console.log(niceText);
+//   return niceText
+// }
+
 export function NumericFormFields({ className, ...props }) {
   const inputFields = [
-    // 'tw_id',
     'new_tw_name',
     'density',
     'e_long',
@@ -40,7 +49,6 @@ export function NumericFormFields({ className, ...props }) {
     'sample_weight_grams',
     'peak_hz_long_grain',
     'peak_hz_cross_grain',
-    // 'comments'
   ];
 
   //should I just make this explicit in Submission form? Maybe have all numeric fields here

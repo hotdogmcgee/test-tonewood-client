@@ -1,11 +1,12 @@
 import React from "react";
 import WoodApiService from "../../services/wood-api-service";
 import { Button, Input, Required, Textarea, NumericFormFields } from "../Utils/Utils";
+import './SubmissionForm.css'
 
 export default class SubmissionForm extends React.Component {
 
     static defaultProps = {
-        onSubmissionSucces: () => {}
+        onSubmissionSuccess: () => {}
     }
 
     state = { error: null}
@@ -65,6 +66,7 @@ export default class SubmissionForm extends React.Component {
         for (let i = 0; i < items.length; i++) {
           items[i].value = "";
         }
+        this.props.onSubmissionSuccess()
       })
       .catch(res => {
         this.setState({ error: res.error });
@@ -73,7 +75,7 @@ export default class SubmissionForm extends React.Component {
 
   render() {
     return (
-      <form className="ReviewForm" onSubmit={this.handleSubmit}>
+      <form className="SubmissionForm" onSubmit={this.handleSubmit}>
         <div className='tw_id'>
               <label htmlFor='tw_id'>Select your tonewood</label>
               <select
@@ -90,13 +92,13 @@ export default class SubmissionForm extends React.Component {
 
      <div className='comments'>
         <label htmlFor='SubmissionForm__comments'>
-          comments
+          Comments
         </label>
         <Input name='comments' className='Input_comments'></Input>
       </div>
         <NumericFormFields />
 
-        <Button type="submit">Post review</Button>
+        <Button type="submit">Add submission</Button>
       </form>
     );
   }

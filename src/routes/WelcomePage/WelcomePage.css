@@ -1,0 +1,10 @@
+.WoodList {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+.Submission-Link {
+  font-size: 40px;
+}

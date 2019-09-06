@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import WoodListPage from "../../routes/WoodListPage/WoodListPage";
+import WelcomePage from "../../routes/WelcomePage/WelcomePage";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import Header from "../Header/Header.js";
 import LoginPage from "../../routes/LoginPage/LoginPage";
@@ -9,6 +9,7 @@ import PrivateRoute from "../Utils/PrivateRoute";
 import WoodPage from "../../routes/WoodPage/WoodPage";
 import SubmissionPage from '../../routes/SubmissionPage/SubmissionPage'
 import "./App.css";
+import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 
 class App extends React.Component {
   state = {
@@ -38,11 +39,12 @@ class App extends React.Component {
             <p className="red">There was an error! Oh no!</p>
           )}
           <Switch>
-            <Route exact path={"/"} component={WoodListPage} />
+            <Route exact path={"/"} component={WelcomePage} />
             <Route path={"/login"} render={(props) => <LoginPage {...props} hasLogin={this.hasLogin}/>} />
             {/* <PublicOnlyRoute path={"/login"} component={LoginPage} /> */}
             <PrivateRoute path={"/woods/:woodId"} component={WoodPage} />
-            <Route path={'/new-submission'} component={SubmissionPage} />
+            <PublicOnlyRoute path={'/register'} component={RegistrationPage} />
+            <PrivateRoute path={'/new-submission'} component={SubmissionPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import WoodContext from "../../contexts/WoodContext";
 import WoodApiService from "../../services/wood-api-service";
-import { Hyph, Section } from "../../components/Utils/Utils";
+import { Hyph, Section, NiceDate, NiceSubKeys } from "../../components/Utils/Utils";
 
 import "./WoodPage.css";
 
@@ -89,24 +89,47 @@ function WoodDescription({ wood }) {
 // }
 
 function MakeSubmissionsTable({ submissions = [] }) {
+  // const newDate = <NiceDate date='2019-09-04T20:17:51.455Z' />
+  // console.log(newDate);
   const tableData = renderTableData(submissions);
   return (
-    <table id="Woodpage__submissions-table" cellPadding="3" cellSpacing="1">
-      <tbody>
-        <tr>{renderTableHeader(submissions)}</tr>
-        {tableData}
-      </tbody>
-    </table>
+    <div className="table-container">
+      <table id="Woodpage__submissions-table" cellPadding="3" cellSpacing="1">
+        <tbody>
+          <tr>{renderTableHeader(submissions)}</tr>
+          {tableData}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
+// function columnHeaderMouseOver(key) {
+//   console.log('mouse');
+//   return (
+//     <span class="tooltiptext">
+//       {key}
+//     </span>
+//   )
+// }
+
+function niceSubKeys(text) {
+  const niceText = text.replace(/_/g, ' ')
+  return niceText
+}
 function renderTableHeader(submissions = []) {
   if (submissions.length) {
     let subObj = Object.keys(submissions[0]);
-    const filteredArray = subObj.filter(obj => obj !== "user");
+    const filteredArray = subObj.filter(obj => obj !== "user" && obj !== 'tw_id');
     let header = filteredArray;
     return header.map((key, index) => {
-      return <th key={index}>{key.toUpperCase()}</th>;
+      const niceKey = niceSubKeys(key)
+      return (
+        <th title={niceKey} key={index}>
+          {niceKey.toUpperCase().slice(0, 5)}
+          {/* <span className="tooltiptext">{key}</span> */}
+        </th>
+      );
     });
   }
 }
@@ -117,8 +140,9 @@ function renderTableData(submissions) {
     const {
       id,
       date_created,
-      tw_id,
       user_id,
+      // tw_id,
+
       new_tw_name,
       density,
       e_long,
@@ -136,10 +160,13 @@ function renderTableData(submissions) {
     return (
       <tr key={id}>
         <td>{id}</td>
-        <td>{date_created}</td>
-        <td>{tw_id}</td>
-        
+        <td>
+          {/* <NiceDate date={date_created}/> */}
+          {date_created}
+        </td>
         <td>{user_id}</td>
+
+        {/* <td>{tw_id}</td> */}
         <td>{density}</td>
         <td>{e_long}</td>
         <td>{e_cross}</td>
