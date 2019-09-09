@@ -12,8 +12,8 @@
     margin-bottom: 10px;
     padding: 10px;
     text-align: left;
-    /* width: 100%; */
     border-radius: 4px;
+    width: 50%;
   }
   
   .Input::placeholder,
@@ -26,12 +26,18 @@
   }
   
   .Button {
-    order: 1px solid #aaa;
+    border: 1px solid #aaa;
     background-color: #eee;
     font-size: 1.1em;
     border-radius: 4px;
     padding: 8px 12px;
     font-weight: bold;
+    width: 100%;
+  }
+
+  .Button:hover {
+    background-color: #45a049;
+    cursor: pointer;
   }
   
   .Required {

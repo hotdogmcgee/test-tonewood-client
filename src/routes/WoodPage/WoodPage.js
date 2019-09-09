@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import WoodContext from "../../contexts/WoodContext";
 import WoodApiService from "../../services/wood-api-service";
-import { Hyph, Section, NiceDate, NiceSubKeys } from "../../components/Utils/Utils";
+import { Section, NiceDate, NiceSubKeys } from "../../components/Utils/Utils";
 
 import "./WoodPage.css";
 
@@ -68,25 +68,6 @@ function WoodDescription({ wood }) {
   );
 }
 
-// function WoodSubmissions({ submissions = [] }) {
-//   return (
-//     <ul className='WoodPage__submissions-list'>
-//       {submissions.map(sub =>
-//         <li key={sub.id} className='WoodPage__sub'>
-//           {/* <p className='WoodPage__sub-data'>
-//             {/* need to update data */}
-//             {/* {sub.e_long} */}
-//           {/* </p>
-//         <p className="WoodPage__sub-user">
-//           {sub.user.email}
-//         </p> */}
-
-//         </li>
-//       )
-//       }
-//     </ul>
-//   )
-// }
 
 function MakeSubmissionsTable({ submissions = [] }) {
   // const newDate = <NiceDate date='2019-09-04T20:17:51.455Z' />
@@ -134,6 +115,7 @@ function renderTableHeader(submissions = []) {
   }
 }
 
+
 function renderTableData(submissions) {
   return submissions.map((sub, index) => {
     //make destructure iterative?
@@ -141,9 +123,6 @@ function renderTableData(submissions) {
       id,
       date_created,
       user_id,
-      // tw_id,
-
-      new_tw_name,
       density,
       e_long,
       e_cross,
@@ -161,12 +140,9 @@ function renderTableData(submissions) {
       <tr key={id}>
         <td>{id}</td>
         <td>
-          {/* <NiceDate date={date_created}/> */}
-          {date_created}
+          <NiceDate date={date_created}/>
         </td>
         <td>{user_id}</td>
-
-        {/* <td>{tw_id}</td> */}
         <td>{density}</td>
         <td>{e_long}</td>
         <td>{e_cross}</td>

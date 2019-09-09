@@ -7,4 +7,11 @@
 
 .Submission-Link {
   font-size: 40px;
+  text-decoration: none
+}
+
+#Submission-Link-Section {
+  text-align: center;
+  width: 50%;
+  align-self: center
 }

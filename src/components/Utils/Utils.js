@@ -1,6 +1,8 @@
 import React from "react";
-import { format as formatDate } from "date-fns";
+import { format as formatDate, parseISO } from "date-fns";
 import "./Utils.css";
+
+
 
 export function Section({ className, list, ...props }) {
   const classes = ["Section", list && "Section--list", className]
@@ -17,8 +19,9 @@ export function Required({ className, ...props }) {
   );
 }
 
-export function NiceDate({ date, format='Do MMMM YYYY' }) {
-  return formatDate(date, format)
+export function NiceDate({ date, format='do MMMM yyyy' }) {
+  const isoString = parseISO(date)
+  return formatDate(isoString, format)
 }
 
 export function Button({ className, ...props }) {
@@ -27,6 +30,12 @@ export function Button({ className, ...props }) {
 
 export function Input({ className, ...props }) {
   return <input className={["Input", className].join(" ")} {...props} />;
+}
+
+export function Textarea({ className, ...props }) {
+  return (
+    <textarea className={['Textarea', className].join(' ')} {...props} />
+  )
 }
 
 // export function NiceSubKeys({ text }) {
@@ -56,7 +65,7 @@ export function NumericFormFields({ className, ...props }) {
     return (
       <div className={field} key={key}>
         <label htmlFor={["SubmissionForm__", field].join("")}>
-          {field}
+          {field} <Required />
         </label>
         <Input name={field} className={field} {...props}></Input>
       </div>
