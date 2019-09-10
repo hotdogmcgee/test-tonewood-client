@@ -1,7 +1,7 @@
 import React from "react";
 import { format as formatDate, parseISO } from "date-fns";
 import "./Utils.css";
-import $ from 'jquery'
+// import $ from 'jquery'
 
 export function Section({ className, list, ...props }) {
   const classes = ["Section", list && "Section--list", className]

@@ -21,7 +21,8 @@ export default class WelcomePage extends React.Component {
   //limit the number shown?
   renderWoods() {
     const { woodsList=[] } = this.context
-    return woodsList.map(wood => 
+    const newList = woodsList.filter(wood => wood.common_name.toLowerCase() !== 'other')
+    return newList.map(wood => 
       <WoodListItem 
         key={wood.id}
         wood={wood}

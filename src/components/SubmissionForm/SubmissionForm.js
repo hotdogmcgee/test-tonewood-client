@@ -3,7 +3,7 @@ import WoodApiService from "../../services/wood-api-service";
 import { Button, Textarea, NumericFormFields } from "../Utils/Utils";
 import "./SubmissionForm.css";
 import WoodListContext from "../../contexts/WoodListContext";
-import $ from 'jquery'
+// import $ from 'jquery'
 
 
 export default class SubmissionForm extends React.Component {
@@ -31,8 +31,6 @@ export default class SubmissionForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
-    console.log(e.target);
     const {
       tw_id,
       new_tw_name,
@@ -118,15 +116,14 @@ export default class SubmissionForm extends React.Component {
   render() {
     return (
       <form className="SubmissionForm" onSubmit={this.handleSubmit}>
-        <div className="tw_id sel sel--tw">
+        <div className="tw_id">
           <label htmlFor="tw_id">Select your tonewood</label>
           <select
             required
             aria-label="Select your tonewood!"
-            name="select_tw"
-            // id="tonewood-select"
-            id='select-tw'
-            className='tw_select custom-select sources'
+            name="tw_id"
+            id="tonewood-select"
+            className='tw_select'
             value={this.state.optionValue}
             onChange={this.handleChange}
           >

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import WoodContext from "../../contexts/WoodContext";
 import WoodApiService from "../../services/wood-api-service";
-import { Section, NiceDate, NiceSubKeys } from "../../components/Utils/Utils";
+import { Section, NiceDate } from "../../components/Utils/Utils";
 
 import "./WoodPage.css";
 
@@ -69,8 +69,6 @@ function WoodDescription({ wood }) {
 
 
 function MakeSubmissionsTable({ submissions = [] }) {
-  // const newDate = <NiceDate date='2019-09-04T20:17:51.455Z' />
-  // console.log(newDate);
   const tableData = renderTableData(submissions);
   return (
     <div className="table-container">
