@@ -62,8 +62,7 @@ export default class WoodPage extends Component {
 function WoodDescription({ wood }) {
   return (
     <>
-      <p className="WoodPage__description">{wood.genus}</p>
-      <p className="WoodPage__description">{wood.species}</p>
+      <p className="scientific-name">{wood.genus} {wood.species}</p>
     </>
   );
 }

@@ -3,8 +3,19 @@ import WoodApiService from "../../services/wood-api-service";
 import { Button, Textarea, NumericFormFields } from "../Utils/Utils";
 import "./SubmissionForm.css";
 import WoodListContext from "../../contexts/WoodListContext";
+import $ from 'jquery'
+
 
 export default class SubmissionForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      optionValue: "none",
+      error: null
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   static defaultProps = {
     onSubmissionSuccess: () => {}
   };
@@ -18,9 +29,10 @@ export default class SubmissionForm extends React.Component {
       .catch(this.context.setError);
   }
 
-  state = { error: null };
   handleSubmit = e => {
     e.preventDefault();
+
+    console.log(e.target);
     const {
       tw_id,
       new_tw_name,
@@ -78,9 +90,13 @@ export default class SubmissionForm extends React.Component {
         this.props.onSubmissionSuccess();
       })
       .catch(res => {
-        this.setState({ error: res.error });
+        this.context.setError();
       });
   };
+
+  handleChange(event) {
+    this.setState({ optionValue: event.target.value });
+  }
 
   renderTwOptions() {
     const { woodsList = [] } = this.context;
@@ -93,20 +109,47 @@ export default class SubmissionForm extends React.Component {
     });
   }
 
+  setStyle() {
+    if (this.state.optionValue !== '1') {
+      return { display: 'none'}
+    }
+  }
+
   render() {
     return (
       <form className="SubmissionForm" onSubmit={this.handleSubmit}>
-        <div className="tw_id">
+        <div className="tw_id sel sel--tw">
           <label htmlFor="tw_id">Select your tonewood</label>
           <select
             required
             aria-label="Select your tonewood!"
-            name="tw_id"
-            id="tonewood-select"
+            name="select_tw"
+            // id="tonewood-select"
+            id='select-tw'
+            className='tw_select custom-select sources'
+            value={this.state.optionValue}
+            onChange={this.handleChange}
           >
+            <option value="none" disabled hidden>
+              Select a Wood
+            </option>
             {this.renderTwOptions()}
+            {/* <option id="otherOptionValue" value='1'>
+              other
+            </option> */}
           </select>
         </div>
+
+          <div style={this.setStyle()} className="new_tw_name">
+            <label htmlFor="SubmissionForm__new_tw_name" value='new_tw_name'>
+              New tonewood
+            </label>
+            <Textarea
+              name="new_tw_name"
+              className="Input_new_tw_name"
+              placeholder="Specify scientific name if possible"
+            ></Textarea>
+          </div>
 
         <NumericFormFields />
         <div className="comments">
@@ -123,3 +166,5 @@ export default class SubmissionForm extends React.Component {
     );
   }
 }
+
+

@@ -12,8 +12,7 @@ export default class WoodListItem extends React.Component {
               <div className='WoodListItem__details'>
                 <div className='WoodListItem__text'>
                   <h2 className='WoodListItem__heading'>{wood.common_name}</h2>
-                  <p className='WoodListItem__genus'>{wood.genus}</p>
-                  <p className='WoodListItem__species'>{wood.species}</p>
+                  <p className='scientific-name'>{wood.genus} {wood.species}</p>
                   {/* <p className='WoodListItem__description'>{truncate(wood.description)}</p> */}
                 </div>
       

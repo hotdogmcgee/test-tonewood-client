@@ -7,7 +7,6 @@
     text-decoration: none;
     box-shadow: 0px 11px 21px -8px rgba(0, 0, 0, 0.5);
     margin-bottom: 40px;
-    margin-right: 20px;
     border-radius: 10px;
   }
   
@@ -45,5 +44,9 @@
     display: block;
     text-align: center;
     opacity: 0.5;
+  }
+
+  .scientific-name {
+    font-style: italic;
   }
   

@@ -7,6 +7,7 @@ import "./index.css";
 import { WoodListProvider } from "./contexts/WoodListContext";
 import { WoodProvider } from "./contexts/WoodContext";
 import { SubmissionProvider } from "./contexts/SubmissionContext";
+import $ from 'jquery'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -20,5 +21,7 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById("root")
 );
+
+
 
 serviceWorker.unregister();

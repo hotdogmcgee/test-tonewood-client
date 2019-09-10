@@ -68,3 +68,7 @@
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+
+  .scientific-name {
+    font-style: italic;
+  }
