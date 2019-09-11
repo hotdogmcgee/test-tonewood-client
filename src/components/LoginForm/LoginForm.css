@@ -1,0 +1,13 @@
+.Button {
+    max-width: 400px;
+}
+
+.LoginPage {
+    display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.LoginForm {
+    text-align: center
+}

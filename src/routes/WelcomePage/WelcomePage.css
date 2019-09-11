@@ -7,7 +7,7 @@
 
 .Submission-Link {
   font-size: 40px;
-  text-decoration: none
+
 }
 
 #Submission-Link-Section {
@@ -15,3 +15,18 @@
   width: 50%;
   align-self: center
 }
+
+.Button {
+  width: 70%;
+}
+
+@media screen and (max-width: 500px ) {
+  .Submission-Link {
+    font-size: 20px;
+  }
+
+  .Button {
+    width: 100%
+  }
+}
+

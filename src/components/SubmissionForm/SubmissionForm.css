@@ -22,7 +22,7 @@
 .Textarea::placeholder {
   color: grey;
 }
-*/ form {
+ form {
   max-width: 1000px;
   display: flex;
   flex-direction: column;
@@ -40,6 +40,10 @@ form > div {
 .comments {
   height: 150px;
   align-items: inherit;
+}
+
+.Button {
+	align-self: center;
 }
 
 .comments textarea {

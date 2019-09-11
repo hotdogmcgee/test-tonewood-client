@@ -5,6 +5,7 @@ import WoodListContext from '../../contexts/WoodListContext'
 import WoodApiService from '../../services/wood-api-service'
 import WoodListItem from '../../components/WoodListItem/WoodListItem'
 import About from '../../components/About/About'
+import {ErrorModal, HandleModal} from '../../components/ErrorModal/ErrorModal'
 import './WelcomePage.css'
 
 export default class WelcomePage extends React.Component {
@@ -19,9 +20,12 @@ export default class WelcomePage extends React.Component {
   }
 
   //limit the number shown?
+  //make function to show more
   renderWoods() {
     const { woodsList=[] } = this.context
     const newList = woodsList.filter(wood => wood.common_name.toLowerCase() !== 'other')
+    newList.filter((wood, index) => index < 9 )
+
     return newList.map(wood => 
       <WoodListItem 
         key={wood.id}
@@ -39,7 +43,9 @@ export default class WelcomePage extends React.Component {
         </Section>
         <Section list className='WoodList'>
         {error
-          ? <p className='red'>There was an error, try again</p>
+          ? 
+          // <h2>error</h2>
+          <ErrorModal />
           : this.renderWoods()}
         </Section>
         <Section id='Submission-Link-Section'>

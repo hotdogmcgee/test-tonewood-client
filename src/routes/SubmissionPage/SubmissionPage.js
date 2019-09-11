@@ -16,9 +16,7 @@ export default class SubmissionPage extends React.Component {
   };
 
   handleSubmissionSuccess = sub => {
-    // const { history } = this.props;
-    // change to a successful submission splash page
-    // history.push("/");
+    //go to Welcome Page on timeout?
     this.setState({
         hasSubmission: true
     })

@@ -7,7 +7,9 @@ import "./index.css";
 import { WoodListProvider } from "./contexts/WoodListContext";
 import { WoodProvider } from "./contexts/WoodContext";
 import { SubmissionProvider } from "./contexts/SubmissionContext";
-// import $ from 'jquery'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery'
+import Popper from 'popper.js';
 
 ReactDOM.render(
   <BrowserRouter>

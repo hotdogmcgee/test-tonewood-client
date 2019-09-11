@@ -11,11 +11,6 @@
     margin-bottom: 30px;
   }
 
-  /* put this in media query */
-  .table-container {
-    overflow-x: scroll;
-  }
-
   
   #Woodpage__submissions-table {
     text-align: center;
@@ -28,6 +23,9 @@
   #Woodpage__submissions-table td, #Woodpage__submissions-table th {
     border: 1px solid #ddd;
     padding: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   
   #Woodpage__submissions-table tr:nth-child(even){background-color: #f2f2f2;}
@@ -39,36 +37,17 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #4CAF50;
+    background-color: #90cc88;
     color: white;
   }
   
-  .tooltip {
-
-    border-bottom: 1px dotted black;
-  }
-  
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: grey;
-    color: blue;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
-  }
-  
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
 
   .scientific-name {
     font-style: italic;
   }
+
+@media screen and (max-width: 900px) {
+  .table-container {
+    overflow-x: scroll;
+  }
+}

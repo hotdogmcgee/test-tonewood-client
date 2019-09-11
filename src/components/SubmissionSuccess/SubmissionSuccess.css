@@ -1,0 +1,10 @@
+.SubmissionSuccess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link {
+    margin: 20px 0px;
+    font-size: 30px;
+}
