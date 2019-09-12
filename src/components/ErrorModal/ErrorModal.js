@@ -8,23 +8,23 @@ export function ErrorModal() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
+  //how can i get this to show on page error?!?!
   return (
     <>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
+    
+          <Button variant="primary" onClick={handleShow}>
+            Launch demo modal
+          </Button>
 
-      <Modal  show={show} onHide={handleClose} id='modal'>
+      <Modal  show={show} onHide={handleClose} id='myModal'>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>There was an error</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
@@ -34,8 +34,9 @@ export function ErrorModal() {
 }
 
 
-// export function HandleModal(error) {
+// export function HandleModal() {
 // {/* <ErrorModal error={error} /> */}
+// <ErrorModal />
 // console.log('error');
-//   return document.getElementById('modal').showModal()
+//   return document.getElementById('myModal').showModal()
 // }

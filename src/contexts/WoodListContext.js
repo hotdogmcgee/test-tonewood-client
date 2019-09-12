@@ -2,29 +2,39 @@ import React from 'react'
 import $ from 'jquery'
 
 const WoodListContext = React.createContext({
-    woodList: [],
+    woodsList: [],
+    savedList: [],
     error: null,
     setError: () => {},
     clearError: () => {},
-    setWoodsList: () => {}
+    setWoodsList: () => {},
+    setSavedList: () => {}
 })
 
 export default WoodListContext
 
 export class WoodListProvider extends React.Component {
     state = {
-        woodList: [],
+        woodsList: [],
+        savedList: [],
         error: null
     }
 
+
     setWoodsList = woodsList => {
+      console.log(this.state.savedList);
         this.setState({ woodsList })
+    }
+
+    setSavedList = savedList => {
+      this.setState({ savedList })
+
     }
 
     setError = error => {
         console.error(error)
         this.setState({ error })
-        $('#modal').modal(error)
+        $('#myModal').modal('show')
       }
     
       clearError = () => {
@@ -33,10 +43,12 @@ export class WoodListProvider extends React.Component {
       render() {
         const value = {
           woodsList: this.state.woodsList,
+          savedList: this.state.savedList,
           error: this.state.error,
           setError: this.setError,
           clearError: this.clearError,
           setWoodsList: this.setWoodsList,
+          setSavedList: this.setSavedList
         }
         return (
           <WoodListContext.Provider value={value}>

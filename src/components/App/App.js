@@ -10,6 +10,8 @@ import WoodPage from "../../routes/WoodPage/WoodPage";
 import SubmissionPage from '../../routes/SubmissionPage/SubmissionPage'
 import "./App.css";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
+import { ErrorModal } from '../ErrorModal/ErrorModal'
+import $ from 'jquery'
 
 class App extends React.Component {
   state = {
@@ -18,7 +20,7 @@ class App extends React.Component {
   };
 
   static getDerivedStateFromError(error) {
-    console.error(error);
+    console.error('modal test error');
     return { hasError: true };
   }
 
@@ -28,15 +30,19 @@ class App extends React.Component {
     });
   }
 
+
+
   render() {
     return (
       <div className="App">
         <header className="App__header">
           <Header hasLogin={this.hasLogin}/>
         </header>
+        {/* <ErrorModal /> */}
         <main className="App__main">
           {this.state.hasError && (
-            <p className="red">There was an error! Oh no!</p>
+            <ErrorModal />
+            // <p className="red">There was an error! Oh no!</p>
           )}
           <Switch>
             <Route exact path={"/"} component={WelcomePage} />
@@ -52,6 +58,8 @@ class App extends React.Component {
     );
   }
 }
+
+
 
 export default App;
 

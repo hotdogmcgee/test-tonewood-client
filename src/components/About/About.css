@@ -1,3 +1,8 @@
 #About {
     text-align: center
 }
+
+#About a {
+    text-decoration: none !important;
+    color: #8899cc;
+}

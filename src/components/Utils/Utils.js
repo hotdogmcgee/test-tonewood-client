@@ -18,7 +18,7 @@ export function Required({ className, ...props }) {
   );
 }
 
-export function NiceDate({ date, format = "do MMMM yyyy" }) {
+export function NiceDate({ date, format = "d MMM yyyy" }) {
   const isoString = parseISO(date);
   return formatDate(isoString, format);
 }

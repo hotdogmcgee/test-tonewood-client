@@ -13,11 +13,14 @@
 #Submission-Link-Section {
   text-align: center;
   width: 50%;
-  align-self: center
+  align-self: center;
+
 }
 
 .Button {
   width: 70%;
+  background-color: rgba(130, 182, 204, 0.45);
+  box-shadow: 0px 11px 21px -8px rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 500px ) {

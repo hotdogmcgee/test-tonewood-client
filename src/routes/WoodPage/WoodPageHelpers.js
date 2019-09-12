@@ -40,7 +40,7 @@ function makeTable(submissions = []) {
     const headerNames = header.map((key, index) => {
       const niceKey = niceSubKeys(key);
       return (
-        <th title={niceKey} key={index}>
+        <th title={niceKey} key={index} className={`th__${key}`}>
           {niceKey.toUpperCase()}
         </th>
       );
@@ -82,8 +82,6 @@ function RenderTd({ value, listType }) {
   if (listType === "comments") {
     return (
       <td>
-        {/* <TextOverflowTooltip 
-   maxWidth="100px" maxHeight='100px'>{value}</TextOverflowTooltip> */}
         <EllipsisWithTooltip placement="bottom">{value}</EllipsisWithTooltip>
       </td>
     );

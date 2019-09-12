@@ -24,9 +24,14 @@
     border: 1px solid #ddd;
     padding: 8px;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    max-width: 60px;
   }
+
+  #Woodpage__submissions-table td {
+    font-size: 13px;
+  }
+
   
   #Woodpage__submissions-table tr:nth-child(even){background-color: #f2f2f2;}
   
@@ -37,7 +42,7 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #90cc88;
+    background-color: #8899cc;
     color: white;
   }
   
@@ -46,7 +51,7 @@
     font-style: italic;
   }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .table-container {
     overflow-x: scroll;
   }
