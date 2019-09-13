@@ -31,7 +31,6 @@ const WoodApiService = {
   },
 
   postSubmission(sub) {
-    console.log(sub);
     return fetch(`${config.API_ENDPOINT}/submissions`, {
       method: "POST",
       headers: {

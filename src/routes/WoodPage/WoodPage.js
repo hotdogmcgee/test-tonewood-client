@@ -6,6 +6,7 @@ import { Section } from "../../components/Utils/Utils";
 import { WoodDescription, MakeSubmissionsTable } from './WoodPageHelpers.js'
 import { Link } from 'react-router-dom'
 import { Button } from '../../components/Utils/Utils'
+import  URLError  from '../../components/Validation/URLError'
 import "./WoodPage.css";
 
 export default class WoodPage extends Component {
@@ -33,7 +34,12 @@ export default class WoodPage extends Component {
 
   renderWood() {
     const { wood, submissions } = this.context;
-  
+    // const { woodId } = this.props.match.params;
+
+    // if (!wood && woodId !== undefined) {
+    //   const message='This entry does not exist'
+    //   return <URLError message={message}/>
+    // } 
     if (submissions) {
       this.makeDataPoints(submissions, 'e_cross')
     }
@@ -66,8 +72,9 @@ export default class WoodPage extends Component {
     let description;
     if (error) {
       description =
-        error.error === `Wood doesn't exist` ? (
-          <p className="red">Wood not found</p>
+        error.error === `Entry doesn't exist` ? (
+          // <p className="red">Wood not found</p>
+          <URLError message={error.error} />
         ) : (
           <p className="red">There was an error</p>
         );

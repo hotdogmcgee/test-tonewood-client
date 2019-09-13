@@ -113,9 +113,9 @@ export default class SubmissionForm extends React.Component {
     }
   }
 
-  render() {
+  renderSubmissionForm() {
     return (
-      <form className="SubmissionForm" onSubmit={this.handleSubmit}>
+    <form className="SubmissionForm" onSubmit={this.handleSubmit}>
         <div className="tw_id">
           <label htmlFor="tw_id">Select your tonewood</label>
           <select
@@ -160,7 +160,11 @@ export default class SubmissionForm extends React.Component {
 
         <Button type="submit">Add submission</Button>
       </form>
-    );
+    )
+  }
+
+  render() {
+    return this.renderSubmissionForm()
   }
 }
 
