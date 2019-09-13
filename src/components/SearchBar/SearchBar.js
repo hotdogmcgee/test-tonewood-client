@@ -1,6 +1,7 @@
 import React from "react";
 import { Input } from "../Utils/Utils";
 import './SearchBar.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class SearchBar extends React.Component {
 
@@ -15,9 +16,10 @@ handleInput = e => {
 }
   render() {
     return (
-      <form className="SearchForm" onChange={this.handleInput}>
-        <label htmlFor="search-bar">Search</label>
-        <Input placeholder="tonewood" name="search-bar" id='SearchForm__entry'></Input>
+      <form className="SearchForm" onChange={this.handleInput} autocomplete="off">
+        
+        {/* <label htmlFor="search-bar">Search</label> */}
+        <Input placeholder="tonewood" name="search-bar" id='SearchForm__entry' autocomplete="off"></Input>
       </form>
 
     );

@@ -32,28 +32,30 @@ function makeTable(submissions = []) {
   const tableData = renderTableData(submissions);
   if (submissions.length) {
     let subObj = Object.keys(submissions[0]);
-    const filteredArray = subObj.filter(
+    const filteredHeaderNames = subObj.filter(
       obj => obj !== "user" && obj !== "tw_id"
     );
-    let header = filteredArray;
-
-    const headerNames = header.map((key, index) => {
-      const niceKey = niceSubKeys(key);
-      return (
-        <th title={niceKey} key={index} className={`th__${key}`}>
-          {niceKey.toUpperCase()}
-        </th>
-      );
-    });
     return (
       <table id="Woodpage__submissions-table" cellPadding="3" cellSpacing="1">
         <tbody>
-          <tr>{headerNames}</tr>
+          <tr>{makeHeaderNames(filteredHeaderNames)}</tr>
           {tableData}
         </tbody>
       </table>
     );
   }
+}
+
+function makeHeaderNames(filteredHeaderNames) {
+  const headerNames = filteredHeaderNames.map((key, index) => {
+    const niceKey = niceSubKeys(key);
+    return (
+      <th title={niceKey} key={index} className={`th__${key}`}>
+        {niceKey.toUpperCase()}
+      </th>
+    );
+  });
+  return headerNames
 }
 
 function RenderRows({ rows }) {
@@ -64,13 +66,13 @@ function RenderRows({ rows }) {
   return (
     <tr>
       {tdArrData.map((value, index) => {
-        return <RenderTd listType={tdKeys[index]} value={value} key={index} />;
+        return <RenderTdValue listType={tdKeys[index]} value={value} key={index} />;
       })}
     </tr>
   );
 }
 
-function RenderTd({ value, listType }) {
+function RenderTdValue({ value, listType }) {
   //switch statement possibly
   if (listType === "date_created") {
     return (

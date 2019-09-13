@@ -100,3 +100,9 @@ select menu */
 
 /** Custom Select **/
 
+@media screen and (max-width: 400px) {
+	.Input {
+		text-align: right;
+		width: 20%;
+	  }
+}

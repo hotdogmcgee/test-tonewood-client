@@ -11,6 +11,7 @@ import {
   HandleModal
 } from "../../components/ErrorModal/ErrorModal";
 import "./WelcomePage.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class WelcomePage extends React.Component {
   static contextType = WoodListContext;
@@ -66,7 +67,8 @@ export default class WelcomePage extends React.Component {
           <About />
         </Section>
         
-        <Section>
+        <Section id='SearchBar__Section'>
+           < FontAwesomeIcon icon='tree'size='3x'/>
           <SearchBar onSearchChange={this.handleSearchChange} />
         </Section>
         <Section list className="WoodList">

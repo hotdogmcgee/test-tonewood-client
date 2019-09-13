@@ -7,6 +7,7 @@
   
   .Header h1 {
     margin: 0;
+    font-size: 16px;
   }
   
   .Header a {
@@ -33,7 +34,7 @@
   
   .Header__not-logged-in {
     display: flex;
-    flex: 1;
+    /* flex: 1; */
     align-items: center;
     justify-content: flex-end;
   }
@@ -58,11 +59,12 @@
     }
   
     .Header h1 {
-      font-size: 22pt;
+      font-size: 22px;
     }
   }
   
   @media screen and (max-width: 490px) {
+
     .Header__tagline--wide {
       display: none;
     }

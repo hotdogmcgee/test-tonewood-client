@@ -17,6 +17,11 @@
 
 }
 
+#SearchBar__Section {
+  display: flex;
+  margin-top: 1rem;
+}
+
 .Button {
   width: 70%;
   background-color: rgba(130, 182, 204, 0.45);

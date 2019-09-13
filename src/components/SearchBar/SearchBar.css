@@ -1,4 +1,9 @@
 #SearchForm__entry {
     text-align: left;
-    width: 200px
+    width: 200px;
+    margin-left: 15px;
+}
+
+#SearchForm__entry::placeholder {
+    opacity: 0.5
 }

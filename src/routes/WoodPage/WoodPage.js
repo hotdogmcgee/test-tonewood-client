@@ -4,6 +4,8 @@ import WoodContext from "../../contexts/WoodContext";
 import WoodApiService from "../../services/wood-api-service";
 import { Section } from "../../components/Utils/Utils";
 import { WoodDescription, MakeSubmissionsTable } from './WoodPageHelpers.js'
+import { Link } from 'react-router-dom'
+import { Button } from '../../components/Utils/Utils'
 import "./WoodPage.css";
 
 export default class WoodPage extends Component {
@@ -41,22 +43,17 @@ export default class WoodPage extends Component {
         <h2>{wood.common_name}</h2>
         <WoodDescription wood={wood} />
         <MakeSubmissionsTable submissions={submissions} />
+        <Section id="Submission-Link-Section">
+          <Link to={"/new-submission"} className="Submission-Link">
+            <Button>Submit your data!</Button>
+          </Link>
+        </Section>
       </>
     );
   }
 
   makeDataPoints = (data, columnName) => {
 
-    // if (submissions.length) {
-    //   let subObj = Object.keys(submissions[0]);
-    //   const filteredArray = subObj.filter(
-    //     obj => obj !== "user" && obj !== "tw_id"
-    //   );
-    //   let header = filteredArray;
-
-    // arrAverages = header.map(item => {
-
-    // })
     let sumVal = 0;
     for ( let i = 0; i < data.length; i++) {
       sumVal += parseInt(data[i][columnName])

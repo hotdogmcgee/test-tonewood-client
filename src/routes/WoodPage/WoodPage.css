@@ -1,3 +1,8 @@
+.WoodPage {
+  display: flex;
+    flex-direction: column;
+}
+
 .WoodPage__image {
     height: 20vw;
     min-height: 150px;
@@ -46,9 +51,23 @@
     color: white;
   }
   
+  .table-container {
+    margin-bottom: 5rem;
+  }
 
   .scientific-name {
     font-style: italic;
+  }
+
+  .Submission-Link {
+    font-size: 40px;
+  
+  }
+  
+  #Submission-Link-Section {
+    text-align: center;
+    width: 50%;
+    align-self: center;
   }
 
 @media screen and (max-width: 1000px) {
