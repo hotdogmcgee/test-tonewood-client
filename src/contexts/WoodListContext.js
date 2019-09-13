@@ -22,7 +22,6 @@ export class WoodListProvider extends React.Component {
 
 
     setWoodsList = woodsList => {
-      console.log(this.state.savedList);
         this.setState({ woodsList })
     }
 
@@ -34,7 +33,7 @@ export class WoodListProvider extends React.Component {
     setError = error => {
         console.error(error)
         this.setState({ error })
-        $('#myModal').modal('show')
+        // $('#myModal').modal('show')
       }
     
       clearError = () => {

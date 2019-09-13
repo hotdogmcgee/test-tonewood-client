@@ -1,5 +1,6 @@
 import React from "react";
 import { Input } from "../Utils/Utils";
+import './SearchBar.css'
 
 export default class SearchBar extends React.Component {
 

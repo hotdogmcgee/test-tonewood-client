@@ -8,6 +8,7 @@ import { WoodListProvider } from "./contexts/WoodListContext";
 import { WoodProvider } from "./contexts/WoodContext";
 import { SubmissionProvider } from "./contexts/SubmissionContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../node_modules/react-vis/dist/style.css';
 import $ from 'jquery'
 import Popper from 'popper.js';
 

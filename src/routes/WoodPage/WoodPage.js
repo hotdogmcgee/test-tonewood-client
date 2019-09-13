@@ -31,6 +31,10 @@ export default class WoodPage extends Component {
 
   renderWood() {
     const { wood, submissions } = this.context;
+  
+    if (submissions) {
+      this.makeDataPoints(submissions, 'e_cross')
+    }
     return (
       <>
         {/* <div className='WoodPage__image' style={{backgroundImage: `url(${Wood.image})`}} /> */}
@@ -39,6 +43,25 @@ export default class WoodPage extends Component {
         <MakeSubmissionsTable submissions={submissions} />
       </>
     );
+  }
+
+  makeDataPoints = (data, columnName) => {
+
+    // if (submissions.length) {
+    //   let subObj = Object.keys(submissions[0]);
+    //   const filteredArray = subObj.filter(
+    //     obj => obj !== "user" && obj !== "tw_id"
+    //   );
+    //   let header = filteredArray;
+
+    // arrAverages = header.map(item => {
+
+    // })
+    let sumVal = 0;
+    for ( let i = 0; i < data.length; i++) {
+      sumVal += parseInt(data[i][columnName])
+    }
+    console.log(sumVal);
   }
 
   render() {

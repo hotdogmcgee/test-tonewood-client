@@ -65,10 +65,12 @@ export default class WelcomePage extends React.Component {
         <Section id="About">
           <About />
         </Section>
+        
         <Section>
           <SearchBar onSearchChange={this.handleSearchChange} />
         </Section>
         <Section list className="WoodList">
+        
           {error ? <h2>error</h2> : this.renderWoods()}
         </Section>
         <Section id="Submission-Link-Section">
