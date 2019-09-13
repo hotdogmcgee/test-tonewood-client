@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import { Button } from '../../components/Utils/Utils'
 
 export function ErrorModal() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -12,11 +12,6 @@ export function ErrorModal() {
   //how can i get this to show on page error?!?!
   return (
     <>
-    
-          <Button variant="primary" onClick={handleShow}>
-            Launch demo modal
-          </Button>
-
       <Modal  show={show} onHide={handleClose} id='myModal'>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>

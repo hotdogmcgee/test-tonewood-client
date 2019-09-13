@@ -38,7 +38,6 @@ class App extends React.Component {
         <header className="App__header">
           <Header hasLogin={this.hasLogin}/>
         </header>
-        {/* <ErrorModal /> */}
         <main className="App__main">
           {this.state.hasError && (
             <ErrorModal />
@@ -51,7 +50,7 @@ class App extends React.Component {
             <PrivateRoute path={"/woods/:woodId"} component={WoodPage} />
             <PublicOnlyRoute path={'/register'} component={RegistrationPage} />
             <PrivateRoute path={'/new-submission'} component={SubmissionPage} />
-            <Route component={NotFoundPage} />
+            <Route path={'*'} component={NotFoundPage} />
           </Switch>
         </main>
       </div>

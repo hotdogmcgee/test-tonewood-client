@@ -5,9 +5,12 @@ const WoodApiService = {
   getWoods() {
     return fetch(`${config.API_ENDPOINT}/woods`, {
       headers: {}
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    }) .then(res => {
+      if (!res.ok) {
+          throw new Error(res.status)
+      }
+      return res.json()
+  })
   },
 
   getWood(woodId) {

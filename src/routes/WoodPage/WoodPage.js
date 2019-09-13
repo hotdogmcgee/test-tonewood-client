@@ -73,7 +73,6 @@ export default class WoodPage extends Component {
     if (error) {
       description =
         error.error === `Entry doesn't exist` ? (
-          // <p className="red">Wood not found</p>
           <URLError message={error.error} />
         ) : (
           <p className="red">There was an error</p>

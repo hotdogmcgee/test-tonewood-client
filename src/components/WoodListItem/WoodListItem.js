@@ -34,7 +34,7 @@ function readableSubmissionCount(number) {
       return '1 submission'
 
     default:
-      return `with ${number} submissions`
+      return `${number} submissions`
   }
 }
 function truncate(text) {
