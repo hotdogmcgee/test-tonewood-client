@@ -1,11 +1,16 @@
 import React, {useState} from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { Button } from '../../components/Utils/Utils'
+import { Link } from 'react-router-dom'
 
 export function ErrorModal() {
   const [show, setShow] = useState(true);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    
+  }
+
   const handleShow = () => setShow(true);
 
 
@@ -19,7 +24,7 @@ export function ErrorModal() {
         <Modal.Body>There was an error</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            <Link to={'/'}>Close</Link>
           </Button>
         </Modal.Footer>
       </Modal>
@@ -28,10 +33,3 @@ export function ErrorModal() {
 
 }
 
-
-// export function HandleModal() {
-// {/* <ErrorModal error={error} /> */}
-// <ErrorModal />
-// console.log('error');
-//   return document.getElementById('myModal').showModal()
-// }

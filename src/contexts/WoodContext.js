@@ -9,6 +9,7 @@ const WoodContext = React.createContext({
   wood: nullWood,
   submissions: [],
   error: null,
+  hasError: null,
   setError: () => {},
   clearError: () => {},
   setWood: () => {},
@@ -26,11 +27,11 @@ export class WoodProvider extends Component {
 
   setError = error => {
     console.error(error)
-    this.setState({ error })
+    this.setState({ error, hasError: true })
   }
 
   clearError = () => {
-    this.setState({ error: null })
+    this.setState({ error: null, hasError: null })
   }
 
   setWood = wood => {
@@ -52,6 +53,7 @@ export class WoodProvider extends Component {
       wood: this.state.wood,
       submissions: this.state.submissions,
       error: this.state.error,
+      hasError: this.state.hasError,
       setError: this.setError,
       clearError: this.clearError,
       setWood: this.setWood,

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import WoodContext from "../../contexts/WoodContext";
 import WoodApiService from "../../services/wood-api-service";
 import { Section } from "../../components/Utils/Utils";
-import { WoodDescription, MakeSubmissionsTable } from './WoodPageHelpers.js'
+import { WoodDescription, MakeSubmissionsTable, AverageEach } from './WoodPageHelpers.js'
 import { Link } from 'react-router-dom'
 import { Button } from '../../components/Utils/Utils'
 import  URLError  from '../../components/Validation/URLError'
@@ -41,7 +41,21 @@ export default class WoodPage extends Component {
     //   return <URLError message={message}/>
     // } 
     if (submissions) {
-      this.makeDataPoints(submissions, 'e_cross')
+      const columnNames = [
+        'density',
+        'e_long',
+        'e_cross',
+        'velocity_sound_long',
+        'radiation_ratio',
+        'sample_length',
+        'sample_width',
+        'sample_thickness',
+        'sample_weight_grams',
+        'peak_hz_long_grain',
+        'peak_hz_cross_grain',
+      ]
+      AverageEach(submissions, columnNames)
+
     }
     return (
       <>
@@ -58,14 +72,7 @@ export default class WoodPage extends Component {
     );
   }
 
-  makeDataPoints = (data, columnName) => {
 
-    let sumVal = 0;
-    for ( let i = 0; i < data.length; i++) {
-      sumVal += parseInt(data[i][columnName])
-    }
-    console.log(sumVal);
-  }
 
   render() {
     const { error, wood } = this.context;

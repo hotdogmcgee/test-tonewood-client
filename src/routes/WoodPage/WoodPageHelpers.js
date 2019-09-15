@@ -46,6 +46,22 @@ function makeTable(submissions = []) {
   }
 }
 
+//return an array of averages
+export function AverageEach(data, columnNames) {
+  let newArr = columnNames.map(column => averageColumn(data, column))
+  console.log(newArr);
+  return newArr
+}
+function averageColumn(data, columnName) {
+
+  let sumVal = 0;
+  for ( let i = 0; i < data.length; i++) {
+    sumVal += parseFloat(data[i][columnName])
+  }
+  const avg = (sumVal / data.length).toFixed(2)
+  return avg
+}
+
 function makeHeaderNames(filteredHeaderNames) {
   const headerNames = filteredHeaderNames.map((key, index) => {
     const niceKey = niceSubKeys(key);
