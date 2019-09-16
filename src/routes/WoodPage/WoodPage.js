@@ -6,6 +6,7 @@ import { Section } from "../../components/Utils/Utils";
 import { WoodDescription, MakeSubmissionsTable, AverageEach } from './WoodPageHelpers.js'
 import { Link } from 'react-router-dom'
 import { Button } from '../../components/Utils/Utils'
+import { ErrorModal } from '../../components/ErrorModal/ErrorModal'
 import  URLError  from '../../components/Validation/URLError'
 import "./WoodPage.css";
 
@@ -15,6 +16,7 @@ export default class WoodPage extends Component {
   };
 
   static contextType = WoodContext;
+
 
   componentDidMount() {
     const { woodId } = this.props.match.params;
@@ -80,7 +82,7 @@ export default class WoodPage extends Component {
     if (error) {
       description =
         error.error === `Entry doesn't exist` ? (
-          <URLError message={error.error} />
+          <ErrorModal message={'Entry does not exist, please try another.'} />
         ) : (
           <p className="red">There was an error</p>
         );

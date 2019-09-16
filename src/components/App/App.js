@@ -29,6 +29,14 @@ class App extends React.Component {
     });
   };
 
+  // ModalRoot = () => (
+  //   <ModalConsumer>
+  //     {({ component: Component, props, hideModal }) =>
+  //       Component ? <Component {...props} onRequestClose={hideModal} /> : null
+  //     }
+  //   </ModalConsumer>
+  // );
+
   render() {
     return (
       <div className="App">

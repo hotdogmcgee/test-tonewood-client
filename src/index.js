@@ -18,7 +18,7 @@ ReactDOM.render(
     <WoodListProvider>
       <WoodProvider>
         <SubmissionProvider>
-          <App />
+            <App />
         </SubmissionProvider>
       </WoodProvider>
     </WoodListProvider>

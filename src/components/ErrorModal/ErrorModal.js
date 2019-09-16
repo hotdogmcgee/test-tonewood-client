@@ -3,7 +3,9 @@ import Modal from "react-bootstrap/Modal";
 import { Button } from "../../components/Utils/Utils";
 import { Link } from "react-router-dom";
 
-export function ErrorModal() {
+export function ErrorModal(message) {
+
+  console.log(message);
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
@@ -17,13 +19,15 @@ export function ErrorModal() {
     <>
       <Modal show={show} onHide={handleClose} id="myModal">
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>There was a problem, oh no!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>There was an error</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            <Link to={"/"}>Close</Link>
+        <Modal.Body>{message.message}</Modal.Body>
+        <Modal.Footer className='modal-footer-css'>
+        <Link to={"/"}>
+          <Button variant="secondary" onClick={handleClose} className='modal-button'>
+            Close
           </Button>
+          </Link>
         </Modal.Footer>
       </Modal>
     </>
