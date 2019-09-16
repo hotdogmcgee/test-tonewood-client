@@ -6,8 +6,7 @@
   }
 
 .Submission-Link {
-  font-size: 40px;
-
+  font-size: 20px;
 }
 
 #Submission-Link-Section {
@@ -23,18 +22,19 @@
 }
 
 .Button {
-  width: 70%;
+  width: 100%;
   background-color: rgba(130, 182, 204, 0.45);
   box-shadow: 0px 11px 21px -8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 500px ) {
+@media screen and (min-width: 900px ) {
   .Submission-Link {
-    font-size: 20px;
+    font-size: 40px;
   }
 
   .Button {
-    width: 100%
+    width: 70%;
   }
 }
 

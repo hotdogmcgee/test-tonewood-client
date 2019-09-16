@@ -19,7 +19,6 @@ export default class SearchBar extends React.Component {
         onChange={this.handleInput}
         autoComplete="off"
       >
-        {/* <label htmlFor="search-bar">Search</label> */}
         <Input
           placeholder="tonewood"
           name="search-bar"

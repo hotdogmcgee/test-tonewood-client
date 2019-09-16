@@ -7,11 +7,10 @@ import LoginPage from "../../routes/LoginPage/LoginPage";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import PrivateRoute from "../Utils/PrivateRoute";
 import WoodPage from "../../routes/WoodPage/WoodPage";
-import SubmissionPage from '../../routes/SubmissionPage/SubmissionPage'
-import "./App.css";
+import SubmissionPage from "../../routes/SubmissionPage/SubmissionPage";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
-import { ErrorModal } from '../ErrorModal/ErrorModal'
-import $ from 'jquery'
+import { ErrorModal } from "../ErrorModal/ErrorModal";
+import "./App.css";
 
 class App extends React.Component {
   state = {
@@ -20,37 +19,36 @@ class App extends React.Component {
   };
 
   static getDerivedStateFromError(error) {
-    console.error('modal test error');
+    console.error("modal test error");
     return { hasError: true };
   }
 
-  hasLogin = (loggedIn) => {
+  hasLogin = loggedIn => {
     this.setState({
       hasLogin: loggedIn
     });
-  }
-
-
+  };
 
   render() {
     return (
       <div className="App">
         <header className="App__header">
-          <Header hasLogin={this.hasLogin}/>
+          <Header hasLogin={this.hasLogin} />
         </header>
         <main className="App__main">
-          {this.state.hasError && (
-            <ErrorModal />
-            // <p className="red">There was an error! Oh no!</p>
-          )}
+          {this.state.hasError && <ErrorModal />}
           <Switch>
             <Route exact path={"/"} component={WelcomePage} />
-            <Route path={"/login"} render={(props) => <LoginPage {...props} hasLogin={this.hasLogin}/>} />
-            {/* <PublicOnlyRoute path={"/login"} component={LoginPage} /> */}
+            <Route
+              path={"/login"}
+              render={props => (
+                <LoginPage {...props} hasLogin={this.hasLogin} />
+              )}
+            />
             <PrivateRoute path={"/woods/:woodId"} component={WoodPage} />
-            <PublicOnlyRoute path={'/register'} component={RegistrationPage} />
-            <PrivateRoute path={'/new-submission'} component={SubmissionPage} />
-            <Route path={'*'} component={NotFoundPage} />
+            <PublicOnlyRoute path={"/register"} component={RegistrationPage} />
+            <PrivateRoute path={"/new-submission"} component={SubmissionPage} />
+            <Route path={"*"} component={NotFoundPage} />
           </Switch>
         </main>
       </div>
@@ -58,7 +56,4 @@ class App extends React.Component {
   }
 }
 
-
-
 export default App;
-

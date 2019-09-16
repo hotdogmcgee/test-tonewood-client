@@ -1,7 +1,6 @@
 import React from "react";
 import { format as formatDate, parseISO } from "date-fns";
 import "./Utils.css";
-// import $ from 'jquery'
 
 export function Section({ className, list, ...props }) {
   const classes = ["Section", list && "Section--list", className]
@@ -64,7 +63,6 @@ export function NumericFormFields({ className, ...props }) {
     "Peak Frequency Cross (Hz)"
   ];
 
-  //should I just make this explicit in Submission form? Maybe have all numeric fields here
   return inputFields.map((field, key) => {
     return (
       <div className={field} key={key}>

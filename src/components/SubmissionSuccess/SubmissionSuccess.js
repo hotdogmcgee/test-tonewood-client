@@ -11,7 +11,7 @@ export default class SubmissionSuccess extends React.Component {
     e.preventDefault();
     this.props.handleNewSubmitClick();
   };
-  //need styling
+
   render() {
     return (
       <>

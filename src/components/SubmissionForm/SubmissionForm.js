@@ -1,10 +1,8 @@
 import React from "react";
 import WoodApiService from "../../services/wood-api-service";
 import { Button, Textarea, NumericFormFields } from "../Utils/Utils";
-import "./SubmissionForm.css";
 import WoodListContext from "../../contexts/WoodListContext";
-// import $ from 'jquery'
-
+import "./SubmissionForm.css";
 
 export default class SubmissionForm extends React.Component {
   constructor(props) {
@@ -79,8 +77,6 @@ export default class SubmissionForm extends React.Component {
       peak_hz_cross_grain: peak_hz_cross_grain.value,
       comments: comments.value
     })
-      //need to make
-      //   .then(this.context.addSubmission)
       .then(() => {
         for (let i = 0; i < items.length; i++) {
           items[i].value = "";
@@ -108,14 +104,14 @@ export default class SubmissionForm extends React.Component {
   }
 
   setStyle() {
-    if (this.state.optionValue !== '1') {
-      return { display: 'none'}
+    if (this.state.optionValue !== "1") {
+      return { display: "none" };
     }
   }
 
   renderSubmissionForm() {
     return (
-    <form className="SubmissionForm" onSubmit={this.handleSubmit}>
+      <form className="SubmissionForm" onSubmit={this.handleSubmit}>
         <div className="tw_id">
           <label htmlFor="tw_id">Select your tonewood</label>
           <select
@@ -123,7 +119,7 @@ export default class SubmissionForm extends React.Component {
             aria-label="Select your tonewood!"
             name="tw_id"
             id="tonewood-select"
-            className='tw_select'
+            className="tw_select"
             value={this.state.optionValue}
             onChange={this.handleChange}
           >
@@ -131,22 +127,19 @@ export default class SubmissionForm extends React.Component {
               Select a Wood
             </option>
             {this.renderTwOptions()}
-            {/* <option id="otherOptionValue" value='1'>
-              other
-            </option> */}
           </select>
         </div>
 
-          <div style={this.setStyle()} className="new_tw_name">
-            <label htmlFor="SubmissionForm__new_tw_name" value='new_tw_name'>
-              New tonewood
-            </label>
-            <Textarea
-              name="new_tw_name"
-              className="Input_new_tw_name"
-              placeholder="Specify scientific name if possible"
-            ></Textarea>
-          </div>
+        <div style={this.setStyle()} className="new_tw_name">
+          <label htmlFor="SubmissionForm__new_tw_name" value="new_tw_name">
+            New tonewood
+          </label>
+          <Textarea
+            name="new_tw_name"
+            className="Input_new_tw_name"
+            placeholder="Specify scientific name if possible"
+          ></Textarea>
+        </div>
 
         <NumericFormFields />
         <div className="comments">
@@ -160,12 +153,10 @@ export default class SubmissionForm extends React.Component {
 
         <Button type="submit">Add submission</Button>
       </form>
-    )
+    );
   }
 
   render() {
-    return this.renderSubmissionForm()
+    return this.renderSubmissionForm();
   }
 }
-
-

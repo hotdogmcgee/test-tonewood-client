@@ -10,7 +10,6 @@ export default class SubmissionPage extends React.Component {
     }
   };
 
-  //refactored this?
   state = {
     hasSubmission: false
   };

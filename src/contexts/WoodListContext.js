@@ -1,5 +1,4 @@
 import React from 'react'
-// import $ from 'jquery'
 
 const WoodListContext = React.createContext({
     woodsList: [],
@@ -33,7 +32,6 @@ export class WoodListProvider extends React.Component {
     setError = error => {
         console.error(error)
         this.setState({ error })
-        // $('#myModal').modal('show')
       }
     
       clearError = () => {

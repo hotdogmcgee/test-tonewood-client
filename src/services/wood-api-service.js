@@ -5,7 +5,7 @@ const WoodApiService = {
   getWoods() {
     return fetch(`${config.API_ENDPOINT}/woods`, {
       headers: {}
-    }) .then(res => {
+    }).then(res => {
       if (!res.ok) {
           throw new Error(res.status)
       }

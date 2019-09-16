@@ -1,3 +1,8 @@
+#SearchBar__Section {
+    flex-direction: row;
+    justify-content: center;
+}
+
 #SearchForm__entry {
     text-align: left;
     width: 200px;
@@ -6,4 +11,10 @@
 
 #SearchForm__entry::placeholder {
     opacity: 0.5
+}
+
+@media screen and (min-width: 800px) {
+    #SearchBar__Section {
+        justify-content: flex-start;
+    }
 }

@@ -40,6 +40,7 @@
   
   .WoodListItem__details h2 {
     margin: 0;
+    font-size: 24px;
   }
   
   .WoodListItem__details span {
@@ -50,5 +51,11 @@
 
   .scientific-name {
     font-style: italic;
+  }
+
+  @media screen and (min-width: 900px) {
+    .WoodListItem__details h2 {
+      font-size: 32px;
+    }
   }
   

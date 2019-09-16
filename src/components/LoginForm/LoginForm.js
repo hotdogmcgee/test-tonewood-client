@@ -32,7 +32,7 @@ export default class LoginForm extends Component {
   }
 
   render() {
-    //put error conditional in render method
+    //put error conditional in render method, pass as modal context
     const { error } = this.state
     return (
 
