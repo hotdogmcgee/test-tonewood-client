@@ -16,6 +16,35 @@
     margin-bottom: 30px;
   }
 
+  #Average-Data-Section {
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+  }
+
+  #Average-Data-Section ul {
+    list-style: none;
+    /* display: flex; */
+    flex-wrap: wrap;
+    max-width: 1000px;
+    padding: 0
+  }
+
+  #Average-Data-Section ul li {
+    border: 0.5px dotted grey;
+    /* text-align: center; */
+    padding: 5px;
+    width: 200px;
+    min-height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #Average-Data-Section ul li p {
+    margin-bottom: 0;
+    max-width: 75%;
+  }
   
   #Woodpage__submissions-table {
     text-align: center;
@@ -74,4 +103,9 @@
   .table-container {
     overflow-x: scroll;
   }
+}
+
+/* alter averages ul */
+@media screen and (min-width: 700px) {
+
 }

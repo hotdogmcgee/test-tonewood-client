@@ -40,7 +40,7 @@ export default class SubmissionForm extends React.Component {
       sample_length,
       sample_width,
       sample_thickness,
-      sample_weight_grams,
+      sample_weight,
       peak_hz_long_grain,
       peak_hz_cross_grain,
       comments
@@ -56,7 +56,7 @@ export default class SubmissionForm extends React.Component {
       sample_length,
       sample_width,
       sample_thickness,
-      sample_weight_grams,
+      sample_weight,
       peak_hz_long_grain,
       peak_hz_cross_grain,
       comments
@@ -72,7 +72,7 @@ export default class SubmissionForm extends React.Component {
       sample_length: sample_length.value,
       sample_width: sample_width.value,
       sample_thickness: sample_thickness.value,
-      sample_weight_grams: sample_weight_grams.value,
+      sample_weight: sample_weight.value,
       peak_hz_long_grain: peak_hz_long_grain.value,
       peak_hz_cross_grain: peak_hz_cross_grain.value,
       comments: comments.value

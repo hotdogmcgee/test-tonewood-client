@@ -3,11 +3,15 @@ import React, { Component } from "react";
 import WoodContext from "../../contexts/WoodContext";
 import WoodApiService from "../../services/wood-api-service";
 import { Section } from "../../components/Utils/Utils";
-import { WoodDescription, MakeSubmissionsTable, AverageEach } from './WoodPageHelpers.js'
-import { Link } from 'react-router-dom'
-import { Button } from '../../components/Utils/Utils'
-import { ErrorModal } from '../../components/ErrorModal/ErrorModal'
-import  URLError  from '../../components/Validation/URLError'
+import {
+  WoodDescription,
+  MakeSubmissionsTable,
+  AverageEach
+} from "./WoodPageHelpers.js";
+import { Link } from "react-router-dom";
+import { Button } from "../../components/Utils/Utils";
+import { ErrorModal } from "../../components/ErrorModal/ErrorModal";
+import URLError from '../../Validation/URLError';
 import "./WoodPage.css";
 
 export default class WoodPage extends Component {
@@ -16,7 +20,6 @@ export default class WoodPage extends Component {
   };
 
   static contextType = WoodContext;
-
 
   componentDidMount() {
     const { woodId } = this.props.match.params;
@@ -35,35 +38,24 @@ export default class WoodPage extends Component {
   }
 
   renderWood() {
-    const { wood, submissions } = this.context;
+    const { wood, submissions, columnNames } = this.context;
     // const { woodId } = this.props.match.params;
 
     // if (!wood && woodId !== undefined) {
     //   const message='This entry does not exist'
     //   return <URLError message={message}/>
-    // } 
-    if (submissions) {
-      const columnNames = [
-        'density',
-        'e_long',
-        'e_cross',
-        'velocity_sound_long',
-        'radiation_ratio',
-        'sample_length',
-        'sample_width',
-        'sample_thickness',
-        'sample_weight_grams',
-        'peak_hz_long_grain',
-        'peak_hz_cross_grain',
-      ]
-      AverageEach(submissions, columnNames)
-
-    }
+    // }
     return (
       <>
         {/* <div className='WoodPage__image' style={{backgroundImage: `url(${Wood.image})`}} /> */}
         <h2>{wood.common_name}</h2>
         <WoodDescription wood={wood} />
+        <Section id="Average-Data-Section">
+          {submissions && (
+            <AverageEach submissions={submissions} columnNames={columnNames} />
+          )}
+        </Section>
+
         <MakeSubmissionsTable submissions={submissions} />
         <Section id="Submission-Link-Section">
           <Link to={"/new-submission"} className="Submission-Link">
@@ -74,15 +66,13 @@ export default class WoodPage extends Component {
     );
   }
 
-
-
   render() {
     const { error, wood } = this.context;
     let description;
     if (error) {
       description =
         error.error === `Entry doesn't exist` ? (
-          <ErrorModal message={'Entry does not exist, please try another.'} />
+          <ErrorModal message={"Entry does not exist, please try another."} />
         ) : (
           <p className="red">There was an error</p>
         );
@@ -94,4 +84,3 @@ export default class WoodPage extends Component {
     return <Section className="WoodPage">{description}</Section>;
   }
 }
-

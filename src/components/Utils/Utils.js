@@ -2,6 +2,19 @@ import React from "react";
 import { format as formatDate, parseISO } from "date-fns";
 import "./Utils.css";
 
+export const displayFields = [
+  "Density",
+  "E Long (GPa)",
+  "E Cross (GPa)",
+  "Velocity Sound Long (Km/s)",
+  "Radiation Ratio",
+  "Length (mm)",
+  "Width (mm)",
+  "Thickness (mm)",
+  "Weight (grams)",
+  "Peak Frequency Long (Hz)",
+  "Peak Frequency Cross (Hz)"
+]
 export function Section({ className, list, ...props }) {
   const classes = ["Section", list && "Section--list", className]
     .filter(Boolean)
@@ -44,7 +57,7 @@ export function NumericFormFields({ className, ...props }) {
     "sample_length",
     "sample_width",
     "sample_thickness",
-    "sample_weight_grams",
+    "sample_weight",
     "peak_hz_long_grain",
     "peak_hz_cross_grain"
   ];
