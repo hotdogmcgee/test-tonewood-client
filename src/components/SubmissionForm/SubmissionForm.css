@@ -9,10 +9,14 @@
   margin-bottom: 0px;
 }
 
-.Input {
+.SubmissionForm div input {
   text-align: right;
   width: 40%;
 }
+/* .Input {
+  text-align: right;
+  width: 40%;
+} */
 
 .Textarea {
   width: 60%;

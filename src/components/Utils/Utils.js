@@ -3,10 +3,10 @@ import { format as formatDate, parseISO } from "date-fns";
 import "./Utils.css";
 
 export const displayFields = [
-  "Density",
+`Density (kg/m^3)`,
   "E Long (GPa)",
   "E Cross (GPa)",
-  "Velocity Sound Long (Km/s)",
+  "Velocity Sound Long (km/s)",
   "Radiation Ratio",
   "Length (mm)",
   "Width (mm)",
@@ -63,10 +63,10 @@ export function NumericFormFields({ className, ...props }) {
   ];
 
   const displayFields = [
-    "Density",
+    `Density (kg/m^3)`,
     "E Long (GPa)",
     "E Cross (GPa)",
-    "Velocity Sound Long (Km/s)",
+    "Velocity Sound Long (km/s)",
     "Radiation Ratio",
     "Length (mm)",
     "Width (mm)",

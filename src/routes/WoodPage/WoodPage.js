@@ -51,6 +51,7 @@ export default class WoodPage extends Component {
         <h2>{wood.common_name}</h2>
         <WoodDescription wood={wood} />
         <Section id="Average-Data-Section">
+          <h2>Averages</h2>
           {submissions && (
             <AverageEach submissions={submissions} columnNames={columnNames} />
           )}

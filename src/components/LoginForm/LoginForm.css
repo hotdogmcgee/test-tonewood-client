@@ -11,3 +11,10 @@ align-items: center;
 .LoginForm {
     text-align: center
 }
+.LoginForm div {
+    margin-bottom: 20px;
+}
+
+.LoginForm div input {
+    width: 40%
+}

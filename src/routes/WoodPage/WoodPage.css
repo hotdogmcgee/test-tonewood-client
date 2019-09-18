@@ -17,21 +17,27 @@
   }
 
   #Average-Data-Section {
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
-  #Average-Data-Section ul {
+  .Averages_List {
     list-style: none;
     /* display: flex; */
     flex-wrap: wrap;
     max-width: 1000px;
-    padding: 0
+    padding: 0;
+    background-image: linear-gradient(to right, rgba(	12, 55, 54,0), rgba(	12, 55, 54,0.5));
+    border-radius: 10px;
+    padding: 10px;
   }
 
-  #Average-Data-Section ul li {
-    border: 0.5px dotted grey;
+  .Averages_List li {
+    border: 1px outset white;
     /* text-align: center; */
     padding: 5px;
     width: 200px;
@@ -41,7 +47,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  #Average-Data-Section ul li p {
+  .Averages_List li p {
     margin-bottom: 0;
     max-width: 75%;
   }
@@ -106,6 +112,14 @@
 }
 
 /* alter averages ul */
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
+  .Averages_List {
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+  }
 
+  .Averages_List li {
+    margin: 5px
+  }
 }

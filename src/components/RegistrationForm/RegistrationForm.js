@@ -4,6 +4,7 @@ import AuthApiService from "../../services/auth-api-service";
 
 import ValidationError from "../../Validation/ValidationError";
 import { ErrorModal } from '../ErrorModal/ErrorModal'
+import './RegistrationForm.css'
 
 export default class RegistrationForm extends Component {
   constructor(props) {
@@ -183,11 +184,13 @@ export default class RegistrationForm extends Component {
   validateEmail(fieldValue) {
     const fieldErrors = { ...this.state.validationMessages };
     let hasError = false;
+    // const focusElement = () => document.getElementById('RegistrationForm__email').focus()
 
     fieldValue = fieldValue.trim();
     if (fieldValue.length === 0) {
-      fieldErrors.email = "User name is required";
+      fieldErrors.email = "Email is required";
       hasError = true;
+      // focusElement()
     } else {
       if (
         fieldValue.length < 3 ||
@@ -196,8 +199,9 @@ export default class RegistrationForm extends Component {
         )
       ) {
         fieldErrors.email =
-          "Name must be at least 3 characters long, using letters A-Z";
+          "Please enter a valid email";
         hasError = true;
+        // focusElement()
       } else {
         fieldErrors.email = "";
         hasError = false;
@@ -214,7 +218,6 @@ export default class RegistrationForm extends Component {
   }
 
   matchPasswords(fieldValue) {
-    console.log(this.state.formValid);
     const fieldErrors = { ...this.state.validationMessages };
     let hasError = false;
 
@@ -237,17 +240,6 @@ export default class RegistrationForm extends Component {
     );
   }
 
-  handleConditional(e) {
-    if (this.state.formValid) {
-      this.handleSubmit(e)
-    } else {
-      this.handleError()
-    }
-  }
-  handleError() {
-
-    console.log('oops');
-  }
 
   handleSubmit = ev => {
     ev.preventDefault();
@@ -279,7 +271,7 @@ export default class RegistrationForm extends Component {
   render() {
     const { error } = this.state;
     return (
-      <form className="RegistrationForm" onSubmit={e => this.handleConditional(e)}>
+      <form className="RegistrationForm" onSubmit={e => this.handleSubmit(e)}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="full_name">
           <label htmlFor="RegistrationForm__full_name">
@@ -333,7 +325,7 @@ export default class RegistrationForm extends Component {
         </div>
         <div className="repeat_password">
           <label htmlFor="RegistrationForm__repeat_password">
-            Repeat password <Required />
+            Confirm password <Required />
           </label>
           <Input
             name="repeat_password"
@@ -364,7 +356,7 @@ export default class RegistrationForm extends Component {
             message={this.state.validationMessages.email}
           />
         </div>
-        <Button type="submit">Register</Button>
+        <Button className={!this.state.formValid ? 'no-click' : ''} type="submit" disabled={!this.state.formValid}>Register</Button>
       </form>
     );
   }

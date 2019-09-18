@@ -39,6 +39,10 @@
     background-color: #8899cc;
     cursor: pointer;
   }
+
+  .no-click {
+    pointer-events: none;
+  }
   
   .Required {
     color: #CA1551;

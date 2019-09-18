@@ -67,7 +67,7 @@ function renderAverages(subAverages) {
     );
   });
 
-  return <ul>{averagesList}</ul>;
+  return <ul className='Averages_List'>{averagesList}</ul>;
 }
 
 
