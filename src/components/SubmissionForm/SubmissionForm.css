@@ -39,8 +39,16 @@ form > div {
   align-items: center;
   max-width: 400px;
   margin-bottom: 10px;
+  position: relative
 }
 
+#new_tw_name {
+  margin-bottom: 25px;
+}
+
+#new_tw_name .validation-error {
+  top: 100%
+}
 .comments {
   height: 150px;
   align-items: inherit;
@@ -96,6 +104,15 @@ form > div {
   font-weight: normal;
 }
 
+.tw_id {
+  position: relative;
+}
+
+.validation-error {
+  position: absolute;
+  color: red;
+  top: 85%
+}
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
 @media screen and (max-width: 400px) {

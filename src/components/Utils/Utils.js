@@ -1,5 +1,6 @@
 import React from "react";
 import { format as formatDate, parseISO } from "date-fns";
+import ValidationError from '../../Validation/ValidationError'
 import "./Utils.css";
 
 export const displayFields = [
@@ -82,7 +83,11 @@ export function NumericFormFields({ className, ...props }) {
         <label htmlFor={["SubmissionForm__", field].join("")} value={field}>
           {displayFields[key]} <Required />
         </label>
-        <Input name={field} className={field} {...props}></Input>
+        <Input name={field} className={field, 'numeric_field'} {...props} type="number" autoComplete='off' max='9999' min='0' step='any'></Input>
+        {/* <ValidationError
+            hasError={!this.state.numberValid}
+            message={'number validation error'}
+          /> */}
       </div>
     );
   });

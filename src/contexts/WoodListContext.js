@@ -30,7 +30,6 @@ export class WoodListProvider extends React.Component {
     }
 
     setError = error => {
-        console.error(error)
         this.setState({ error })
       }
     

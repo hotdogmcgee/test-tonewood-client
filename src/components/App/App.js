@@ -19,7 +19,6 @@ class App extends React.Component {
   };
 
   static getDerivedStateFromError(error) {
-    console.error("modal test error");
     return { hasError: true };
   }
 

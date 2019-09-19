@@ -25,12 +25,17 @@ export function MakeSubmissionsTable({ submissions = [] }) {
 }
 
 export function AverageEach({ submissions = [], columnNames = [] }) {
-  const subAverages = columnNames.map(column =>
+
+  if (submissions.length) {const subAverages = columnNames.map(column =>
     getColumnAverageByName(submissions, column)
   );
   const list = renderAverages(subAverages);
 
-  return <div>{list}</div>;
+  return <div>{list}</div>;}
+  else {
+    return <p>will need some data!</p>
+  }
+  
 }
 
 function niceSubKeys(text) {

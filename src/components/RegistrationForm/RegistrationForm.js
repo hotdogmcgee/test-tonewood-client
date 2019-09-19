@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Button, Input, Required } from "../Utils/Utils";
 import AuthApiService from "../../services/auth-api-service";
-
 import ValidationError from "../../Validation/ValidationError";
-import { ErrorModal } from '../ErrorModal/ErrorModal'
-import './RegistrationForm.css'
+import "./RegistrationForm.css";
 
 export default class RegistrationForm extends Component {
   constructor(props) {
@@ -67,17 +65,16 @@ export default class RegistrationForm extends Component {
   }
 
   updatePassword(password) {
-    console.log(password);
-    this.setState(
-      {password},
-      () => {this.validatePassword(password)});
-}
+    this.setState({ password }, () => {
+      this.validatePassword(password);
+    });
+  }
 
   updateRepeatPassword(repeatPassword) {
-    this.setState(
-      {repeatPassword},
-      () => {this.matchPasswords(repeatPassword)});
-}
+    this.setState({ repeatPassword }, () => {
+      this.matchPasswords(repeatPassword);
+    });
+  }
 
   updateEmail(email) {
     this.setState({ email }, () => {
@@ -198,8 +195,7 @@ export default class RegistrationForm extends Component {
           new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
         )
       ) {
-        fieldErrors.email =
-          "Please enter a valid email";
+        fieldErrors.email = "Please enter a valid email";
         hasError = true;
         // focusElement()
       } else {
@@ -222,7 +218,6 @@ export default class RegistrationForm extends Component {
     let hasError = false;
 
     const password = this.state.password;
-;
     if (fieldValue !== password) {
       fieldErrors.repeatPassword = "Passwords do not match!";
       hasError = true;
@@ -240,10 +235,15 @@ export default class RegistrationForm extends Component {
     );
   }
 
-
   handleSubmit = ev => {
     ev.preventDefault();
-    const { full_name, email, user_name, password, repeat_password } = ev.target;
+    const {
+      full_name,
+      email,
+      user_name,
+      password,
+      repeat_password
+    } = ev.target;
 
     this.setState({ error: null });
 
@@ -265,7 +265,6 @@ export default class RegistrationForm extends Component {
       .catch(res => {
         this.setState({ error: res.error });
       });
-
   };
 
   render() {
@@ -313,7 +312,7 @@ export default class RegistrationForm extends Component {
           </label>
           <Input
             name="password"
-            type="text"
+            type="password"
             required
             id="RegistrationForm__password"
             onChange={e => this.updatePassword(e.target.value)}
@@ -329,7 +328,7 @@ export default class RegistrationForm extends Component {
           </label>
           <Input
             name="repeat_password"
-            type="text"
+            type="password"
             required
             id="RegistrationForm__repeat-password"
             autoComplete="off"
@@ -356,7 +355,13 @@ export default class RegistrationForm extends Component {
             message={this.state.validationMessages.email}
           />
         </div>
-        <Button className={!this.state.formValid ? 'no-click' : ''} type="submit" disabled={!this.state.formValid}>Register</Button>
+        <Button
+          className={!this.state.formValid ? "no-click" : ""}
+          type="submit"
+          disabled={!this.state.formValid}
+        >
+          Register
+        </Button>
       </form>
     );
   }

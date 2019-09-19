@@ -5,14 +5,13 @@ import { Link } from "react-router-dom";
 
 export function ErrorModal(message) {
 
-  console.log(message);
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
     setShow(false);
   };
 
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
 
   //how can i get this to show on page error?!?!
   return (

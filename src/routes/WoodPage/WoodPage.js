@@ -11,7 +11,6 @@ import {
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Utils/Utils";
 import { ErrorModal } from "../../components/ErrorModal/ErrorModal";
-import URLError from '../../Validation/URLError';
 import "./WoodPage.css";
 
 export default class WoodPage extends Component {
@@ -39,12 +38,6 @@ export default class WoodPage extends Component {
 
   renderWood() {
     const { wood, submissions, columnNames } = this.context;
-    // const { woodId } = this.props.match.params;
-
-    // if (!wood && woodId !== undefined) {
-    //   const message='This entry does not exist'
-    //   return <URLError message={message}/>
-    // }
     return (
       <>
         {/* <div className='WoodPage__image' style={{backgroundImage: `url(${Wood.image})`}} /> */}
@@ -55,6 +48,8 @@ export default class WoodPage extends Component {
           {submissions && (
             <AverageEach submissions={submissions} columnNames={columnNames} />
           )}
+
+
         </Section>
 
         <MakeSubmissionsTable submissions={submissions} />
