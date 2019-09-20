@@ -8,7 +8,7 @@ export const nullWood = {
 const WoodContext = React.createContext({
   wood: nullWood,
   submissions: [],
-  columnNames: [],
+  columnNamesToAverage: [],
   error: null,
   hasError: null,
   setError: () => {},
@@ -23,18 +23,12 @@ export default WoodContext
 export class WoodProvider extends Component {
   state = {
     wood: nullWood,
-    columnNames: [
+    columnNamesToAverage: [
       'density',
       'e_long',
       'e_cross',
       'velocity_sound_long',
-      'radiation_ratio',
-      'sample_length',
-      'sample_width',
-      'sample_thickness',
-      'sample_weight',
-      'peak_hz_long_grain',
-      'peak_hz_cross_grain',
+      'radiation_ratio'
     ],
     error: null,
   };
@@ -65,7 +59,7 @@ export class WoodProvider extends Component {
     const value = {
       wood: this.state.wood,
       submissions: this.state.submissions,
-      columnNames: this.state.columnNames,
+      columnNamesToAverage: this.state.columnNamesToAverage,
       error: this.state.error,
       hasError: this.state.hasError,
       setError: this.setError,

@@ -11,6 +11,10 @@ import "./WelcomePage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class WelcomePage extends React.Component {
+
+state = {
+    softwoodToggle: true
+  }
   static contextType = WoodListContext;
 
   componentDidMount() {
@@ -52,6 +56,23 @@ export default class WelcomePage extends React.Component {
     this.context.setWoodsList(newList);
   };
 
+  handleSoftwoodChecked(value) {
+
+    let currentList = [];
+    let newList = [];
+
+    if (value) {
+      currentList = this.context.savedList;
+
+      newList = currentList.filter(item => item.hardness.toLowerCase() === 'softwood'
+      );
+    } else {
+      newList = this.context.savedList;
+    }
+
+    this.context.setWoodsList(newList);
+  }
+
   render() {
     const { error } = this.context;
 
@@ -64,6 +85,7 @@ export default class WelcomePage extends React.Component {
         <Section id="SearchBar__Section">
           <FontAwesomeIcon icon="tree" size="3x" />
           <SearchBar onSearchChange={this.handleSearchChange} />
+          <p onClick={this.handleSoftwoodChecked(!this.state.softwoodToggle)}>select softwoods</p>
         </Section>
         <Section list className="WoodList">
           {error ? <h2>error</h2> : this.renderWoods()}

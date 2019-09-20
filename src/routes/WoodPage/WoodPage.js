@@ -37,7 +37,7 @@ export default class WoodPage extends Component {
   }
 
   renderWood() {
-    const { wood, submissions, columnNames } = this.context;
+    const { wood, submissions, columnNamesToAverage } = this.context;
     return (
       <>
         {/* <div className='WoodPage__image' style={{backgroundImage: `url(${Wood.image})`}} /> */}
@@ -46,7 +46,7 @@ export default class WoodPage extends Component {
         <Section id="Average-Data-Section">
           <h2>Averages</h2>
           {submissions && (
-            <AverageEach submissions={submissions} columnNames={columnNames} />
+            <AverageEach submissions={submissions} columnNames={columnNamesToAverage} />
           )}
 
 
