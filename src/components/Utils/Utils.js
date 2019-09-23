@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { format as formatDate, parseISO } from "date-fns";
 import ValidationError from '../../Validation/ValidationError'
 import "./Utils.css";
@@ -47,6 +47,27 @@ export function Input({ className, ...props }) {
 export function Textarea({ className, ...props }) {
   return <textarea className={["Textarea", className].join(" ")} {...props} />;
 }
+
+
+export function Switch({isOn, ...props}) {
+  return (
+    <>
+      <input
+        checked={isOn}
+        onChange={() => props.handleChange()}
+        className="react-switch-checkbox"
+        id={`react-switch-new`}
+        type="checkbox"
+      />
+      <label
+        className="react-switch-label"
+        htmlFor={`react-switch-new`}
+      >
+        <span className={`react-switch-button`} />
+      </label>
+    </>
+  );
+};
 
 export function NumericFormFields({ className, ...props }) {
   const inputFields = [
