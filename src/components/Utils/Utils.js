@@ -49,19 +49,19 @@ export function Textarea({ className, ...props }) {
 }
 
 
-export function Switch({isOn, ...props}) {
+export function Switch({isOn, switchId, ...props }) {
   return (
     <>
       <input
         checked={isOn}
         onChange={() => props.handleChange()}
         className="react-switch-checkbox"
-        id={`react-switch-new`}
+        id={switchId}
         type="checkbox"
       />
       <label
         className="react-switch-label"
-        htmlFor={`react-switch-new`}
+        htmlFor={switchId}
       >
         <span className={`react-switch-button`} />
       </label>

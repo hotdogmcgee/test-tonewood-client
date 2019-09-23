@@ -73,7 +73,7 @@ export default class WelcomePage extends React.Component {
       newList = currentList.filter(item => {
         const lc = item.hardness.toLowerCase();
         const filter = "softwood";
-        return lc.includes(!filter);
+        return lc !== filter
       });
     } else {
       newList = this.context.savedList;
@@ -91,7 +91,7 @@ export default class WelcomePage extends React.Component {
       newList = currentList.filter(item => {
         const lc = item.hardness.toLowerCase();
         const filter = "hardwood";
-        return lc.includes(!filter);
+        return lc !== filter
       });
     } else {
       newList = this.context.savedList;
@@ -101,8 +101,6 @@ export default class WelcomePage extends React.Component {
   }
   updateSoftwoods() {
     const { toggleSoftwood } = this.state;
-    console.log("toggleSoftwood: ", toggleSoftwood);
-
     this.setState(
       {
         toggleSoftwood: !toggleSoftwood
@@ -112,10 +110,7 @@ export default class WelcomePage extends React.Component {
   }
 
   updateHardwoods() {
-    console.log("hard");
     const { toggleHardwood } = this.state;
-    console.log("toggleHardwood: ", toggleHardwood);
-
     this.setState(
       {
         toggleHardwood: !toggleHardwood
@@ -136,21 +131,13 @@ export default class WelcomePage extends React.Component {
         <Section id="SearchBar__Section">
           <FontAwesomeIcon icon="tree" size="3x" />
           <SearchBar onSearchChange={this.handleSearchChange} />
-          <div><Switch
-            isOn={this.state.toggleHardwood}
-            handleChange={this.updateHardwoods}
-          /></div>
-          <SwitchHardness handleSoftwoodChange={this.updateSoftwoods}
+
+          <SwitchHardness
+            handleSoftwoodChange={this.updateSoftwoods}
             softwoodOn={this.state.toggleSoftwood}
             hardwoodOn={this.state.toggleHardwood}
             handleHardwoodChange={this.updateHardwoods}
-            />
-            {/* <div><Switch
-            handleChange={this.updateSoftwoods}
-            isOn={this.state.toggleSoftwood}
-          /></div> */}
-     
-          
+          />
         </Section>
         <Section list className="WoodList">
           {error ? <h2>error</h2> : this.renderWoods()}
@@ -160,8 +147,6 @@ export default class WelcomePage extends React.Component {
             <Button>Submit your data!</Button>
           </Link>
         </Section>
-
-          
       </>
     );
   }
