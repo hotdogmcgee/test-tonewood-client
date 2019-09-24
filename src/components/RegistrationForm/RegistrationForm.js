@@ -145,7 +145,7 @@ export default class RegistrationForm extends Component {
   }
 
   validatePassword(fieldValue) {
-    const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
+    const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\S]+/;
     const fieldErrors = { ...this.state.validationMessages };
     let hasError = false;
 
@@ -192,7 +192,7 @@ export default class RegistrationForm extends Component {
       if (
         fieldValue.length < 3 ||
         !fieldValue.match(
-          new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+          new RegExp(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/)
         )
       ) {
         fieldErrors.email = "Please enter a valid email";

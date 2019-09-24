@@ -16,9 +16,8 @@
 
 }
 
-#SearchBar__Section {
-  display: flex;
-  margin-top: 1rem;
+.hardness-switches {
+  display: flex
 }
 
 .Button {

@@ -51,7 +51,8 @@ export function Textarea({ className, ...props }) {
 
 export function Switch({isOn, switchId, ...props }) {
   return (
-    <>
+    <div className='switch-container'>
+      <span className="switch-wood-type">{props.type}</span>
       <input
         checked={isOn}
         onChange={() => props.handleChange()}
@@ -60,12 +61,13 @@ export function Switch({isOn, switchId, ...props }) {
         type="checkbox"
       />
       <label
+      style={{ background: isOn && '#06D6A0' }}
         className="react-switch-label"
         htmlFor={switchId}
       >
         <span className={`react-switch-button`} />
       </label>
-    </>
+    </div>
   );
 };
 
@@ -104,7 +106,7 @@ export function NumericFormFields({ className, ...props }) {
         <label htmlFor={["SubmissionForm__", field].join("")} value={field}>
           {displayFields[key]} <Required />
         </label>
-        <Input name={field} className={field, 'numeric_field'} {...props} type="number" autoComplete='off' max='9999' min='0' step='any'></Input>
+        <Input name={field} className={'numeric_field'} {...props} type="number" autoComplete='off' max='9999' min='0' step='any'></Input>
         {/* <ValidationError
             hasError={!this.state.numberValid}
             message={'number validation error'}

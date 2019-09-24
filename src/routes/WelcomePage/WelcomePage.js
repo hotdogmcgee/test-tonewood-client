@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Section, Button } from "../../components/Utils/Utils";
 import { Link } from "react-router-dom";
 import WoodListContext from "../../contexts/WoodListContext";
@@ -7,17 +7,16 @@ import WoodListItem from "../../components/WoodListItem/WoodListItem";
 import About from "../../components/About/About";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import SwitchHardness from "../../components/SwitchHardness/SwitchHardness";
-import { ErrorModal } from "../../components/ErrorModal/ErrorModal";
 import "./WelcomePage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Switch } from "../../components/Utils/Utils";
 
 export default class WelcomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       toggleSoftwood: true,
-      toggleHardwood: true
+      toggleHardwood: true,
+      searchValue: ""
     };
     this.updateSoftwoods = this.updateSoftwoods.bind(this);
     this.updateHardwoods = this.updateHardwoods.bind(this);
@@ -49,7 +48,15 @@ export default class WelcomePage extends React.Component {
     let currentList = [];
     let newList = [];
 
-    if (value !== "") {
+    this.setState({
+      searchValue: value
+    });
+
+    const { toggleHardwood, toggleSoftwood } = this.state;
+
+    if (!toggleHardwood && !toggleSoftwood) {
+      newList = [];
+    } else if (value !== "") {
       currentList = this.context.savedList;
 
       newList = currentList.filter(item => {
@@ -62,50 +69,51 @@ export default class WelcomePage extends React.Component {
     }
 
     this.context.setWoodsList(newList);
+    this.hardnessFunc()
   };
 
-  softwoodsFunc() {
+  hardnessFunc() {
     let currentList = [];
     let newList = [];
-    if (!this.state.toggleSoftwood) {
+    const { toggleHardwood, toggleSoftwood, searchValue } = this.state;
+
+    if (!toggleHardwood && !toggleSoftwood) {
+      newList = [];
+    } else if (!toggleSoftwood) {
       currentList = this.context.savedList;
 
       newList = currentList.filter(item => {
         const lc = item.hardness.toLowerCase();
         const filter = "softwood";
-        return lc !== filter
+        return lc !== filter;
       });
-    } else {
-      newList = this.context.savedList;
-    }
-
-    this.context.setWoodsList(newList);
-  }
-
-  hardwoodsFunc() {
-    let currentList = [];
-    let newList = [];
-    if (!this.state.toggleHardwood) {
+    } else if (!toggleHardwood) {
       currentList = this.context.savedList;
 
       newList = currentList.filter(item => {
         const lc = item.hardness.toLowerCase();
         const filter = "hardwood";
-        return lc !== filter
+        return lc !== filter;
       });
     } else {
       newList = this.context.savedList;
     }
 
-    this.context.setWoodsList(newList);
+    const searchedList = newList.filter(item => {
+      const filter = searchValue.toLowerCase()
+      const lc = item.common_name.toLowerCase()
+      return lc.includes(filter)
+    });
+    this.context.setWoodsList(searchedList);
   }
+
   updateSoftwoods() {
     const { toggleSoftwood } = this.state;
     this.setState(
       {
         toggleSoftwood: !toggleSoftwood
       },
-      this.softwoodsFunc
+      this.hardnessFunc
     );
   }
 
@@ -115,7 +123,7 @@ export default class WelcomePage extends React.Component {
       {
         toggleHardwood: !toggleHardwood
       },
-      this.hardwoodsFunc
+      this.hardnessFunc
     );
   }
 
@@ -131,7 +139,8 @@ export default class WelcomePage extends React.Component {
         <Section id="SearchBar__Section">
           <FontAwesomeIcon icon="tree" size="3x" />
           <SearchBar onSearchChange={this.handleSearchChange} />
-
+        </Section>
+        <Section id="SwitchHardness__Section">
           <SwitchHardness
             handleSoftwoodChange={this.updateSoftwoods}
             softwoodOn={this.state.toggleSoftwood}

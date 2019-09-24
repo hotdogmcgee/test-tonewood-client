@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./WoodListItem.css";
-import ThujaPlicata from "../../WoodImages/ThujaPlicata.jpg";
 
 export default class WoodListItem extends React.Component {
   render() {
@@ -42,12 +41,4 @@ function readableSubmissionCount(number) {
       return `${number} submissions`;
   }
 }
-function truncate(text) {
-  const words = text.split(" ");
 
-  if (words.length > 10) {
-    return words.slice(0, 10).join(" ") + " ...";
-  }
-
-  return text;
-}
