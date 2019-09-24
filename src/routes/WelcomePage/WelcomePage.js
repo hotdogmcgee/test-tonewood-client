@@ -44,6 +44,34 @@ export default class WelcomePage extends React.Component {
     return newList.map(wood => <WoodListItem key={wood.id} wood={wood} />);
   }
 
+  //come back to this to clean it up
+  handleSearchHardness(list) {
+    const { toggleSoftwood, toggleHardwood } = this.state;
+
+    let newList
+
+    if (!toggleHardwood && !toggleSoftwood) {
+      newList = [];
+    } else if (!toggleSoftwood) {
+      newList = list.filter(item => {
+        const lc = item.hardness.toLowerCase();
+        const filter = "softwood";
+        return lc !== filter;
+      });
+    } else if (!toggleHardwood) {
+      newList = list.filter(item => {
+        const lc = item.hardness.toLowerCase();
+        const filter = "hardwood";
+        return lc !== filter;
+      });
+      
+    }
+    else {
+      newList = list;
+    }
+
+    return newList
+  }
   handleSearchChange = value => {
     let currentList = [];
     let newList = [];
@@ -68,8 +96,8 @@ export default class WelcomePage extends React.Component {
       newList = this.context.savedList;
     }
 
-    this.context.setWoodsList(newList);
-    this.hardnessFunc()
+    const hardnessList = this.handleSearchHardness(newList)
+    this.context.setWoodsList(hardnessList);
   };
 
   hardnessFunc() {
@@ -100,9 +128,9 @@ export default class WelcomePage extends React.Component {
     }
 
     const searchedList = newList.filter(item => {
-      const filter = searchValue.toLowerCase()
-      const lc = item.common_name.toLowerCase()
-      return lc.includes(filter)
+      const filter = searchValue.toLowerCase();
+      const lc = item.common_name.toLowerCase();
+      return lc.includes(filter);
     });
     this.context.setWoodsList(searchedList);
   }

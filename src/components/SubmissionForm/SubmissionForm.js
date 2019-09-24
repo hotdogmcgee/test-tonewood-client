@@ -1,15 +1,17 @@
 import React from "react";
 import WoodApiService from "../../services/wood-api-service";
 // import SubmissionValidation from '../../Validation/SubmissionValidation'
-import { Button, Textarea, NumericFormFields } from "../Utils/Utils";
+import { Button, Textarea, NumericFormFields, Switch, Section } from "../Utils/Utils";
 import WoodListContext from "../../contexts/WoodListContext";
 import ValidationError from "../../Validation/ValidationError";
+import Formulas from './SubmissionFormHelpers'
 import "./SubmissionForm.css";
 
 export default class SubmissionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      submitReady: false,
       optionValue: "none",
       error: null,
       selectWood: "",
@@ -114,7 +116,6 @@ export default class SubmissionForm extends React.Component {
     const {
       tw_id,
       new_tw_name,
-      density,
       e_long,
       e_cross,
       velocity_sound_long,
@@ -130,7 +131,6 @@ export default class SubmissionForm extends React.Component {
     const items = [
       tw_id,
       new_tw_name,
-      density,
       e_long,
       e_cross,
       velocity_sound_long,
@@ -149,10 +149,12 @@ export default class SubmissionForm extends React.Component {
     if (this.handleSubmitValid() === false) {
       console.log("oops");
     } else {
+      const calcDensity = Formulas.getDensity(sample_length.value, sample_thickness.value, sample_width.value, sample_weight.value)
+      console.log(calcDensity);
       WoodApiService.postSubmission({
         tw_id: tw_id.value,
         new_tw_name: new_tw_name.value || null,
-        density: density.value,
+        density: calcDensity,
         e_long: e_long.value,
         e_cross: e_cross.value,
         velocity_sound_long: velocity_sound_long.value,
@@ -189,6 +191,16 @@ export default class SubmissionForm extends React.Component {
     this.setState({
       new_tw_nameValid: true
     })
+  }
+
+  handleSubmitReady() {
+    console.log('ran');
+    const {submitReady} = this.state
+    console.log(submitReady);
+    this.setState({
+      submitReady: !submitReady
+    })
+
   }
 
   renderTwOptions() {
@@ -260,7 +272,14 @@ export default class SubmissionForm extends React.Component {
           ></Textarea>
         </div>
 
-        <Button type="submit">Add submission</Button>
+        <Button type="submit" disabled={!this.state.submitReady}>Add submission</Button>
+        <Section id="SubmitReady__Section">
+          <h2>I have double checked my data!</h2>
+        <Switch isOn={this.state.submitReady} switchId={'submit-ready-switch'}
+        handleChange={() => this.handleSubmitReady()}/>
+
+        </Section>
+
       </form>
     );
   }

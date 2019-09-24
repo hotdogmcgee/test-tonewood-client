@@ -73,7 +73,6 @@ export function Switch({isOn, switchId, ...props }) {
 
 export function NumericFormFields({ className, ...props }) {
   const inputFields = [
-    "density",
     "e_long",
     "e_cross",
     "velocity_sound_long",
@@ -87,7 +86,6 @@ export function NumericFormFields({ className, ...props }) {
   ];
 
   const displayFields = [
-    `Density (kg/m^3)`,
     "E Long (GPa)",
     "E Cross (GPa)",
     "Velocity Sound Long (km/s)",
