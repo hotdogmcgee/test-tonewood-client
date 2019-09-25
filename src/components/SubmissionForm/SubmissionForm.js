@@ -146,7 +146,6 @@ export default class SubmissionForm extends React.Component {
       const calcECross = Formulas.getECross(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, peak_hz_cross_grain.value)
       const calcVelSoundLong = Formulas.getVelocitySoundLong(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, calcELong)
       const calcRadiationRatio = Formulas.getRadiationRatio(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, calcVelSoundLong)
-      console.log('calcRadiationRatio: ', calcRadiationRatio);
       WoodApiService.postSubmission({
         tw_id: tw_id.value,
         new_tw_name: new_tw_name.value || null,
