@@ -73,10 +73,6 @@ export function Switch({isOn, switchId, ...props }) {
 
 export function NumericFormFields({ className, ...props }) {
   const inputFields = [
-    "e_long",
-    "e_cross",
-    "velocity_sound_long",
-    "radiation_ratio",
     "sample_length",
     "sample_width",
     "sample_thickness",
@@ -86,10 +82,6 @@ export function NumericFormFields({ className, ...props }) {
   ];
 
   const displayFields = [
-    "E Long (GPa)",
-    "E Cross (GPa)",
-    "Velocity Sound Long (km/s)",
-    "Radiation Ratio",
     "Length (mm)",
     "Width (mm)",
     "Thickness (mm)",

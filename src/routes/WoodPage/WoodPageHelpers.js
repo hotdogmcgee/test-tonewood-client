@@ -25,17 +25,16 @@ export function MakeSubmissionsTable({ submissions = [] }) {
 }
 
 export function AverageEach({ submissions = [], columnNames = [] }) {
+  if (submissions.length) {
+    const subAverages = columnNames.map(column =>
+      getColumnAverageByName(submissions, column)
+    );
+    const list = renderAverages(subAverages);
 
-  if (submissions.length) {const subAverages = columnNames.map(column =>
-    getColumnAverageByName(submissions, column)
-  );
-  const list = renderAverages(subAverages);
-
-  return <div>{list}</div>;}
-  else {
-    return <p>will need some data!</p>
+    return <div>{list}</div>;
+  } else {
+    return <p>will need some data!</p>;
   }
-  
 }
 
 function niceSubKeys(text) {
@@ -43,55 +42,52 @@ function niceSubKeys(text) {
   return niceText;
 }
 
-
 function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  var table,
+    rows,
+    switching,
+    i,
+    x,
+    y,
+    shouldSwitch,
+    dir,
+    switchcount = 0;
   table = document.getElementById("Woodpage__submissions-table");
   switching = true;
-  dir = "asc"; 
+  dir = "asc";
   while (switching) {
-
     switching = false;
     rows = table.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
+    for (i = 1; i < rows.length - 1; i++) {
       shouldSwitch = false;
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-    //   if (dir === "asc") {
-    //     if (Number(x.innerHTML) > Number(y.innerHTML)) {
-    //       shouldSwitch= true;
-    //       break;
-    //     }
-    //   } else if (dir === "desc") {
-    //     if (Number(x.innerHTML) < Number(y.innerHTML)) {
-    //       shouldSwitch = true;
-    //       break;
-    //     }
-    //   }
-    var xContent = (isNaN(x.innerHTML)) 
-              ? (x.innerHTML.toLowerCase() === '-')
-                    ? 0 : x.innerHTML.toLowerCase()
-              : parseFloat(x.innerHTML);
-          var yContent = (isNaN(y.innerHTML)) 
-              ? (y.innerHTML.toLowerCase() === '-')
-                    ? 0 : y.innerHTML.toLowerCase()
-              : parseFloat(y.innerHTML);
-          if (dir == "asc") {
-              if (xContent > yContent) {
-                  shouldSwitch= true;
-                  break;
-              }
-          } else if (dir == "desc") {
-              if (xContent < yContent) {
-                  shouldSwitch= true;
-                  break;
-              }
-          }
-}
+      var xContent = isNaN(x.innerHTML)
+        ? x.innerHTML.toLowerCase() === "-"
+          ? 0
+          : x.innerHTML.toLowerCase()
+        : parseFloat(x.innerHTML);
+      var yContent = isNaN(y.innerHTML)
+        ? y.innerHTML.toLowerCase() === "-"
+          ? 0
+          : y.innerHTML.toLowerCase()
+        : parseFloat(y.innerHTML);
+      if (dir === "asc") {
+        if (xContent > yContent) {
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir === "desc") {
+        if (xContent < yContent) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
     if (shouldSwitch) {
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
-      switchcount ++;      
+      switchcount++;
     } else {
       if (switchcount === 0 && dir === "asc") {
         dir = "desc";
@@ -121,7 +117,7 @@ function makeTable(submissions = []) {
 function renderAverages(subAverages) {
   const averagesList = subAverages.map((item, index) => {
     // const keyName = Object.keys(item)[0]
-    const niceKey = niceSubKeys(displayFields[index])
+    const niceKey = niceSubKeys(displayFields[index]);
     return (
       <li key={index}>
         <p>{niceKey}</p>
@@ -130,10 +126,8 @@ function renderAverages(subAverages) {
     );
   });
 
-  return <ul className='Averages_List'>{averagesList}</ul>;
+  return <ul className="Averages_List">{averagesList}</ul>;
 }
-
-
 
 function getColumnAverageByName(data, columnName) {
   let sumVal = 0;
@@ -149,7 +143,12 @@ function makeHeaderNames(filteredHeaderNames) {
   const headerNames = filteredHeaderNames.map((key, index) => {
     const niceKey = niceSubKeys(key);
     return (
-      <th onClick={() => sortTable(index)} title={niceKey} key={index} className={`th__${key}`}>
+      <th
+        onClick={() => sortTable(index)}
+        title={niceKey}
+        key={index}
+        className={`th__${key}`}
+      >
         {niceKey.toUpperCase()}
       </th>
     );

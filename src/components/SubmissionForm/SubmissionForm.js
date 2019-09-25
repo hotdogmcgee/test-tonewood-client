@@ -116,10 +116,6 @@ export default class SubmissionForm extends React.Component {
     const {
       tw_id,
       new_tw_name,
-      e_long,
-      e_cross,
-      velocity_sound_long,
-      radiation_ratio,
       sample_length,
       sample_width,
       sample_thickness,
@@ -131,10 +127,6 @@ export default class SubmissionForm extends React.Component {
     const items = [
       tw_id,
       new_tw_name,
-      e_long,
-      e_cross,
-      velocity_sound_long,
-      radiation_ratio,
       sample_length,
       sample_width,
       sample_thickness,
@@ -149,16 +141,20 @@ export default class SubmissionForm extends React.Component {
     if (this.handleSubmitValid() === false) {
       console.log("oops");
     } else {
-      const calcDensity = Formulas.getDensity(sample_length.value, sample_thickness.value, sample_width.value, sample_weight.value)
-      console.log(calcDensity);
+      const calcDensity = Formulas.getDensity(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value)
+      const calcELong = Formulas.getELong(sample_length.value,  sample_width.value, sample_thickness.value, sample_weight.value, peak_hz_long_grain.value)
+      const calcECross = Formulas.getECross(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, peak_hz_cross_grain.value)
+      const calcVelSoundLong = Formulas.getVelocitySoundLong(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, calcELong)
+      const calcRadiationRatio = Formulas.getRadiationRatio(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, calcVelSoundLong)
+      console.log('calcRadiationRatio: ', calcRadiationRatio);
       WoodApiService.postSubmission({
         tw_id: tw_id.value,
         new_tw_name: new_tw_name.value || null,
         density: calcDensity,
-        e_long: e_long.value,
-        e_cross: e_cross.value,
-        velocity_sound_long: velocity_sound_long.value,
-        radiation_ratio: radiation_ratio.value,
+        e_long: calcELong,
+        e_cross: calcECross,
+        velocity_sound_long: calcVelSoundLong,
+        radiation_ratio: calcRadiationRatio,
         sample_length: sample_length.value,
         sample_width: sample_width.value,
         sample_thickness: sample_thickness.value,
@@ -194,9 +190,7 @@ export default class SubmissionForm extends React.Component {
   }
 
   handleSubmitReady() {
-    console.log('ran');
     const {submitReady} = this.state
-    console.log(submitReady);
     this.setState({
       submitReady: !submitReady
     })
