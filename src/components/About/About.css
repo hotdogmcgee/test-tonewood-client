@@ -2,6 +2,10 @@
     text-align: center
 }
 
+#About h2 {
+    font-size: 25px;
+}
+
 #About a {
     text-decoration: none !important;
     color: #8899cc;

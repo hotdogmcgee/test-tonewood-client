@@ -16,6 +16,24 @@
 
 }
 
+#ToggleLength__Section {
+  text-align: right;
+}
+
+#ToggleLength__Section button {
+  border: 1px solid #aaa;
+  background-color: #eee;
+  font-size: 1.1em;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+#ToggleLength__Section button:hover {
+  background-color: #8899cc;
+}
+
 .hardness-switches {
   display: flex
 }

@@ -9,6 +9,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import SwitchHardness from "../../components/SwitchHardness/SwitchHardness";
 import "./WelcomePage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { runInThisContext } from "vm";
 
 export default class WelcomePage extends React.Component {
   constructor(props) {
@@ -16,10 +17,12 @@ export default class WelcomePage extends React.Component {
     this.state = {
       toggleSoftwood: true,
       toggleHardwood: true,
+      showMore: false,
       searchValue: ""
     };
     this.updateSoftwoods = this.updateSoftwoods.bind(this);
     this.updateHardwoods = this.updateHardwoods.bind(this);
+    // this.handleShowMore = this.handleShowMore.bind(this)
   }
 
   static contextType = WoodListContext;
@@ -39,9 +42,44 @@ export default class WelcomePage extends React.Component {
     const newList = woodsList.filter(
       wood => wood.common_name.toLowerCase() !== "other"
     );
-    newList.filter((wood, index) => index < 9);
+    
+    if (!this.state.showMore) {
+      const filter = newList.filter((wood, index) => index < 9);
 
-    return newList.map(wood => <WoodListItem key={wood.id} wood={wood} />);
+    return filter.map(wood => <WoodListItem key={wood.id} wood={wood} />);
+    }
+
+    return newList.map(wood => <WoodListItem key={wood.id} wood={wood} />)
+    
+  }
+
+  renderShowMoreButton() {
+    if (this.context.woodsList.length) {
+      return(
+        <button onClick={() => this.handleListLengthToggle()}>Show More</button>
+      )
+    }
+    return ''
+    
+
+  }
+
+  renderShowLessButton() {
+    if (this.context.woodsList.length) {
+      return(
+        <button onClick={() => this.handleListLengthToggle()}>Show Less</button>
+      )
+    }
+    return ''
+
+  }
+
+  handleListLengthToggle() {
+
+    const current = this.state.showMore
+    this.setState({
+      showMore: !current 
+    })
   }
 
   //come back to this to clean it up
@@ -178,6 +216,10 @@ export default class WelcomePage extends React.Component {
         </Section>
         <Section list className="WoodList">
           {error ? <h2>error</h2> : this.renderWoods()}
+        </Section>
+        {/* <button onClick={() => this.handleShowMore()}>Show more</button> */}
+        <Section id="ToggleLength__Section">
+        {!this.state.showMore ? this.renderShowMoreButton() : this.renderShowLessButton()}
         </Section>
         <Section id="Submission-Link-Section">
           <Link to={"/new-submission"} className="Submission-Link">

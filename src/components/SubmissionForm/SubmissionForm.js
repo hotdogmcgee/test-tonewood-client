@@ -196,9 +196,24 @@ export default class SubmissionForm extends React.Component {
 
   }
 
+  compare(a, b) {
+    const genreA = a.common_name.toLowerCase();
+    const genreB = b.common_name.toLowerCase();
+    
+    let comparison = 0;
+    if (genreA > genreB) {
+      comparison = 1;
+    } else if (genreA < genreB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
   renderTwOptions() {
     const { woodsList = [] } = this.context;
-    return woodsList.map(wood => {
+    const sortList = woodsList.sort(this.compare)
+    const listWithoutOther = sortList.filter(wood => wood.id !== 1)
+    return listWithoutOther.map(wood => {
       return (
         <option value={wood.id} key={wood.id}>
           {wood.common_name} ({wood.genus} {wood.species})
@@ -230,6 +245,10 @@ export default class SubmissionForm extends React.Component {
             <option value="none" disabled hidden>
               Select a Wood
             </option>
+            <option value='1' key='1'>
+              Other
+            </option>
+            {/* <option value="" */}
             {this.renderTwOptions()}
           </select>
           <ValidationError

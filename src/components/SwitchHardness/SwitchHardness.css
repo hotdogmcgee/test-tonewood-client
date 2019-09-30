@@ -56,3 +56,24 @@
   .react-switch-label:active .react-switch-button {
     width: 30px;
   }
+
+  @media screen and (min-width: 700px) {
+
+    #SwitchHardness__Section {
+      width: 50vw;
+    }
+    .hardness-switches {
+      justify-content: space-around;
+    }
+
+    .switch-wood-type {
+      margin-right: 10px;
+      font-size: 25px;
+    }
+
+    .react-switch-label {
+      margin-bottom: 0;
+      top: 3px;
+      align-self: center;
+    }
+  }

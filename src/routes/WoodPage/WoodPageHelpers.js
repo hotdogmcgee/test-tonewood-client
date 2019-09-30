@@ -62,16 +62,26 @@ function sortTable(n) {
       shouldSwitch = false;
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-      var xContent = isNaN(x.innerHTML)
-        ? x.innerHTML.toLowerCase() === "-"
-          ? 0
-          : x.innerHTML.toLowerCase()
-        : parseFloat(x.innerHTML);
-      var yContent = isNaN(y.innerHTML)
-        ? y.innerHTML.toLowerCase() === "-"
-          ? 0
-          : y.innerHTML.toLowerCase()
-        : parseFloat(y.innerHTML);
+
+      if (n !== 1) {
+        var xContent = isNaN(x.innerHTML)
+          ? x.innerHTML.toLowerCase() === "-"
+            ? 0
+            : x.innerHTML.toLowerCase()
+          : parseFloat(x.innerHTML);
+
+        var yContent = isNaN(y.innerHTML)
+          ? y.innerHTML.toLowerCase() === "-"
+            ? 0
+            : y.innerHTML.toLowerCase()
+          : parseFloat(y.innerHTML);
+      } 
+      //to compare dates
+      else {
+        xContent = new Date(x.innerHTML);
+        yContent = new Date(y.innerHTML);
+      }
+
       if (dir === "asc") {
         if (xContent > yContent) {
           shouldSwitch = true;
