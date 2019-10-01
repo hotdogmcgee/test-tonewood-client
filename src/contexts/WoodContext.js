@@ -15,7 +15,8 @@ const WoodContext = React.createContext({
   clearError: () => {},
   setWood: () => {},
   clearWood: () => {},
-  setSubmissions: () => {}
+  setSubmissions: () => {},
+  setWoodNames: () => {}
 })
 
 export default WoodContext
@@ -30,6 +31,7 @@ export class WoodProvider extends Component {
       'velocity_sound_long',
       'radiation_ratio'
     ],
+    woodNames: [],
     error: null,
   };
 
@@ -46,7 +48,15 @@ export class WoodProvider extends Component {
   }
 
   setSubmissions = submissions => {
+    console.log(submissions);
     this.setState({ submissions })
+  }
+
+  setWoodNames = woods => {
+
+    const names = woods.map(wood => {return wood.common_name})
+    console.log(names)
+    this.setState({ woodNames: names})
   }
 
 
@@ -66,7 +76,8 @@ export class WoodProvider extends Component {
       clearError: this.clearError,
       setWood: this.setWood,
       clearWood: this.clearWood,
-      setSubmissions: this.setSubmissions
+      setSubmissions: this.setSubmissions,
+      setWoodNames: this.setWoodNames
     }
     return (
       <WoodContext.Provider value={value}>

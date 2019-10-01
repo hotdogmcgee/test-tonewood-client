@@ -75,7 +75,7 @@ function sortTable(n) {
             ? 0
             : y.innerHTML.toLowerCase()
           : parseFloat(y.innerHTML);
-      } 
+      }
       //to compare dates
       else {
         xContent = new Date(x.innerHTML);

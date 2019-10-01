@@ -12,9 +12,13 @@ export default class Header extends React.Component {
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
+        <Link to="/my-submissions">
+        My Submissions
+        </Link>
         <Link onClick={this.handleLogoutClick} to="/">
           Logout
         </Link>
+        
       </div>
     );
   }
@@ -27,6 +31,7 @@ export default class Header extends React.Component {
       </div>
     );
   }
+
 
   render() {
     return (
