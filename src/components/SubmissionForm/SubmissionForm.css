@@ -9,14 +9,10 @@
   margin-bottom: 0px;
 }
 
-.SubmissionForm div input {
+.numeric_field {
   text-align: right;
-  width: 40%;
+  width: 25%;
 }
-/* .Input {
-  text-align: right;
-  width: 40%;
-} */
 
 .Textarea {
   width: 60%;
@@ -39,7 +35,7 @@ form > div {
   align-items: center;
   max-width: 400px;
   margin-bottom: 10px;
-  position: relative
+  position: relative;
 }
 
 #new_tw_name {
@@ -47,7 +43,7 @@ form > div {
 }
 
 #new_tw_name .validation-error {
-  top: 100%
+  top: 100%;
 }
 .comments {
   height: 150px;
@@ -108,16 +104,29 @@ form > div {
   position: relative;
 }
 
+#SubmitReady__Section {
+  display: flex;
+}
+
+#SubmitReady__Section .switch-container {
+  align-items: center;
+  margin-left: 10px;
+}
+#SubmitReady__Section h2 {
+  font-size: 20px;
+}
+
 .validation-error {
   position: absolute;
   color: red;
-  top: 85%
+  top: 85%;
 }
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
-@media screen and (max-width: 400px) {
-  .Input {
-    text-align: right;
-    width: 20%;
+@media screen and (min-width: 700px) {
+  #SubmitReady__Section.react-switch-label {
+    margin-bottom: 0;
+    top: 3px;
+    align-self: center;
   }
 }

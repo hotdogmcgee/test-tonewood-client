@@ -55,6 +55,10 @@
   }
 
   @media screen and (min-width: 900px) {
+
+    .WoodListItem {
+      min-height: 150px;
+    }
     .WoodListItem__details h2 {
       font-size: 32px;
     }

@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: center;
     margin: 2rem 0;
+    
 }
 
 #SearchForm__entry {
@@ -18,5 +19,6 @@
 @media screen and (min-width: 800px) {
     #SearchBar__Section {
         justify-content: flex-start;
+        padding-left: 20px;
     }
 }

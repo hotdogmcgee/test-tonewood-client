@@ -187,7 +187,6 @@ export default class RegistrationForm extends Component {
     if (fieldValue.length === 0) {
       fieldErrors.email = "Email is required";
       hasError = true;
-      // focusElement()
     } else {
       if (
         fieldValue.length < 3 ||
@@ -197,7 +196,6 @@ export default class RegistrationForm extends Component {
       ) {
         fieldErrors.email = "Please enter a valid email";
         hasError = true;
-        // focusElement()
       } else {
         fieldErrors.email = "";
         hasError = false;

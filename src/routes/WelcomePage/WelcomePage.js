@@ -9,7 +9,6 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import SwitchHardness from "../../components/SwitchHardness/SwitchHardness";
 import "./WelcomePage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { runInThisContext } from "vm";
 
 export default class WelcomePage extends React.Component {
   constructor(props) {
@@ -22,7 +21,6 @@ export default class WelcomePage extends React.Component {
     };
     this.updateSoftwoods = this.updateSoftwoods.bind(this);
     this.updateHardwoods = this.updateHardwoods.bind(this);
-    // this.handleShowMore = this.handleShowMore.bind(this)
   }
 
   static contextType = WoodListContext;
@@ -35,8 +33,6 @@ export default class WelcomePage extends React.Component {
       .catch(this.context.setError);
   }
 
-  //limit the number shown?
-  //make function to show more
   renderWoods() {
     const { woodsList = [] } = this.context;
     const newList = woodsList.filter(
@@ -54,9 +50,9 @@ export default class WelcomePage extends React.Component {
   }
 
   renderShowMoreButton() {
-    if (this.context.woodsList.length) {
+    if (this.context.woodsList.length > 10) {
       return(
-        <button onClick={() => this.handleListLengthToggle()}>Show More</button>
+        <button className='fade-in' onClick={() => this.handleListLengthToggle()}>Show More</button>
       )
     }
     return ''
@@ -65,9 +61,9 @@ export default class WelcomePage extends React.Component {
   }
 
   renderShowLessButton() {
-    if (this.context.woodsList.length) {
+    if (this.context.woodsList.length > 10) {
       return(
-        <button onClick={() => this.handleListLengthToggle()}>Show Less</button>
+        <button className='fade-in' onClick={() => this.handleListLengthToggle()}>Show Less</button>
       )
     }
     return ''
@@ -216,8 +212,7 @@ export default class WelcomePage extends React.Component {
         </Section>
         <Section list className="WoodList">
           {error ? <h2>error</h2> : this.renderWoods()}
-        </Section>
-        {/* <button onClick={() => this.handleShowMore()}>Show more</button> */}
+        </Section>   
         <Section id="ToggleLength__Section">
         {!this.state.showMore ? this.renderShowMoreButton() : this.renderShowLessButton()}
         </Section>

@@ -1,10 +1,15 @@
 import React from "react";
 import WoodApiService from "../../services/wood-api-service";
-// import SubmissionValidation from '../../Validation/SubmissionValidation'
-import { Button, Textarea, NumericFormFields, Switch, Section } from "../Utils/Utils";
+import {
+  Button,
+  Textarea,
+  NumericFormFields,
+  Switch,
+  Section
+} from "../Utils/Utils";
 import WoodListContext from "../../contexts/WoodListContext";
 import ValidationError from "../../Validation/ValidationError";
-import Formulas from './SubmissionFormHelpers'
+import Formulas from "./SubmissionFormHelpers";
 import "./SubmissionForm.css";
 
 export default class SubmissionForm extends React.Component {
@@ -90,7 +95,8 @@ export default class SubmissionForm extends React.Component {
       document.getElementById("Input_new_tw_name").focus();
     } else {
       if (
-        fieldValue.length < 3 || fieldValue.length > 72 ||
+        fieldValue.length < 3 ||
+        fieldValue.length > 72 ||
         !fieldValue.match(new RegExp(/^\b(?!.*?\s{2})[A-Za-z ]{1,50}\b$/))
       ) {
         fieldErrors.new_tw_name =
@@ -139,13 +145,41 @@ export default class SubmissionForm extends React.Component {
       this.validateSelectWood(tw_id.value);
     }
     if (this.handleSubmitValid() === false) {
-      console.log("oops");
     } else {
-      const calcDensity = Formulas.getDensity(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value)
-      const calcELong = Formulas.getELong(sample_length.value,  sample_width.value, sample_thickness.value, sample_weight.value, peak_hz_long_grain.value)
-      const calcECross = Formulas.getECross(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, peak_hz_cross_grain.value)
-      const calcVelSoundLong = Formulas.getVelocitySoundLong(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, calcELong)
-      const calcRadiationRatio = Formulas.getRadiationRatio(sample_length.value, sample_width.value, sample_thickness.value,  sample_weight.value, calcVelSoundLong)
+      const calcDensity = Formulas.getDensity(
+        sample_length.value,
+        sample_width.value,
+        sample_thickness.value,
+        sample_weight.value
+      );
+      const calcELong = Formulas.getELong(
+        sample_length.value,
+        sample_width.value,
+        sample_thickness.value,
+        sample_weight.value,
+        peak_hz_long_grain.value
+      );
+      const calcECross = Formulas.getECross(
+        sample_length.value,
+        sample_width.value,
+        sample_thickness.value,
+        sample_weight.value,
+        peak_hz_cross_grain.value
+      );
+      const calcVelSoundLong = Formulas.getVelocitySoundLong(
+        sample_length.value,
+        sample_width.value,
+        sample_thickness.value,
+        sample_weight.value,
+        calcELong
+      );
+      const calcRadiationRatio = Formulas.getRadiationRatio(
+        sample_length.value,
+        sample_width.value,
+        sample_thickness.value,
+        sample_weight.value,
+        calcVelSoundLong
+      );
       WoodApiService.postSubmission({
         tw_id: tw_id.value,
         new_tw_name: new_tw_name.value || null,
@@ -182,24 +216,23 @@ export default class SubmissionForm extends React.Component {
   handleSubmitValid() {
     if (!this.state.formValid) {
       return false;
-    } 
+    }
     this.setState({
       new_tw_nameValid: true
-    })
+    });
   }
 
   handleSubmitReady() {
-    const {submitReady} = this.state
+    const { submitReady } = this.state;
     this.setState({
       submitReady: !submitReady
-    })
-
+    });
   }
 
   compare(a, b) {
     const genreA = a.common_name.toLowerCase();
     const genreB = b.common_name.toLowerCase();
-    
+
     let comparison = 0;
     if (genreA > genreB) {
       comparison = 1;
@@ -211,8 +244,8 @@ export default class SubmissionForm extends React.Component {
 
   renderTwOptions() {
     const { woodsList = [] } = this.context;
-    const sortList = woodsList.sort(this.compare)
-    const listWithoutOther = sortList.filter(wood => wood.id !== 1)
+    const sortList = woodsList.sort(this.compare);
+    const listWithoutOther = sortList.filter(wood => wood.id !== 1);
     return listWithoutOther.map(wood => {
       return (
         <option value={wood.id} key={wood.id}>
@@ -245,10 +278,9 @@ export default class SubmissionForm extends React.Component {
             <option value="none" disabled hidden>
               Select a Wood
             </option>
-            <option value='1' key='1'>
+            <option value="1" key="1">
               Other
             </option>
-            {/* <option value="" */}
             {this.renderTwOptions()}
           </select>
           <ValidationError
@@ -284,14 +316,17 @@ export default class SubmissionForm extends React.Component {
           ></Textarea>
         </div>
 
-        <Button type="submit" disabled={!this.state.submitReady}>Add submission</Button>
+        <Button type="submit" disabled={!this.state.submitReady}>
+          Add submission
+        </Button>
         <Section id="SubmitReady__Section">
           <h2>I have double checked my data!</h2>
-        <Switch isOn={this.state.submitReady} switchId={'submit-ready-switch'}
-        handleChange={() => this.handleSubmitReady()}/>
-
+          <Switch
+            isOn={this.state.submitReady}
+            switchId={"submit-ready-switch"}
+            handleChange={() => this.handleSubmitReady()}
+          />
         </Section>
-
       </form>
     );
   }
