@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export const nullWood = {
   author: {},
-  tags: [],
-}
+  tags: []
+};
 
 const WoodContext = React.createContext({
   wood: nullWood,
@@ -17,53 +17,55 @@ const WoodContext = React.createContext({
   clearWood: () => {},
   setSubmissions: () => {},
   setWoodNames: () => {}
-})
+});
 
-export default WoodContext
+export default WoodContext;
 
 export class WoodProvider extends Component {
   state = {
     wood: nullWood,
     columnNamesToAverage: [
-      'density',
-      'e_long',
-      'e_cross',
-      'velocity_sound_long',
-      'radiation_ratio'
+      "density",
+      "e_long",
+      "e_cross",
+      "velocity_sound_long",
+      "radiation_ratio"
     ],
     woodNames: [],
-    error: null,
+    error: null
   };
 
   setError = error => {
-    this.setState({ error, hasError: true })
-  }
+    this.setState({ error, hasError: true });
+  };
 
   clearError = () => {
-    this.setState({ error: null, hasError: null })
-  }
+    this.setState({ error: null, hasError: null });
+  };
 
   setWood = wood => {
-    this.setState({ wood })
-  }
+    this.setState({ wood });
+  };
 
   setSubmissions = submissions => {
-    console.log(submissions);
-    this.setState({ submissions })
-  }
+    submissions.forEach(sub => {
+      sub.user_id = sub.user.full_name
+      return "";
+    });
+
+    this.setState({ submissions });
+  };
 
   setWoodNames = woods => {
-
-    const names = woods.map(wood => {return wood.common_name})
-    console.log(names)
-    this.setState({ woodNames: names})
-  }
-
-
+    const names = woods.map(wood => {
+      return wood.common_name;
+    });
+    this.setState({ woodNames: names });
+  };
 
   clearWood = () => {
-    this.setWood(nullWood)
-  }
+    this.setWood(nullWood);
+  };
 
   render() {
     const value = {
@@ -78,11 +80,11 @@ export class WoodProvider extends Component {
       clearWood: this.clearWood,
       setSubmissions: this.setSubmissions,
       setWoodNames: this.setWoodNames
-    }
+    };
     return (
       <WoodContext.Provider value={value}>
         {this.props.children}
       </WoodContext.Provider>
-    )
+    );
   }
 }

@@ -15,12 +15,8 @@ export default class MySubmissionsPage extends Component {
   static contextType = WoodContext;
 
   componentDidMount() {
-    const user_id = 2;
     this.context.clearError();
-    WoodApiService.getWoods()
-    .then(this.context.setWoodNames)
-    .catch(this.context.setError);
-    WoodApiService.getAllSubmissions(user_id)
+    WoodApiService.getAllSubmissions()
       .then(this.context.setSubmissions)
       .catch(this.context.setError);
   }
