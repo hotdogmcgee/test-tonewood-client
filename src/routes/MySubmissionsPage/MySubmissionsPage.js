@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../../components/Utils/Utils";
 import { ErrorModal } from "../../components/ErrorModal/ErrorModal";
 import { Section } from "../../components/Utils/Utils";
+import './MySubmissionsPage.css'
 
 export default class MySubmissionsPage extends Component {
   static defaultProps = {
@@ -26,18 +27,9 @@ export default class MySubmissionsPage extends Component {
   }
 
   renderSubmissions() {
-    const { submissions, columnNamesToAverage } = this.context;
+    const { submissions } = this.context;
     return (
       <>
-        {/* <Section id="Average-Data-Section">
-              <h2>Averages</h2>
-              {submissions && (
-                <AverageEach submissions={submissions} columnNames={columnNamesToAverage} />
-              )}
-    
-    
-            </Section> */}
-
         <MakeMySubmissionsTable submissions={submissions} />
         <Section id="Submission-Link-Section">
           <Link to={"/new-submission"} className="Submission-Link">
