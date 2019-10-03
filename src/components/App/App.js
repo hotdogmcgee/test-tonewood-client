@@ -9,6 +9,7 @@ import PrivateRoute from "../Utils/PrivateRoute";
 import WoodPage from "../../routes/WoodPage/WoodPage";
 import SubmissionPage from "../../routes/SubmissionPage/SubmissionPage";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
+import MySubmissionPage from '../../routes/MySubmissionsPage/MySubmissionsPage'
 import { ErrorModal } from "../ErrorModal/ErrorModal";
 import "./App.css";
 
@@ -28,13 +29,6 @@ class App extends React.Component {
     });
   };
 
-  // ModalRoot = () => (
-  //   <ModalConsumer>
-  //     {({ component: Component, props, hideModal }) =>
-  //       Component ? <Component {...props} onRequestClose={hideModal} /> : null
-  //     }
-  //   </ModalConsumer>
-  // );
 
   render() {
     return (
@@ -52,6 +46,7 @@ class App extends React.Component {
                 <LoginPage {...props} hasLogin={this.hasLogin} />
               )}
             />
+            <PrivateRoute path={'/my-submissions'} component={MySubmissionPage}/>
             <PrivateRoute path={"/woods/:woodId"} component={WoodPage} />
             <PublicOnlyRoute path={"/register"} component={RegistrationPage} />
             <PrivateRoute path={"/new-submission"} component={SubmissionPage} />

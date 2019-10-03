@@ -6,15 +6,20 @@ import "./Header.css";
 export default class Header extends React.Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
+    TokenService.clearUserId();
     this.props.hasLogin(false);
   };
 
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
+        <Link to="/my-submissions">
+        My Submissions
+        </Link>
         <Link onClick={this.handleLogoutClick} to="/">
           Logout
         </Link>
+        
       </div>
     );
   }
@@ -27,6 +32,7 @@ export default class Header extends React.Component {
       </div>
     );
   }
+
 
   render() {
     return (

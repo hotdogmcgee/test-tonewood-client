@@ -28,6 +28,19 @@ const WoodApiService = {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`
       }
+    }).then(res => 
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+
+  getAllSubmissions() {
+    const user_id = TokenService.getUserId()
+    return fetch(
+      `${config.API_ENDPOINT}/submissions?user_id=${user_id}`, 
+      {
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );

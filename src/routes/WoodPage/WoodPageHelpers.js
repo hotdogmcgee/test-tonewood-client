@@ -75,7 +75,7 @@ function sortTable(n) {
             ? 0
             : y.innerHTML.toLowerCase()
           : parseFloat(y.innerHTML);
-      } 
+      }
       //to compare dates
       else {
         xContent = new Date(x.innerHTML);
@@ -150,6 +150,7 @@ function getColumnAverageByName(data, columnName) {
 }
 
 function makeHeaderNames(filteredHeaderNames) {
+  filteredHeaderNames.splice(2, 1, 'user_name')
   const headerNames = filteredHeaderNames.map((key, index) => {
     const niceKey = niceSubKeys(key);
     return (
@@ -167,10 +168,14 @@ function makeHeaderNames(filteredHeaderNames) {
 }
 
 function RenderRows({ rows }) {
-  delete rows.user;
-  delete rows.tw_id;
-  const tdArrData = Object.values(rows);
-  const tdKeys = Object.keys(rows);
+    
+    // rows.filter(item => item !== 'user' && item !== 'tw_id');
+    delete rows.user
+    delete rows.tw_id;
+ 
+  const tdArrData = Object.values(rows)
+  const tdKeys = Object.keys(rows)
+
   return (
     <tr>
       {tdArrData.map((value, index) => {
