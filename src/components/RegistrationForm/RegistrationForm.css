@@ -1,61 +1,57 @@
 .error p {
-    font-size: 12px;
-text-align: center;
+  font-size: 12px;
+  text-align: center;
 }
 
-
 .RegistrationForm > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    min-width: 95%
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  min-width: 95%;
 }
 
 .RegistrationForm div input {
-    width: 70vw;
-    text-align: left;
+  width: 70vw;
+  text-align: left;
 }
 
 .RegistrationForm .validation-error {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
 .validation-error {
-    top: 105%;
-    display: flex;
-    justify-content: center;
-    position: absolute
+  top: 105%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
 }
 
 .RegistrationPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .RegistrationPage {
-    text-align: center
+  text-align: center;
 }
-
-
-
 
 @media screen and (min-width: 500px) {
-    .RegistrationForm div input {
-        width: 50vw;
-    }
+  .RegistrationForm div input {
+    width: 50vw;
+  }
 }
 
 @media screen and (min-width: 900px) {
-    .RegistrationForm > div {
-        max-width: 700px
-    }
+  .RegistrationForm > div {
+    max-width: 700px;
+  }
 
-    .RegistrationForm div input {
-        width: 500px;
-    }
+  .RegistrationForm div input {
+    width: 500px;
+  }
 }

@@ -1,62 +1,59 @@
-
 .Hyph {
-    margin-right: 5px;
-    margin-left: 5px;
-  }
-  
-  .Input,
-  .Textarea {
-    border: 1px solid #ddd;
-    display: block;
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    padding: 10px;
-    text-align: left;
-    border-radius: 4px;
-    width: 50%;
-  }
-  
-  .Input::placeholder,
-  .Textarea::placeholder {
-    color: #ccc;
-  }
-  
-  .Textarea {
-    resize: vertical;
-  }
-  
-  .Button {
-    border: 1px solid #aaa;
-    background-color: #eee;
-    font-size: 1.1em;
-    border-radius: 4px;
-    padding: 8px 12px;
-    font-weight: bold;
-    width: 100%;
-  }
+  margin-right: 5px;
+  margin-left: 5px;
+}
 
-  .Button:hover {
-    background-color: #8899cc;
-    cursor: pointer;
-  }
+.Input,
+.Textarea {
+  border: 1px solid #ddd;
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: left;
+  border-radius: 4px;
+  width: 50%;
+}
 
-  .no-click {
-    pointer-events: none;
-  }
-  
-  .Required {
-    color: #CA1551;
-    font-family: Arial;
-    font-weight: bold;
-  }
-  
-  .Section {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .Section--list {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+.Input::placeholder,
+.Textarea::placeholder {
+  color: #ccc;
+}
 
+.Textarea {
+  resize: vertical;
+}
 
+.Button {
+  border: 1px solid #aaa;
+  background-color: #eee;
+  font-size: 1.1em;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.Button:hover {
+  background-color: #8899cc;
+  cursor: pointer;
+}
+
+.no-click {
+  pointer-events: none;
+}
+
+.Required {
+  color: #ca1551;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.Section {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.Section--list {
+  margin-left: 10px;
+  margin-right: 10px;
+}

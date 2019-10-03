@@ -9,9 +9,9 @@ const SubmissionContext = React.createContext({
 export default SubmissionContext;
 
 export class SubmissionProvider extends React.Component {
-    state = {
-        submissions: []
-    }
+  state = {
+    submissions: []
+  };
   setSubmissions = submissions => {
     this.setState({ submissions });
   };
@@ -21,15 +21,15 @@ export class SubmissionProvider extends React.Component {
   };
 
   render() {
-      const value = {
-          submissions: this.state.submissions,
-          setSubmissions: this.setSubmissions,
-          addSubmission: this.addSubmission
-      }
-      return(
-          <SubmissionContext.Provider value={value}>
-              {this.props.children}
-          </SubmissionContext.Provider>
-      )
+    const value = {
+      submissions: this.state.submissions,
+      setSubmissions: this.setSubmissions,
+      addSubmission: this.addSubmission
+    };
+    return (
+      <SubmissionContext.Provider value={value}>
+        {this.props.children}
+      </SubmissionContext.Provider>
+    );
   }
 }

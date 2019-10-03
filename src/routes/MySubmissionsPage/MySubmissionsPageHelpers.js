@@ -29,7 +29,7 @@ function makeMySubmissionsTable(submissions = []) {
   if (submissions.length) {
     let subObj = Object.keys(submissions[0]);
     const filteredHeaderNames = subObj.filter(
-      obj => obj !== "user" && obj !== "user_id" && obj !== 'tw_id'
+      obj => obj !== "user" && obj !== "user_id" && obj !== "tw_id"
     );
     return (
       <table id="Woodpage__submissions-table" cellPadding="3" cellSpacing="1">
@@ -45,7 +45,7 @@ function makeMySubmissionsTable(submissions = []) {
 function RenderMySubRows({ rows }) {
   delete rows.user;
   delete rows.user_id;
-  delete rows.tw_id
+  delete rows.tw_id;
   const tdArrData = Object.values(rows);
   const tdKeys = Object.keys(rows);
   return (

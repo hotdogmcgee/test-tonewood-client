@@ -49,7 +49,7 @@ export class WoodProvider extends Component {
 
   setSubmissions = submissions => {
     submissions.forEach(sub => {
-      sub.user_id = sub.user.full_name
+      sub.user_id = sub.user.full_name;
       return "";
     });
 

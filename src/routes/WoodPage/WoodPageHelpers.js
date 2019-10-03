@@ -126,7 +126,6 @@ function makeTable(submissions = []) {
 
 function renderAverages(subAverages) {
   const averagesList = subAverages.map((item, index) => {
-    // const keyName = Object.keys(item)[0]
     const niceKey = niceSubKeys(displayFields[index]);
     return (
       <li key={index}>
@@ -150,7 +149,7 @@ function getColumnAverageByName(data, columnName) {
 }
 
 function makeHeaderNames(filteredHeaderNames) {
-  filteredHeaderNames.splice(2, 1, 'user_name')
+  filteredHeaderNames.splice(2, 1, "user_name");
   const headerNames = filteredHeaderNames.map((key, index) => {
     const niceKey = niceSubKeys(key);
     return (
@@ -168,13 +167,11 @@ function makeHeaderNames(filteredHeaderNames) {
 }
 
 function RenderRows({ rows }) {
-    
-    // rows.filter(item => item !== 'user' && item !== 'tw_id');
-    delete rows.user
-    delete rows.tw_id;
- 
-  const tdArrData = Object.values(rows)
-  const tdKeys = Object.keys(rows)
+  delete rows.user;
+  delete rows.tw_id;
+
+  const tdArrData = Object.values(rows);
+  const tdKeys = Object.keys(rows);
 
   return (
     <tr>
@@ -188,7 +185,6 @@ function RenderRows({ rows }) {
 }
 
 function RenderTdValue({ value, listType }) {
-  //switch statement possibly
   if (listType === "date_created") {
     return (
       <td>

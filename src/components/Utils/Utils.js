@@ -3,7 +3,7 @@ import { format as formatDate, parseISO } from "date-fns";
 import "./Utils.css";
 
 export const displayFields = [
-`Density (kg/m^3)`,
+  `Density (kg/m^3)`,
   "E Long (GPa)",
   "E Cross (GPa)",
   "Velocity Sound Long (km/s)",
@@ -14,7 +14,7 @@ export const displayFields = [
   "Weight (grams)",
   "Peak Frequency Long (Hz)",
   "Peak Frequency Cross (Hz)"
-]
+];
 export function Section({ className, list, ...props }) {
   const classes = ["Section", list && "Section--list", className]
     .filter(Boolean)
@@ -47,10 +47,9 @@ export function Textarea({ className, ...props }) {
   return <textarea className={["Textarea", className].join(" ")} {...props} />;
 }
 
-
-export function Switch({isOn, switchId, ...props }) {
+export function Switch({ isOn, switchId, ...props }) {
   return (
-    <div className='switch-container'>
+    <div className="switch-container">
       {props.type && <span className="switch-wood-type">{props.type}</span>}
       <input
         checked={isOn}
@@ -60,7 +59,7 @@ export function Switch({isOn, switchId, ...props }) {
         type="checkbox"
       />
       <label
-      style={{ background: isOn && '#06D6A0' }}
+        style={{ background: isOn && "#06D6A0" }}
         className="react-switch-label"
         htmlFor={switchId}
       >
@@ -68,7 +67,7 @@ export function Switch({isOn, switchId, ...props }) {
       </label>
     </div>
   );
-};
+}
 
 export function NumericFormFields({ className, ...props }) {
   const inputFields = [
@@ -95,9 +94,17 @@ export function NumericFormFields({ className, ...props }) {
         <label htmlFor={["SubmissionForm__", field].join("")} value={field}>
           {displayFields[key]} <Required />
         </label>
-        <Input name={field} className={'numeric_field'} {...props} type="number" autoComplete='off' max='9999' min='0' step='any'></Input>
+        <Input
+          name={field}
+          className={"numeric_field"}
+          {...props}
+          type="number"
+          autoComplete="off"
+          max="9999"
+          min="0"
+          step="any"
+        ></Input>
       </div>
     );
   });
 }
-

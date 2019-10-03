@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch } from "../Utils/Utils";
-import './SwitchHardness.css'
+import "./SwitchHardness.css";
 
 export default class SwitchHardness extends React.Component {
   static defaultProps = {
@@ -17,13 +17,13 @@ export default class SwitchHardness extends React.Component {
           isOn={this.props.softwoodOn}
           handleChange={this.props.handleSoftwoodChange}
           switchId={"react-switch-soft"}
-          type={'Softwood'}
+          type={"Softwood"}
         />
         <Switch
           isOn={this.props.hardwoodOn}
           handleChange={this.props.handleHardwoodChange}
           switchId={"react-switch-hard"}
-          type={'Hardwood'}
+          type={"Hardwood"}
         />
       </div>
     );

@@ -38,51 +38,56 @@ export default class WelcomePage extends React.Component {
     const newList = woodsList.filter(
       wood => wood.common_name.toLowerCase() !== "other"
     );
-    
+
     if (!this.state.showMore) {
       const filter = newList.filter((wood, index) => index < 9);
 
-    return filter.map(wood => <WoodListItem key={wood.id} wood={wood} />);
+      return filter.map(wood => <WoodListItem key={wood.id} wood={wood} />);
     }
 
-    return newList.map(wood => <WoodListItem key={wood.id} wood={wood} />)
-    
+    return newList.map(wood => <WoodListItem key={wood.id} wood={wood} />);
   }
 
   renderShowMoreButton() {
     if (this.context.woodsList.length > 10) {
-      return(
-        <button className='fade-in' onClick={() => this.handleListLengthToggle()}>Show More</button>
-      )
+      return (
+        <button
+          className="fade-in"
+          onClick={() => this.handleListLengthToggle()}
+        >
+          Show More
+        </button>
+      );
     }
-    return ''
-    
-
+    return "";
   }
 
   renderShowLessButton() {
     if (this.context.woodsList.length > 10) {
-      return(
-        <button className='fade-in' onClick={() => this.handleListLengthToggle()}>Show Less</button>
-      )
+      return (
+        <button
+          className="fade-in"
+          onClick={() => this.handleListLengthToggle()}
+        >
+          Show Less
+        </button>
+      );
     }
-    return ''
-
+    return "";
   }
 
   handleListLengthToggle() {
-
-    const current = this.state.showMore
+    const current = this.state.showMore;
     this.setState({
-      showMore: !current 
-    })
+      showMore: !current
+    });
   }
 
   //come back to this to clean it up
   handleSearchHardness(list) {
     const { toggleSoftwood, toggleHardwood } = this.state;
 
-    let newList
+    let newList;
 
     if (!toggleHardwood && !toggleSoftwood) {
       newList = [];
@@ -98,13 +103,11 @@ export default class WelcomePage extends React.Component {
         const filter = "hardwood";
         return lc !== filter;
       });
-      
-    }
-    else {
+    } else {
       newList = list;
     }
 
-    return newList
+    return newList;
   }
   handleSearchChange = value => {
     let currentList = [];
@@ -130,7 +133,7 @@ export default class WelcomePage extends React.Component {
       newList = this.context.savedList;
     }
 
-    const hardnessList = this.handleSearchHardness(newList)
+    const hardnessList = this.handleSearchHardness(newList);
     this.context.setWoodsList(hardnessList);
   };
 
@@ -212,9 +215,11 @@ export default class WelcomePage extends React.Component {
         </Section>
         <Section list className="WoodList">
           {error ? <h2>error</h2> : this.renderWoods()}
-        </Section>   
+        </Section>
         <Section id="ToggleLength__Section">
-        {!this.state.showMore ? this.renderShowMoreButton() : this.renderShowLessButton()}
+          {!this.state.showMore
+            ? this.renderShowMoreButton()
+            : this.renderShowLessButton()}
         </Section>
         <Section id="Submission-Link-Section">
           <Link to={"/new-submission"} className="Submission-Link">

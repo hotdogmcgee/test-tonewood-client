@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext } from "react";
 
 const ModalContext = createContext({
   component: null,
@@ -7,35 +7,36 @@ const ModalContext = createContext({
   hideModal: () => {}
 });
 
-export default ModalContext
+export default ModalContext;
 
 export class ModalProvider extends React.Component {
-    showModal = (component, props = {}) => {
-      this.setState({
-        component,
-        props
-      });
-    };
-  
-    hideModal = () => this.setState({
-      component: null,
-      props: {},
+  showModal = (component, props = {}) => {
+    this.setState({
+      component,
+      props
     });
-  
-    state = {
-      component: null,
-      props: {},
-      showModal: this.showModal,
-      hideModal: this.hideModal
-    };
-  
-    render() {
-      return (
-        <ModalContext.Provider value={this.state}>
-          {this.props.children}
-        </ModalContext.Provider>
-      );
-    }
-  }
+  };
 
-  export const ModalConsumer = ModalContext.Consumer;
+  hideModal = () =>
+    this.setState({
+      component: null,
+      props: {}
+    });
+
+  state = {
+    component: null,
+    props: {},
+    showModal: this.showModal,
+    hideModal: this.hideModal
+  };
+
+  render() {
+    return (
+      <ModalContext.Provider value={this.state}>
+        {this.props.children}
+      </ModalContext.Provider>
+    );
+  }
+}
+
+export const ModalConsumer = ModalContext.Consumer;

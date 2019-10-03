@@ -11,9 +11,6 @@ export function ErrorModal(message) {
     setShow(false);
   };
 
-  // const handleShow = () => setShow(true);
-
-  //how can i get this to show on page error?!?!
   return (
     <>
       <Modal show={show} onHide={handleClose} id="myModal">

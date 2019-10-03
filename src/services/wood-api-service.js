@@ -7,10 +7,10 @@ const WoodApiService = {
       headers: {}
     }).then(res => {
       if (!res.ok) {
-          throw new Error(res.status)
+        throw new Error(res.status);
       }
-      return res.json()
-  })
+      return res.json();
+    });
   },
 
   getWood(woodId) {
@@ -28,16 +28,14 @@ const WoodApiService = {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`
       }
-    }).then(res => 
+    }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
 
   getAllSubmissions() {
-    const user_id = TokenService.getUserId()
-    return fetch(
-      `${config.API_ENDPOINT}/submissions?user_id=${user_id}`, 
-      {
+    const user_id = TokenService.getUserId();
+    return fetch(`${config.API_ENDPOINT}/submissions?user_id=${user_id}`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`
       }

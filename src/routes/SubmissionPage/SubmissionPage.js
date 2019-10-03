@@ -17,16 +17,15 @@ export default class SubmissionPage extends React.Component {
   handleSubmissionSuccess = sub => {
     //go to Welcome Page on timeout?
     this.setState({
-        hasSubmission: true
-    })
+      hasSubmission: true
+    });
   };
 
   handleNewSubmitClick = sub => {
     this.setState({
       hasSubmission: false
-    })
-    
-  }
+    });
+  };
 
   renderSubmissionForm() {
     return (
@@ -40,7 +39,7 @@ export default class SubmissionPage extends React.Component {
   renderSubmissionSuccess() {
     return (
       <Section className="SubmissionSuccess">
-        <SubmissionSuccess handleNewSubmitClick={this.handleNewSubmitClick}/>
+        <SubmissionSuccess handleNewSubmitClick={this.handleNewSubmitClick} />
       </Section>
     );
   }

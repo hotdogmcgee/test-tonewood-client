@@ -8,7 +8,6 @@ import { WoodProvider } from "./contexts/WoodContext";
 import { SubmissionProvider } from "./contexts/SubmissionContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-// import '../node_modules/react-vis/dist/style.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 

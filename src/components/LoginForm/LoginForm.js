@@ -1,76 +1,58 @@
-import React, { Component } from 'react'
-import TokenService from '../../services/token-service'
-import AuthApiService from '../../services/auth-api-service'
-import { Button, Input } from '../Utils/Utils'
-import './LoginForm.css'
+import React, { Component } from "react";
+import TokenService from "../../services/token-service";
+import AuthApiService from "../../services/auth-api-service";
+import { Button, Input } from "../Utils/Utils";
+import "./LoginForm.css";
 
 export default class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => {}
-  }
+  };
 
-  state = { error: null }
+  state = { error: null };
 
   handleSubmitJwtAuth = ev => {
-    ev.preventDefault()
-    this.setState({ error: null })
-    const { user_name, password } = ev.target
- 
+    ev.preventDefault();
+    this.setState({ error: null });
+    const { user_name, password } = ev.target;
+
     AuthApiService.postLogin({
       user_name: user_name.value,
-      password: password.value,
+      password: password.value
     })
       .then(res => {
-        user_name.value = ''
-        password.value = ''
-        TokenService.saveAuthToken(res.authToken)
-        TokenService.saveUserId(res.payload)
-        this.props.onLoginSuccess()
+        user_name.value = "";
+        password.value = "";
+        TokenService.saveAuthToken(res.authToken);
+        TokenService.saveUserId(res.payload);
+        this.props.onLoginSuccess();
       })
       .catch(res => {
-        this.setState({ error: res.error })
-      })
-  }
+        this.setState({ error: res.error });
+      });
+  };
 
   render() {
-    //put error conditional in render method, pass as modal context
-    const { error } = this.state
+    const { error } = this.state;
     return (
-
-      
-      <form
-        className='LoginForm'
-        onSubmit={this.handleSubmitJwtAuth}
-      >
+      <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
         {/* {error && <Error />} */}
-        <div role='alert'>
-          {error && <p className='red'>{error}</p>}
+        <div role="alert">{error && <p className="red">{error}</p>}</div>
+        <div className="user_name">
+          <label htmlFor="LoginForm__user_name">User name</label>
+          <Input required name="user_name" id="LoginForm__user_name"></Input>
         </div>
-        <div className='user_name'>
-          <label htmlFor='LoginForm__user_name'>
-            User name
-          </label>
+        <div className="password">
+          <label htmlFor="LoginForm__password">Password</label>
           <Input
             required
-            name='user_name'
-            id='LoginForm__user_name'>
-          </Input>
+            name="password"
+            type="password"
+            id="LoginForm__password"
+          ></Input>
         </div>
-        <div className='password'>
-          <label htmlFor='LoginForm__password'>
-            Password
-          </label>
-          <Input
-            required
-            name='password'
-            type='password'
-            id='LoginForm__password'>
-          </Input>
-        </div>
-        <Button type='submit'>
-          Login
-        </Button>
+        <Button type="submit">Login</Button>
       </form>
-    )
+    );
   }
 }

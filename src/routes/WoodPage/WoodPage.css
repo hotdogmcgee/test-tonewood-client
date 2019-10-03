@@ -1,110 +1,97 @@
 .WoodPage {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
 }
 
-.WoodPage__image {
-    height: 20vw;
-    min-height: 150px;
-    background-size: cover;
-    background-position: 50% 50%;
-    border-radius: 10px 10px 0 0;
-  }
-  
-  
-  .WoodPage__description {
-    margin-bottom: 30px;
-  }
+#Average-Data-Section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-  #Average-Data-Section {
-    /* text-transform: capitalize; */
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+.Averages_List {
+  list-style: none;
+  flex-wrap: wrap;
+  max-width: 700px;
+  padding: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(12, 55, 54, 0),
+    rgba(12, 55, 54, 0.5)
+  );
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 10px 8px 5px #888888;
+}
 
-  .Averages_List {
-    list-style: none;
-    /* display: flex; */
-    flex-wrap: wrap;
-    max-width: 700px;
-    padding: 0;
-    background-image: linear-gradient(to right, rgba(	12, 55, 54,0), rgba(	12, 55, 54,0.5));
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 5px 10px 8px 5px #888888;
-  }
+.Averages_List li {
+  border: 1px outset white;
+  padding: 5px;
+  width: 200px;
+  min-height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.Averages_List li p {
+  margin-bottom: 0;
+  max-width: 75%;
+}
 
-  .Averages_List li {
-    border: 1px outset white;
-    /* text-align: center; */
-    padding: 5px;
-    width: 200px;
-    min-height: 4rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .Averages_List li p {
-    margin-bottom: 0;
-    max-width: 75%;
-  }
-  
-  #Woodpage__submissions-table {
-    text-align: center;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    border: 3px solid #ddd;
-    width: 100%;
-  }
-  
-  #Woodpage__submissions-table td, #Woodpage__submissions-table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 60px;
-  }
+#Woodpage__submissions-table {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 100%;
+}
 
-  #Woodpage__submissions-table td {
-    font-size: 13px;
-  }
+#Woodpage__submissions-table td,
+#Woodpage__submissions-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60px;
+}
 
-  
-  #Woodpage__submissions-table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #Woodpage__submissions-table tr:hover {background-color: #ddd;}
-  
-  #Woodpage__submissions-table th {
-    font-size: 10px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #8899cc;
-    color: white;
-  }
-  
-  .table-container {
-    margin-bottom: 3rem;
-  }
+#Woodpage__submissions-table td {
+  font-size: 13px;
+}
 
-  .scientific-name {
-    font-style: italic;
-  }
+#Woodpage__submissions-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-  /* .Submission-Link {
-    font-size: 20px;
-  
-  }
-   */
-  #Submission-Link-Section {
-    text-align: center;
-    width: 50%;
-    align-self: center;
-  }
+#Woodpage__submissions-table tr:hover {
+  background-color: #ddd;
+}
+
+#Woodpage__submissions-table th {
+  font-size: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #8899cc;
+  color: white;
+}
+
+.table-container {
+  margin-bottom: 3rem;
+}
+
+.scientific-name {
+  font-style: italic;
+}
+
+#Submission-Link-Section {
+  text-align: center;
+  width: 50%;
+  align-self: center;
+}
 
 @media screen and (max-width: 1000px) {
   .table-container {
@@ -112,7 +99,6 @@
   }
 }
 
-/* alter averages ul */
 @media screen and (min-width: 750px) {
   .Averages_List {
     display: flex;
@@ -121,6 +107,6 @@
   }
 
   .Averages_List li {
-    margin: 5px
+    margin: 5px;
   }
 }

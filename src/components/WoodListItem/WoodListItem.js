@@ -3,20 +3,16 @@ import { Link } from "react-router-dom";
 import "./WoodListItem.css";
 
 export default class WoodListItem extends React.Component {
-
   render() {
     const { wood } = this.props;
     return (
       <Link to={`/woods/${wood.id}`} className="WoodListItem">
-        {/* <div className='WoodListItem__image' style={{backgroundImage: '../../WoodImages/ThujaPlicata.jpg'}} /> */}
-
         <div className="WoodListItem__details">
           <div className="WoodListItem__text">
             <h2 className="WoodListItem__heading">{wood.common_name}</h2>
             <p className="scientific-name">
               {wood.genus} {wood.species}
             </p>
-            {/* <p className='WoodListItem__description'>{truncate(wood.description)}</p> */}
           </div>
 
           <div className="WoodListItem__submissions">
@@ -42,4 +38,3 @@ function readableSubmissionCount(number) {
       return `${number} submissions`;
   }
 }
-

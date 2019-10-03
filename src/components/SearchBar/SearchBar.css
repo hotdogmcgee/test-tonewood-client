@@ -1,24 +1,23 @@
 #SearchBar__Section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 2rem 0;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2rem 0;
 }
 
 #SearchForm__entry {
-    text-align: left;
-    width: 200px;
-    margin-left: 15px;
+  text-align: left;
+  width: 200px;
+  margin-left: 15px;
 }
 
 #SearchForm__entry::placeholder {
-    opacity: 0.5
+  opacity: 0.5;
 }
 
 @media screen and (min-width: 800px) {
-    #SearchBar__Section {
-        justify-content: flex-start;
-        padding-left: 20px;
-    }
+  #SearchBar__Section {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
 }

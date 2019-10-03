@@ -1,9 +1,9 @@
 .WoodList {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
 
 .Submission-Link {
   font-size: 20px;
@@ -13,7 +13,6 @@
   text-align: center;
   width: 50%;
   align-self: center;
-
 }
 
 #ToggleLength__Section {
@@ -37,24 +36,24 @@
 }
 
 .fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in;
-	animation-duration: 1s;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .hardness-switches {
-  display: flex
+  display: flex;
 }
 
 .Button {
@@ -64,7 +63,7 @@
   margin-bottom: 2rem;
 }
 
-@media screen and (min-width: 900px ) {
+@media screen and (min-width: 900px) {
   .Submission-Link {
     font-size: 40px;
   }
@@ -73,4 +72,3 @@
     width: 70%;
   }
 }
-

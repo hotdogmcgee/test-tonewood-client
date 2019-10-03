@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import WoodContext from "../../contexts/WoodContext";
 import WoodApiService from "../../services/wood-api-service";
-import { MakeMySubmissionsTable } from './MySubmissionsPageHelpers'
+import { MakeMySubmissionsTable } from "./MySubmissionsPageHelpers";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Utils/Utils";
 import { ErrorModal } from "../../components/ErrorModal/ErrorModal";
 import { Section } from "../../components/Utils/Utils";
-import './MySubmissionsPage.css'
+import "./MySubmissionsPage.css";
 
 export default class MySubmissionsPage extends Component {
   static defaultProps = {
