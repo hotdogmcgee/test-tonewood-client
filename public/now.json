@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "alias": "kevinrobinsondeveloper-test-tonewood-app",
     "name": "test-tonewood-app",
     "routes": [
         { "handle": "filesystem" },

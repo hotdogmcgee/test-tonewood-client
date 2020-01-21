@@ -8,7 +8,7 @@ import { WoodProvider } from "./contexts/WoodContext";
 import { SubmissionProvider } from "./contexts/SubmissionContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 library.add(fas);

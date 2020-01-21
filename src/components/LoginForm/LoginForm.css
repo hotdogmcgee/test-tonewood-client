@@ -18,3 +18,9 @@
 .LoginForm div input {
   width: 40%;
 }
+
+.login-error-container {
+  display: flex;
+  justify-content: center;
+  color: red;
+}

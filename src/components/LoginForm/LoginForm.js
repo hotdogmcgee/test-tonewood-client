@@ -28,7 +28,7 @@ export default class LoginForm extends Component {
         this.props.onLoginSuccess();
       })
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: "Incorrect user name or password" });
       });
   };
 
@@ -37,7 +37,7 @@ export default class LoginForm extends Component {
     return (
       <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
         {/* {error && <Error />} */}
-        <div role="alert">{error && <p className="red">{error}</p>}</div>
+        <div className="login-error-container"role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="user_name">
           <label htmlFor="LoginForm__user_name">User name</label>
           <Input required name="user_name" id="LoginForm__user_name"></Input>

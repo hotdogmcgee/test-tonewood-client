@@ -12,6 +12,10 @@
   text-decoration: none !important;
 }
 
+.WoodListItem__heading {
+  font-weight: 500;
+}
+
 .WoodListItem:hover {
   cursor: pointer;
 }
