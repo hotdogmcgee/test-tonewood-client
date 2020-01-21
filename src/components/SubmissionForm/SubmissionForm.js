@@ -11,11 +11,15 @@ import WoodListContext from "../../contexts/WoodListContext";
 import ValidationError from "../../Validation/ValidationError";
 import Formulas from "./SubmissionFormHelpers";
 import "./SubmissionForm.css";
+import { ErrorModal } from "../ErrorModal/ErrorModal";
 
 export default class SubmissionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      show: false,
+      errorMessage: "",
+
       submitReady: false,
       optionValue: "none",
       error: null,
@@ -117,6 +121,14 @@ export default class SubmissionForm extends React.Component {
     );
   }
 
+  showModal = () => {
+    this.setState({ show: true });
+  }
+
+  hideModal = () => {
+    this.setState({ show: false });
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     const {
@@ -180,6 +192,25 @@ export default class SubmissionForm extends React.Component {
         sample_weight.value,
         calcVelSoundLong
       );
+
+      //show error modal if returned values will cause res:500
+      if (
+        calcDensity <= 0 ||
+        calcELong <= 0 ||
+        calcECross <= 0 ||
+        calcVelSoundLong <= 0 ||
+        calcRadiationRatio <= 0
+      ) {
+        const message = "Something is not right, check your data again please";
+        this.setState(
+          {
+            errorMessage: message
+          },
+          this.showModal
+        );
+
+        return;
+      }
       WoodApiService.postSubmission({
         tw_id: tw_id.value,
         new_tw_name: new_tw_name.value || null,
@@ -263,71 +294,81 @@ export default class SubmissionForm extends React.Component {
 
   renderSubmissionForm() {
     return (
-      <form className="SubmissionForm" onSubmit={this.handleSubmit}>
-        <div className="tw_id">
-          <label htmlFor="tw_id">Select your tonewood</label>
-          <select
-            required
-            aria-label="Select your tonewood!"
-            name="tw_id"
-            id="tonewood-select"
-            className="tw_select"
-            value={this.state.optionValue}
-            onChange={this.handleSelectChange}
+      <>
+        <form className="SubmissionForm" onSubmit={this.handleSubmit}>
+          <div className="tw_id">
+            <label htmlFor="tw_id">Select your tonewood</label>
+            <select
+              required
+              aria-label="Select your tonewood!"
+              name="tw_id"
+              id="tonewood-select"
+              className="tw_select"
+              value={this.state.optionValue}
+              onChange={this.handleSelectChange}
+            >
+              <option value="none" disabled hidden>
+                Select a Wood
+              </option>
+              <option value="1" key="1">
+                Other
+              </option>
+              {this.renderTwOptions()}
+            </select>
+            <ValidationError
+              hasError={!this.state.selectWoodValid}
+              message={this.state.validationMessages.selectWood}
+              className={"tw_id_error"}
+            />
+          </div>
+
+          <div style={this.renderNewTonewood()} id="new_tw_name">
+            <label htmlFor="SubmissionForm__new_tw_name" value="new_tw_name">
+              New tonewood
+            </label>
+            <Textarea
+              name="new_tw_name"
+              id="Input_new_tw_name"
+              placeholder="Specify scientific name if possible"
+              onChange={e => this.updateNewTonewood(e.target.value)}
+            ></Textarea>
+            <ValidationError
+              hasError={!this.state.new_tw_nameValid}
+              message={this.state.validationMessages.new_tw_name}
+            />
+          </div>
+
+          <NumericFormFields />
+          <div className="comments">
+            <label htmlFor="SubmissionForm__comments">Comments</label>
+            <Textarea
+              name="comments"
+              className="Input_comments"
+              placeholder="Write something"
+            ></Textarea>
+          </div>
+
+          <Button type="submit" disabled={!this.state.submitReady}>
+            Add submission
+          </Button>
+          <Section id="SubmitReady__Section">
+            <h2>I have double checked my data!</h2>
+            <Switch
+              isOn={this.state.submitReady}
+              switchId={"submit-ready-switch"}
+              handleChange={() => this.handleSubmitReady()}
+            />
+          </Section>
+        </form>
+          <ErrorModal
+            handleClose={this.hideModal}
+            show={this.state.show}
+            // message={this.state.errorMessage}
           >
-            <option value="none" disabled hidden>
-              Select a Wood
-            </option>
-            <option value="1" key="1">
-              Other
-            </option>
-            {this.renderTwOptions()}
-          </select>
-          <ValidationError
-            hasError={!this.state.selectWoodValid}
-            message={this.state.validationMessages.selectWood}
-            className={"tw_id_error"}
-          />
-        </div>
-
-        <div style={this.renderNewTonewood()} id="new_tw_name">
-          <label htmlFor="SubmissionForm__new_tw_name" value="new_tw_name">
-            New tonewood
-          </label>
-          <Textarea
-            name="new_tw_name"
-            id="Input_new_tw_name"
-            placeholder="Specify scientific name if possible"
-            onChange={e => this.updateNewTonewood(e.target.value)}
-          ></Textarea>
-          <ValidationError
-            hasError={!this.state.new_tw_nameValid}
-            message={this.state.validationMessages.new_tw_name}
-          />
-        </div>
-
-        <NumericFormFields />
-        <div className="comments">
-          <label htmlFor="SubmissionForm__comments">Comments</label>
-          <Textarea
-            name="comments"
-            className="Input_comments"
-            placeholder="Write something"
-          ></Textarea>
-        </div>
-
-        <Button type="submit" disabled={!this.state.submitReady}>
-          Add submission
-        </Button>
-        <Section id="SubmitReady__Section">
-          <h2>I have double checked my data!</h2>
-          <Switch
-            isOn={this.state.submitReady}
-            switchId={"submit-ready-switch"}
-            handleChange={() => this.handleSubmitReady()}
-          />
-        </Section>
-      </form>
+            {this.state.errorMessage}
+          </ErrorModal>
+        
+      </>
     );
   }
 

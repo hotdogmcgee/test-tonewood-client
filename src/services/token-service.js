@@ -2,19 +2,20 @@ import config from "../config";
 
 const TokenService = {
   saveAuthToken(token) {
-    window.sessionStorage.setItem(config.TOKEN_KEY, token);
+    window.sessionStorage.setItem(config.API_KEY, token);
   },
   saveUserId(payload) {
-    window.sessionStorage.setItem("user_id", payload.user_id);
+    debugger
+    window.sessionStorage.setItem("user_id", payload.user_id)
   },
   getAuthToken() {
-    return window.sessionStorage.getItem(config.TOKEN_KEY);
+    return window.sessionStorage.getItem(config.API_KEY);
   },
   getUserId() {
     return window.sessionStorage.getItem("user_id");
   },
   clearAuthToken() {
-    window.sessionStorage.removeItem(config.TOKEN_KEY);
+    window.sessionStorage.removeItem(config.API_KEY);
   },
   clearUserId() {
     window.sessionStorage.removeItem("user_id");
