@@ -201,7 +201,7 @@ export default class SubmissionForm extends React.Component {
         calcVelSoundLong <= 0 ||
         calcRadiationRatio <= 0
       ) {
-        const message = "Something is not right, check your data again please";
+        const message = "Something is not right, check your data again please.";
         this.setState(
           {
             errorMessage: message

@@ -25,3 +25,7 @@
   .display-none {
     display: none;
   }
+
+  .error-modal {
+      display: flex;
+  }

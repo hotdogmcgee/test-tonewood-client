@@ -40,7 +40,7 @@ export function ErrorModal(props) {
   const showHideClassName = props.show ? 'modal display-block' : 'modal display-none';
   return (
     <div className={showHideClassName}>
-      <section className='modal-main'>
+      <section className='modal-main error-modal'>
         {props.children}
         <button
           onClick={props.handleClose}

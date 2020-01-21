@@ -16,10 +16,10 @@
     flex-direction: column;
   }
 
-  .modal-button {
+  /* .modal-button {
     width: 100%;
     min-width: 200px
-}
+} */
 
   .modal-footer {
     justify-content: center
