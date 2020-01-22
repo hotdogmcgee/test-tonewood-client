@@ -19,7 +19,7 @@
   }
   
   .display-block {
-    display: block !important;
+    display: block;
   }
   
   .display-none {
