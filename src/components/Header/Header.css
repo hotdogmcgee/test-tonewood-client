@@ -81,7 +81,7 @@
 @media screen and (max-width: 400px) {
   .Header__logged-in a {
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
