@@ -1,4 +1,9 @@
 .MySubmissionsPage {
   display: flex;
   flex-direction: column;
+
+}
+
+.no-submissions-header {
+  align-items: center;
 }

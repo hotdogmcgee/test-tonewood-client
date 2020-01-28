@@ -31,29 +31,21 @@
 // }
 
 import React from "react";
-import './ErrorModal.css'
+import "./ErrorModal.css";
 import { Button } from "../../components/Utils/Utils";
-import { Link } from "react-router-dom";
 
 //needs further styling
 export function ErrorModal(props) {
-  const showHideClassName = props.show ? 'modal display-block' : 'modal display-none';
+  const showHideClassName = props.show
+    ? "modal display-block"
+    : "modal display-none";
   return (
     <div className={showHideClassName}>
-      <section className='modal-main error-modal'>
-        {props.children}
-        <button
-          onClick={props.handleClose}
-        >
-          Close
-        </button>
+      <section className="modal-main error-modal">
+        <div className="error-message-container">{props.children}</div>
+
+        <Button onClick={props.handleClose}>Close</Button>
       </section>
     </div>
   );
-};
-
-
-
-
-
-
+}

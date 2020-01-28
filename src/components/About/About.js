@@ -1,6 +1,7 @@
 import React from "react";
 import "./About.css";
 import pdf from "./How-to.pdf";
+import { Button } from "../Utils/Utils";
 
 export default class About extends React.Component {
   state = { show: false };
@@ -28,19 +29,19 @@ export default class About extends React.Component {
         </a>
 
         <div className="button-container">
-          <button
+          <Button
             className="modal-button"
             type="button"
             onClick={this.showModal}
           >
             Show credentials to test Login
-          </button>
+          </Button>
         </div>
 
-        <CredentialsModal show={this.state.show} handleClose={this.hideModal}>
-          <p>username: testuser</p>
-          <p>password: Testuser1@</p>
-        </CredentialsModal>
+        <CredentialsModal
+          show={this.state.show}
+          handleClose={this.hideModal}
+        ></CredentialsModal>
       </>
     );
   }
@@ -49,14 +50,25 @@ export default class About extends React.Component {
   }
 }
 
-const CredentialsModal = ({ handleClose, show, children }) => {
+const CredentialsModal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   return (
-    <div className={showHideClassName}>
-      <section className="modal-main credentials-modal">
-        {children}
-        <button onClick={handleClose}>Close</button>
+    <div className={showHideClassName} id="shadow" >
+      <section className="modal-main credentials-modal" id='thing'>
+        <div className="credentials-details">
+          <p>username: testuser</p>
+          <p>password: Testuser1@</p>
+        </div>
+
+        <Button onClick={handleClose}>Close</Button>
       </section>
     </div>
   );
 };
+
+const modal = document.getElementById('thing')
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}

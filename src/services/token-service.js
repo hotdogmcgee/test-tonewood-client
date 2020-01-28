@@ -5,7 +5,6 @@ const TokenService = {
     window.sessionStorage.setItem(config.API_KEY, token);
   },
   saveUserId(payload) {
-    debugger
     window.sessionStorage.setItem("user_id", payload.user_id)
   },
   getAuthToken() {

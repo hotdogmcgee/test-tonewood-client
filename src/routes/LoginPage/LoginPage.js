@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import { Section } from "../../components/Utils/Utils";
+import { Section, Button } from "../../components/Utils/Utils";
 
 export default class LoginPage extends Component {
   state = { show: false };
@@ -29,34 +29,27 @@ export default class LoginPage extends Component {
   render() {
     return (
       <Section className="LoginPage">
+        <Button className="modal-button" type="button" onClick={this.showModal}>
+          Show credentials to test Login
+        </Button>
         <h2>Login</h2>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-        <div className="button-container">
-          <button
-            className="modal-button"
-            type="button"
-            onClick={this.showModal}
-          >
-            Show credentials to test Login
-          </button>
-        </div>
+        <div className="button-container"></div>
 
-        <CredentialsModal show={this.state.show} handleClose={this.hideModal}>
-          <p>username: testuser</p>
-          <p>password: Testuser1@</p>
-        </CredentialsModal>
+        <CredentialsModal show={this.state.show} handleClose={this.hideModal} />
       </Section>
     );
   }
 }
 
-const CredentialsModal = ({ handleClose, show, children }) => {
+const CredentialsModal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   return (
     <div className={showHideClassName}>
       <section className="modal-main credentials-modal">
-        {children}
-        <button onClick={handleClose}>Close</button>
+        <p>username: testuser</p>
+        <p>password: Testuser1@</p>
+        <Button onClick={handleClose}>Close</Button>
       </section>
     </div>
   );

@@ -11,7 +11,7 @@ export function MakeMySubmissionsTable({ submissions = [] }) {
     );
   } else {
     return (
-      <div>
+      <div className="no-submissions-header">
         <h2>No submissions yet!</h2>
       </div>
     );
