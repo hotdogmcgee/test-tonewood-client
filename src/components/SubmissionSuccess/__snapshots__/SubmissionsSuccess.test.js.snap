@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmissionsSuccess component renders a SubmissionsSuccess by default 1`] = `
+<Fragment>
+  <h1>
+    Submission successful!
+  </h1>
+  <Link
+    className="go-back-link link"
+    to="/"
+  >
+    Go back to main page
+  </Link>
+  <Link
+    className="new-submission-link link"
+    onClick={[Function]}
+    to="/new-submission"
+  >
+    Enter a new submission
+  </Link>
+</Fragment>
+`;

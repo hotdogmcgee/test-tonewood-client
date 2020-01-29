@@ -53,8 +53,8 @@ export default class About extends React.Component {
 const CredentialsModal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   return (
-    <div className={showHideClassName} id="shadow" >
-      <section className="modal-main credentials-modal" id='thing'>
+    <div className={showHideClassName} id="shadow">
+      <section className="modal-main credentials-modal" id="thing">
         <div className="credentials-details">
           <p>username: testuser</p>
           <p>password: Testuser1@</p>
@@ -66,9 +66,9 @@ const CredentialsModal = ({ handleClose, show }) => {
   );
 };
 
-const modal = document.getElementById('thing')
+const modal = document.getElementById("thing");
 window.onclick = function(event) {
   if (event.target === modal) {
     modal.style.display = "none";
   }
-}
+};

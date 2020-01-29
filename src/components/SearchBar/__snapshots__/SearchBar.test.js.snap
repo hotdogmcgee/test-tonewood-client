@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component renders a SearchBar by default 1`] = `
+<div
+  autoComplete="off"
+  className="SearchForm"
+  onChange={[Function]}
+>
+  <Input
+    autoComplete="off"
+    id="SearchForm__entry"
+    name="search-bar"
+    placeholder="search"
+  />
+</div>
+`;

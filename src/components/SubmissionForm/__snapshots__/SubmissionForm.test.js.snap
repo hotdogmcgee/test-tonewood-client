@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmissionForm component renders a SubmissionForm by default 1`] = `
+<Fragment>
+  <form
+    className="SubmissionForm"
+    onSubmit={[Function]}
+  >
+    <div
+      className="tw_id"
+    >
+      <label
+        htmlFor="tw_id"
+      >
+        Select your tonewood
+      </label>
+      <select
+        aria-label="Select your tonewood!"
+        className="tw_select"
+        id="tonewood-select"
+        name="tw_id"
+        onChange={[Function]}
+        required={true}
+        value="none"
+      >
+        <option
+          disabled={true}
+          hidden={true}
+          value="none"
+        >
+          Select a Wood
+        </option>
+        <option
+          key="1"
+          value="1"
+        >
+          Other
+        </option>
+      </select>
+      <ValidationError
+        className="tw_id_error"
+        hasError={true}
+        message=""
+      />
+    </div>
+    <div
+      id="new_tw_name"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <label
+        htmlFor="SubmissionForm__new_tw_name"
+        value="new_tw_name"
+      >
+        New tonewood
+      </label>
+      <Textarea
+        id="Input_new_tw_name"
+        name="new_tw_name"
+        onChange={[Function]}
+        placeholder="Specify scientific name if possible"
+      />
+      <ValidationError
+        hasError={false}
+        message=""
+      />
+    </div>
+    <NumericFormFields />
+    <div
+      className="comments"
+    >
+      <label
+        htmlFor="SubmissionForm__comments"
+      >
+        Comments
+      </label>
+      <Textarea
+        className="Input_comments"
+        name="comments"
+        placeholder="Write something"
+      />
+    </div>
+    <Button
+      disabled={true}
+      type="submit"
+    >
+      Add submission
+    </Button>
+    <Section
+      id="SubmitReady__Section"
+    >
+      <h2>
+        I have double checked my data!
+      </h2>
+      <Switch
+        handleChange={[Function]}
+        isOn={false}
+        switchId="submit-ready-switch"
+      />
+    </Section>
+  </form>
+  <ErrorModal
+    handleClose={[Function]}
+    show={false}
+  />
+</Fragment>
+`;

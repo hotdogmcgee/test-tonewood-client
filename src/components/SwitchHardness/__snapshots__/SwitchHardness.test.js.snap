@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SwitchHardness component renders a SwitchHardness by default 1`] = `
+<div
+  className="hardness-switches"
+>
+  <Switch
+    handleChange={[Function]}
+    isOn=""
+    switchId="react-switch-soft"
+    type="Softwood"
+  />
+  <Switch
+    handleChange={[Function]}
+    isOn=""
+    switchId="react-switch-hard"
+    type="Hardwood"
+  />
+</div>
+`;

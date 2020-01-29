@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
 .SubmissionPage {
   display: flex;
   flex-direction: column;
@@ -121,7 +123,6 @@ form > div {
   color: red;
   top: 85%;
 }
-@import url(https://fonts.googleapis.com/css?family=Raleway);
 
 @media screen and (min-width: 700px) {
   #SubmitReady__Section.react-switch-label {

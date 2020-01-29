@@ -5,24 +5,27 @@ import "./WoodListItem.css";
 export default class WoodListItem extends React.Component {
   render() {
     const { wood } = this.props;
-    return (
-      <Link to={`/woods/${wood.id}`} className="WoodListItem">
-        <div className="WoodListItem__details">
-          <div className="WoodListItem__text">
-            <h2 className="WoodListItem__heading">{wood.common_name}</h2>
-            <p className="scientific-name">
-              {wood.genus} {wood.species}
-            </p>
-          </div>
+    if (wood) {
+      return (
+        <Link to={`/woods/${wood.id}`} className="WoodListItem">
+          <div className="WoodListItem__details">
+            <div className="WoodListItem__text">
+              <h2 className="WoodListItem__heading">{wood.common_name}</h2>
+              <p className="scientific-name">
+                {wood.genus} {wood.species}
+              </p>
+            </div>
 
-          <div className="WoodListItem__submissions">
-            <span id="WoodListItem_submission-count">
-              {readableSubmissionCount(wood.number_of_submissions)}
-            </span>
+            <div className="WoodListItem__submissions">
+              <span id="WoodListItem_submission-count">
+                {readableSubmissionCount(wood.number_of_submissions)}
+              </span>
+            </div>
           </div>
-        </div>
-      </Link>
-    );
+        </Link>
+      );
+    }
+    return "";
   }
 }
 

@@ -181,7 +181,6 @@ export default class RegistrationForm extends Component {
   validateEmail(fieldValue) {
     const fieldErrors = { ...this.state.validationMessages };
     let hasError = false;
-    // const focusElement = () => document.getElementById('RegistrationForm__email').focus()
 
     fieldValue = fieldValue.trim();
     if (fieldValue.length === 0) {
