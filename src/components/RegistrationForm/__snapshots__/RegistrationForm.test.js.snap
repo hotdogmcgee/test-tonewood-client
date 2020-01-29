@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationForm component renders a RegistrationForm by default 1`] = `
+<form
+  className="RegistrationForm"
+  onSubmit={[Function]}
+>
+  <div
+    role="alert"
+  />
+  <div
+    className="full_name"
+  >
+    <label
+      htmlFor="RegistrationForm__full_name"
+    >
+      Full name 
+      <Required />
+    </label>
+    <Input
+      autoComplete="off"
+      id="RegistrationForm__full_name"
+      name="full_name"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <ValidationError
+      hasError={true}
+      message=""
+    />
+  </div>
+  <div
+    className="user_name"
+  >
+    <label
+      htmlFor="RegistrationForm__user_name"
+    >
+      User name 
+      <Required />
+    </label>
+    <Input
+      autoComplete="off"
+      id="RegistrationForm__user_name"
+      name="user_name"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <ValidationError
+      hasError={true}
+      message=""
+    />
+  </div>
+  <div
+    className="password"
+  >
+    <label
+      htmlFor="RegistrationForm__password"
+    >
+      Password 
+      <Required />
+    </label>
+    <Input
+      id="RegistrationForm__password"
+      name="password"
+      onChange={[Function]}
+      required={true}
+      type="password"
+    />
+    <ValidationError
+      hasError={true}
+      message=""
+    />
+  </div>
+  <div
+    className="repeat_password"
+  >
+    <label
+      htmlFor="RegistrationForm__repeat_password"
+    >
+      Confirm password 
+      <Required />
+    </label>
+    <Input
+      autoComplete="off"
+      id="RegistrationForm__repeat-password"
+      name="repeat_password"
+      onChange={[Function]}
+      required={true}
+      type="password"
+    />
+    <ValidationError
+      hasError={true}
+      message=""
+    />
+  </div>
+  <div
+    className="email"
+  >
+    <label
+      htmlFor="RegistrationForm__email"
+    >
+      Email 
+      <Required />
+    </label>
+    <Input
+      id="RegistrationForm__email"
+      name="email"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <ValidationError
+      hasError={true}
+      message=""
+    />
+  </div>
+  <Button
+    className="no-click"
+    disabled={true}
+    type="submit"
+  >
+    Register
+  </Button>
+</form>
+`;

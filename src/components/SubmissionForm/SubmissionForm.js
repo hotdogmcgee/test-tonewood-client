@@ -42,7 +42,7 @@ export default class SubmissionForm extends React.Component {
   static contextType = WoodListContext;
 
   componentDidMount() {
-    this.context.clearError();
+    this.setState({ errorMessage: null})
     WoodApiService.getWoods()
       .then(this.context.setWoodsList)
       .catch(this.context.setError);
@@ -158,6 +158,7 @@ export default class SubmissionForm extends React.Component {
     }
     if (this.handleSubmitValid() === false) {
     } else {
+      //formulas from SubmissionFormHelpers
       const calcDensity = Formulas.getDensity(
         sample_length.value,
         sample_width.value,

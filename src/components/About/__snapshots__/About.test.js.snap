@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About component opens a Modal on button click 1`] = `
+<Fragment>
+  <h2>
+    Welcome to the tonewood data project, here's how to get started.
+  </h2>
+  <p>
+    The tonewood data project brings together luthiers worldwide to make it easy to find the properties of many tonewoods.
+  </p>
+  <a
+    download="TW Data Project How-to"
+    href="How-to.pdf"
+  >
+    Download PDF Instructions
+  </a>
+  <div
+    className="button-container"
+  >
+    <Button
+      className="modal-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Show credentials to test Login
+    </Button>
+  </div>
+  <CredentialsModal
+    handleClose={[Function]}
+    show={true}
+  />
+</Fragment>
+`;
+
+exports[`About component renders an About component by default 1`] = `
+<Fragment>
+  <h2>
+    Welcome to the tonewood data project, here's how to get started.
+  </h2>
+  <p>
+    The tonewood data project brings together luthiers worldwide to make it easy to find the properties of many tonewoods.
+  </p>
+  <a
+    download="TW Data Project How-to"
+    href="How-to.pdf"
+  >
+    Download PDF Instructions
+  </a>
+  <div
+    className="button-container"
+  >
+    <Button
+      className="modal-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Show credentials to test Login
+    </Button>
+  </div>
+  <CredentialsModal
+    handleClose={[Function]}
+    show={false}
+  />
+</Fragment>
+`;

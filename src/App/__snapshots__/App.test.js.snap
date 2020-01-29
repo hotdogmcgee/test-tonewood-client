@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders the UI as expected 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App__header"
+  >
+    <nav
+      className="Header"
+    >
+      <h1>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+           Tonewoods
+        </a>
+      </h1>
+      <span
+        className="Header__tagline--wide"
+      >
+        Help build the tonewood project.
+      </span>
+      <div
+        className="Header__not-logged-in"
+      >
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Log in
+        </a>
+        <a
+          href="/register"
+          onClick={[Function]}
+        >
+          Register
+        </a>
+      </div>
+    </nav>
+    <span
+      className="Header__tagline--narrow"
+    >
+      Help build the tonewood project.
+    </span>
+  </header>
+  <main
+    className="App__main"
+  >
+    <section
+      className="Section"
+      id="About"
+    >
+      <h2>
+        Welcome to the tonewood data project, here's how to get started.
+      </h2>
+      <p>
+        The tonewood data project brings together luthiers worldwide to make it easy to find the properties of many tonewoods.
+      </p>
+      <a
+        download="TW Data Project How-to"
+        href="How-to.pdf"
+      >
+        Download PDF Instructions
+      </a>
+      <div
+        className="button-container"
+      >
+        <button
+          className="Button modal-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Show credentials to test Login
+        </button>
+      </div>
+      <div
+        className="modal display-none"
+        id="shadow"
+      >
+        <section
+          className="modal-main credentials-modal"
+          id="thing"
+        >
+          <div
+            className="credentials-details"
+          >
+            <p>
+              username: testuser
+            </p>
+            <p>
+              password: Testuser1@
+            </p>
+          </div>
+          <button
+            className="Button "
+            onClick={[Function]}
+          >
+            Close
+          </button>
+        </section>
+      </div>
+    </section>
+    <section
+      className="Section"
+      id="SearchBar__Section"
+    >
+      <div
+        autoComplete="off"
+        className="SearchForm"
+        onChange={[Function]}
+      >
+        <input
+          autoComplete="off"
+          className="Input "
+          id="SearchForm__entry"
+          name="search-bar"
+          placeholder="search"
+        />
+      </div>
+    </section>
+    <section
+      className="Section"
+      id="SwitchHardness__Section"
+    >
+      <div
+        className="hardness-switches"
+      >
+        <div
+          className="switch-container"
+        >
+          <span
+            className="switch-wood-type"
+          >
+            Softwood
+          </span>
+          <input
+            checked={true}
+            className="react-switch-checkbox"
+            id="react-switch-soft"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            className="react-switch-label"
+            htmlFor="react-switch-soft"
+            style={
+              Object {
+                "background": "#06D6A0",
+              }
+            }
+          >
+            <span
+              className="react-switch-button"
+            />
+          </label>
+        </div>
+        <div
+          className="switch-container"
+        >
+          <span
+            className="switch-wood-type"
+          >
+            Hardwood
+          </span>
+          <input
+            checked={true}
+            className="react-switch-checkbox"
+            id="react-switch-hard"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            className="react-switch-label"
+            htmlFor="react-switch-hard"
+            style={
+              Object {
+                "background": "#06D6A0",
+              }
+            }
+          >
+            <span
+              className="react-switch-button"
+            />
+          </label>
+        </div>
+      </div>
+    </section>
+    <section
+      className="Section Section--list WoodList"
+    />
+    <section
+      className="Section"
+      id="ToggleLength__Section"
+    >
+      
+    </section>
+    <section
+      className="Section"
+      id="Submission-Link-Section"
+    >
+      <a
+        className="Submission-Link"
+        href="/new-submission"
+        onClick={[Function]}
+      >
+        <button
+          className="Button "
+        >
+          Submit your data!
+        </button>
+      </a>
+    </section>
+  </main>
+</div>
+`;

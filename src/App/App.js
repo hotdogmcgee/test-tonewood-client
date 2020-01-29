@@ -1,16 +1,16 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import WelcomePage from "../../routes/WelcomePage/WelcomePage";
-import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
-import Header from "../Header/Header.js";
-import LoginPage from "../../routes/LoginPage/LoginPage";
-import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
-import PrivateRoute from "../Utils/PrivateRoute";
-import WoodPage from "../../routes/WoodPage/WoodPage";
-import SubmissionPage from "../../routes/SubmissionPage/SubmissionPage";
-import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
-import MySubmissionPage from '../../routes/MySubmissionsPage/MySubmissionsPage'
-import { ErrorModal } from "../ErrorModal/ErrorModal";
+import WelcomePage from "../routes/WelcomePage/WelcomePage";
+import NotFoundPage from "../routes/NotFoundPage/NotFoundPage";
+import Header from "../components/Header/Header.js";
+import LoginPage from "../routes/LoginPage/LoginPage";
+import PublicOnlyRoute from "../components/Utils/PublicOnlyRoute";
+import PrivateRoute from "../components/Utils/PrivateRoute";
+import WoodPage from "../routes/WoodPage/WoodPage";
+import SubmissionPage from "../routes/SubmissionPage/SubmissionPage";
+import RegistrationPage from "../routes/RegistrationPage/RegistrationPage";
+import MySubmissionPage from '../routes/MySubmissionsPage/MySubmissionsPage'
+import { ErrorModal } from "../components/ErrorModal/ErrorModal";
 import "./App.css";
 
 class App extends React.Component {

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorModal component renders a ErrorModal by default 1`] = `
+<div
+  className="modal display-none"
+>
+  <section
+    className="modal-main error-modal"
+  >
+    <div
+      className="error-message-container"
+    />
+    <Button>
+      Close
+    </Button>
+  </section>
+</div>
+`;
+
+exports[`ErrorModal component renders the ErrorModal given props 1`] = `
+<div
+  className="modal display-none"
+>
+  <section
+    className="modal-main error-modal"
+  >
+    <div
+      className="error-message-container"
+    >
+      there was an error
+    </div>
+    <Button>
+      Close
+    </Button>
+  </section>
+</div>
+`;

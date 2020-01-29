@@ -8,7 +8,7 @@
 .Header h1 {
   margin: 0;
   font-size: 16px;
-  font-weight: 500
+  font-weight: 500;
 }
 
 .Header a {
@@ -35,7 +35,6 @@
 
 .Header__not-logged-in {
   display: flex;
-  /* flex: 1; */
   align-items: center;
   justify-content: flex-end;
 }

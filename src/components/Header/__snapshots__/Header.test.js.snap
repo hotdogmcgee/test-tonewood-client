@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders a Header by default 1`] = `
+<Fragment>
+  <nav
+    className="Header"
+  >
+    <h1>
+      <Link
+        to="/"
+      >
+         Tonewoods
+      </Link>
+    </h1>
+    <span
+      className="Header__tagline--wide"
+    >
+      Help build the tonewood project.
+    </span>
+    <div
+      className="Header__not-logged-in"
+    >
+      <Link
+        to="/login"
+      >
+        Log in
+      </Link>
+      <Link
+        to="/register"
+      >
+        Register
+      </Link>
+    </div>
+  </nav>
+  <span
+    className="Header__tagline--narrow"
+  >
+    Help build the tonewood project.
+  </span>
+</Fragment>
+`;
