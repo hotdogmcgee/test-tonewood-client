@@ -12,6 +12,7 @@ import ValidationError from "../../Validation/ValidationError";
 import Formulas from "./SubmissionFormHelpers";
 import "./SubmissionForm.css";
 import { ErrorModal } from "../ErrorModal/ErrorModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class SubmissionForm extends React.Component {
   constructor(props) {
@@ -293,6 +294,14 @@ export default class SubmissionForm extends React.Component {
     }
   }
 
+  showNewWoodInfo = () => {
+    console.log('clicked');
+    this.setState({ 
+      errorMessage: 'When you submit a new tonewood an administrator will add it to the database after review.',
+      show: true
+    })
+  }
+
   renderSubmissionForm() {
     return (
       <>
@@ -325,14 +334,15 @@ export default class SubmissionForm extends React.Component {
 
           <div style={this.renderNewTonewood()} id="new_tw_name">
             <label htmlFor="SubmissionForm__new_tw_name" value="new_tw_name">
-              New tonewood
+              New tonewood. <FontAwesomeIcon icon="info-circle" size="1x" className="info-icon" onClick={this.showNewWoodInfo}/>
             </label>
             <Textarea
               name="new_tw_name"
               id="Input_new_tw_name"
-              placeholder="Specify scientific name if possible"
+              placeholder="Specify scientific name."
               onChange={e => this.updateNewTonewood(e.target.value)}
             ></Textarea>
+
             <ValidationError
               hasError={!this.state.new_tw_nameValid}
               message={this.state.validationMessages.new_tw_name}

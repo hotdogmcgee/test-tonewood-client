@@ -41,11 +41,22 @@ form > div {
 }
 
 #new_tw_name {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+}
+
+#new_tw_name > label {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 #new_tw_name .validation-error {
   top: 100%;
+}
+
+.info-icon {
+  margin-top: 5px;
 }
 .comments {
   height: 150px;
