@@ -2,6 +2,7 @@ import React from "react";
 import { Switch } from "../Utils/Utils";
 import "./SwitchHardness.css";
 
+//filters a list based on two switches
 export default class SwitchHardness extends React.Component {
   static defaultProps = {
     softwoodOn: "",

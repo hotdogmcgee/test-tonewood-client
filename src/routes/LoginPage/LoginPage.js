@@ -22,19 +22,28 @@ export default class LoginPage extends Component {
   handleLoginSuccess = () => {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || "/";
-    this.props.hasLogin(true);
+    this.props.setLogin(true);
     history.push(destination);
   };
+
+  //show button if user is not logged in
+  renderTestCredentialsButton() {
+    if (this.props.hasLogin) {
+      return "";
+    }
+    return (
+      <Button className="modal-button" type="button" onClick={this.showModal}>
+        Show credentials to test Login
+      </Button>
+    );
+  }
 
   render() {
     return (
       <Section className="LoginPage">
-        <Button className="modal-button" type="button" onClick={this.showModal}>
-          Show credentials to test Login
-        </Button>
+          {this.renderTestCredentialsButton()}
         <h2>Login</h2>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-        <div className="button-container"></div>
 
         <CredentialsModal show={this.state.show} handleClose={this.hideModal} />
       </Section>

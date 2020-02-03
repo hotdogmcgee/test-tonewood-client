@@ -83,7 +83,7 @@ export default class WelcomePage extends React.Component {
     });
   }
 
-  //come back to this to clean it up
+  //these searching functions are a bit verbose, can try to clean them up
   handleSearchHardness(list) {
     const { toggleSoftwood, toggleHardwood } = this.state;
 
@@ -198,7 +198,7 @@ export default class WelcomePage extends React.Component {
     return (
       <>
         <Section id="About">
-          <About />
+          <About hasLogin={this.props.hasLogin}/>
         </Section>
 
         <Section id="SearchBar__Section">

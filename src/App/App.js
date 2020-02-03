@@ -9,7 +9,7 @@ import PrivateRoute from "../components/Utils/PrivateRoute";
 import WoodPage from "../routes/WoodPage/WoodPage";
 import SubmissionPage from "../routes/SubmissionPage/SubmissionPage";
 import RegistrationPage from "../routes/RegistrationPage/RegistrationPage";
-import MySubmissionPage from '../routes/MySubmissionsPage/MySubmissionsPage'
+import MySubmissionPage from "../routes/MySubmissionsPage/MySubmissionsPage";
 import { ErrorModal } from "../components/ErrorModal/ErrorModal";
 import "./App.css";
 
@@ -29,7 +29,6 @@ class App extends React.Component {
     });
   };
 
-
   render() {
     return (
       <div className="App">
@@ -39,14 +38,24 @@ class App extends React.Component {
         <main className="App__main">
           {this.state.hasError && <ErrorModal />}
           <Switch>
-            <Route exact path={"/"} component={WelcomePage} />
+            {/* <Route exact path={"/"} component={WelcomePage} /> */}
+            <Route
+              exact
+              path={"/"}
+              render={props => (
+                <WelcomePage {...props} hasLogin={this.state.hasLogin} />
+              )}
+            />
             <Route
               path={"/login"}
               render={props => (
-                <LoginPage {...props} hasLogin={this.hasLogin} />
+                <LoginPage {...props} setLogin={this.hasLogin} hasLogin={this.state.hasLogin}/>
               )}
             />
-            <PrivateRoute path={'/my-submissions'} component={MySubmissionPage}/>
+            <PrivateRoute
+              path={"/my-submissions"}
+              component={MySubmissionPage}
+            />
             <PrivateRoute path={"/woods/:woodId"} component={WoodPage} />
             <PublicOnlyRoute path={"/register"} component={RegistrationPage} />
             <PrivateRoute path={"/new-submission"} component={SubmissionPage} />

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./SubmissionSuccess.css";
 
+
 export default class SubmissionSuccess extends React.Component {
   static defaultProps = {
     handleNewSubmitClick: () => {}
@@ -12,6 +13,7 @@ export default class SubmissionSuccess extends React.Component {
     this.props.handleNewSubmitClick();
   };
 
+  //rendered when a submission is successful, user can submit again or go back to home page.
   render() {
     return (
       <>

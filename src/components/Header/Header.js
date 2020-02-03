@@ -10,6 +10,7 @@ export default class Header extends React.Component {
     this.props.hasLogin(false);
   };
 
+
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
@@ -30,6 +31,7 @@ export default class Header extends React.Component {
     );
   }
 
+  //conditionally render login/logout link
   render() {
     return (
       <>

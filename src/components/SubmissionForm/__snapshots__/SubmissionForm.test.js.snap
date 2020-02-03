@@ -55,13 +55,32 @@ exports[`SubmissionForm component renders a SubmissionForm by default 1`] = `
         htmlFor="SubmissionForm__new_tw_name"
         value="new_tw_name"
       >
-        New tonewood
+        New tonewood. 
+        <FontAwesomeIcon
+          border={false}
+          className="info-icon"
+          fixedWidth={false}
+          flip={null}
+          icon="info-circle"
+          inverse={false}
+          listItem={false}
+          mask={null}
+          onClick={[Function]}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size="1x"
+          spin={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
       </label>
       <Textarea
         id="Input_new_tw_name"
         name="new_tw_name"
         onChange={[Function]}
-        placeholder="Specify scientific name if possible"
+        placeholder="Specify scientific name."
       />
       <ValidationError
         hasError={false}

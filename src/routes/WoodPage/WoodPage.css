@@ -81,6 +81,7 @@
 
 .table-container {
   margin-bottom: 3rem;
+  overflow-x: scroll;
 }
 
 .scientific-name {
@@ -93,11 +94,6 @@
   align-self: center;
 }
 
-@media screen and (max-width: 1000px) {
-  .table-container {
-    overflow-x: scroll;
-  }
-}
 
 @media screen and (min-width: 750px) {
   .Averages_List {

@@ -13,11 +13,6 @@ export default class SearchBar extends React.Component {
     this.props.onSearchChange(searchValue);
   };
 
-  handleCheck = e => {
-    e.preventDefault();
-    const checkValue = e.target.value;
-    this.props.onWoodTypeChecked(checkValue);
-  };
 
   render() {
     return (

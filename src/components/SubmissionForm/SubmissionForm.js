@@ -233,6 +233,7 @@ export default class SubmissionForm extends React.Component {
           for (let i = 0; i < items.length; i++) {
             items[i].value = "";
           }
+          //render either a new page or error modal
           this.props.onSubmissionSuccess();
         })
         .catch(res => {
@@ -278,6 +279,8 @@ export default class SubmissionForm extends React.Component {
   renderTwOptions() {
     const { woodsList = [] } = this.context;
     const sortList = woodsList.sort(this.compare);
+
+    //filter out "Other" option, see renderSubmissionForm()
     const listWithoutOther = sortList.filter(wood => wood.id !== 1);
     return listWithoutOther.map(wood => {
       return (
@@ -302,6 +305,7 @@ export default class SubmissionForm extends React.Component {
     })
   }
 
+  //conditionally render an input if "Other" is selected in dropdown menu
   renderSubmissionForm() {
     return (
       <>
@@ -331,6 +335,7 @@ export default class SubmissionForm extends React.Component {
               className={"tw_id_error"}
             />
           </div>
+
 
           <div style={this.renderNewTonewood()} id="new_tw_name">
             <label htmlFor="SubmissionForm__new_tw_name" value="new_tw_name">

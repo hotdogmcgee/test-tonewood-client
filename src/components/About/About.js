@@ -14,6 +14,17 @@ export default class About extends React.Component {
     this.setState({ show: false });
   };
 
+  //show button if user is not logged in
+  renderTestCredentialsButton() {
+    if (this.props.hasLogin) {
+      return "";
+    }
+    return (
+      <Button className="modal-button" type="button" onClick={this.showModal}>
+        Show credentials to test Login
+      </Button>
+    );
+  }
   renderAbout() {
     return (
       <>
@@ -29,13 +40,7 @@ export default class About extends React.Component {
         </a>
 
         <div className="button-container">
-          <Button
-            className="modal-button"
-            type="button"
-            onClick={this.showModal}
-          >
-            Show credentials to test Login
-          </Button>
+          {this.renderTestCredentialsButton()}
         </div>
 
         <CredentialsModal
@@ -50,6 +55,7 @@ export default class About extends React.Component {
   }
 }
 
+//shows authentication for testing the app
 const CredentialsModal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   return (
