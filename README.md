@@ -5,7 +5,7 @@ Tonewood Data Project - Testing Version
 
 ## Summary
 
-An app designed for luthiers to centralize data about wood samples intended for building musical instruments. One of the primary values in presenting the data in this manner is to compare measured propeties of different samples in a clear manner.  The app functions as a personal catalague of one's submissions and a data collecting tool.
+An app designed for luthiers to centralize data about wood samples intended for building musical instruments. One of the primary values in presenting the data in this manner is to compare measured properties of different samples in a clear manner.  The app functions as a personal catalogue of one's submissions and a data collecting tool.
 
 For each sample, given a series of measurements some calculations are made that will aid a luthier.
 
